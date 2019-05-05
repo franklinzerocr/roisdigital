@@ -1,0 +1,23 @@
+{
+    "server": {
+        "port": 3000
+    },
+    "views": {
+        "path": "app/views",
+        "options": {
+            "map": {
+                "pug": "pug"
+            },
+            "extension": "pug"
+        }
+    },
+    "static":{
+        "path":"app/assets"
+    },
+    "data": {
+        "path": "app/data"
+    },
+    "settings": {
+        "siteName": "ROIS Digital Agency"
+    }
+}

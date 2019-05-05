@@ -22,33 +22,28 @@ EOT;
 
 $allowed = false;
 
-
-$my_file = 'file.txt';
-$handle = fopen($my_file, 'a') or die('Cannot open file:  '.$my_file);
-$data = $_SERVER['REMOTE_ADDR']."-";
-fwrite($handle, $data);
-
-
 if (strpos($_SERVER['REMOTE_ADDR'],'140.82.115')!==false){
-    $data = "Found!-";
-    fwrite($handle, $data);
     $allowed=true;
-}
-else {
-    $data = "NOT\n";
-    fwrite($handle, $data);
 }
 
 if (!$allowed) {
+    
+    // Send Email to admin with the ip tryin to access the script
+    ini_set( 'display_errors', 1 );
+    error_reporting( E_ALL );
+    $from = "contact@roisdigital.com";
+    $to = "franklin@roisdigital.com";
+    $subject = "Mysterious IP Trying to deploy to roisdigital.agency";
+    $message = $_SERVER['REMOTE_ADDR'];
+    $headers = "From:" . $from;
+    mail($to,$subject,$message, $headers);
+
 	header('HTTP/1.1 403 Forbidden');
  	echo "<span style=\"color: #ff0000\">Sorry, no hamster - better convince your parents!</span>\n";
     echo "</pre>\n</body>\n</html>";
     exit;
 }
 
-$data = "PULLING!\n";
-fwrite($handle, $data);
-fclose($handle);
 flush();
 // Actually run the update
 
