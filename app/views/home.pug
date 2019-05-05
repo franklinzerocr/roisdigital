@@ -1,3 +1,13 @@
 extends _layout
+
+block header
+	include _header.pug
+
+block footer
+	include _footer.pug
+
+block scripts
+	include _scripts.pug
+
 block content
-  
+	h2.cover-heading.text-center=view.msg

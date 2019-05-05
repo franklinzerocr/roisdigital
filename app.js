@@ -39,8 +39,8 @@ loadRoutes(router)
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-app.use(function *(){
-  this.redirect('/dead-link');
+app.use(async (ctx, next) => {
+	ctx.redirect('/dead-link')
 });
 
 // Start the app

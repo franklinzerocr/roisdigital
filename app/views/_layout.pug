@@ -2,12 +2,16 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    title #{settings.siteName} - #{model.title}
-    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css")
-    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.1.0/css/all.css")
+    title #{settings.siteName} - #{view.title}
+    //- link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css")
+    //- link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.1.0/css/all.css")
+    link(rel="stylesheet", href="/plugins/font-awesome/css/font-awesome.min.css")
+    link(rel="stylesheet", href="/stylesheets/bootstrap.css")
     link(rel="stylesheet", href="/stylesheets/site.css")
-  body
-    
-    block content
-      
-    block scripts
+block header
+
+block content
+
+block footer
+  
+block scripts

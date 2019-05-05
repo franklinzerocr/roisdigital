@@ -1,6 +1,6 @@
-module.exports = (router, productsLoader) => {
+module.exports = (router) => {
   router.get('/', async ctx => {
-    ctx.state.model = {
+    ctx.state.view = {
       title: 'Coming Soon'
     }
     await ctx.render('coming-soon');

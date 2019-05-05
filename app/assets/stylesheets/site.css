@@ -14,7 +14,7 @@ body.coming-soon-body{
   position: relative;
 }
 
-img.coming-soon-img{
+body.coming-soon-body img{
   display: flex;
   justify-content: center;
   flex-direction: column;
