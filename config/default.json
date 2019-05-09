@@ -15,9 +15,18 @@
         "path":"app/assets"
     },
     "data": {
-        "path": "app/data"
+        "path": "app/models"
+    },
+    "controller": {
+        "path":"app/controllers"
     },
     "settings": {
         "siteName": "ROIS Digital Agency"
+    },
+    "database": {
+        "host":"localhost",
+        "user":"root",
+        "password":"",
+        "databaseName": "roisjnjf_roisdigital_agency"
     }
 }
