@@ -3,17 +3,12 @@ const homeController = require('../controllers/homeController.js');
 
 module.exports = (router) => {
   router.get('/home', async ctx => {
-  	ctx.state.static= await homeController.getStaticContent();
-  	ctx.state.services= await homeController.getServices();
-  	ctx.state.portfolio= await homeController.getPortfolio();
-  	ctx.state.teamMembers= await homeController.getTeamMembers();
+  	ctx.state.home= await homeController.getFullHome(ctx.state.database)
     ctx.state.view = {
     	title: 'Home',
-      	msg: "This is da house"
+      	msg: "This is da home"
     }
-    
-    await ctx.render('home');
-
+    await ctx.render('home')
   })
 
 
