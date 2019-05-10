@@ -1,3 +1,19 @@
+/***
+Colors
+***/
+
+/* 
+#242424; /* black */
+/* 
+#211915; /* darkbrown */
+/* 
+#432918; /* brown */
+/* 
+#bb9a8b; /* cream */
+/* 
+#f9cf58; /* yellow */
+
+
 
 body,html{
   overflow-x:hidden;
@@ -31,3 +47,52 @@ img{
   max-width: 100%;
 }
 
+.container-fluid{
+  position: relative;
+}
+
+/*
+********** HEADER **********
+*/
+
+
+header {
+  padding-top: 30px;
+}
+
+header .logo-container{
+  position: unset;
+}
+
+header .logo-container #header_logo{
+  max-width: 175px;
+  margin-left: 50px;
+}
+
+header .logo-container .rois-logo-line{
+  position: absolute;
+  left: 0px;
+  top: 140px;
+  width: 26%;
+  border-bottom: 1px solid #242424;
+}
+
+header .logo-container .rois-logo-dot{
+  position: absolute;
+  left:  26.5%;
+  top: 137.5px;
+  width: 5px;
+  height: 5px;
+  background: #242424; /* black */
+  border-radius: 100%;
+}
+
+header .menu-container ul#header_menu{
+  width: 100%;
+}
+
+header .menu-container ul#header_menu li{
+  display: inline-block;
+  padding: 10px;
+  margin: 0px 15px;
+}
