@@ -3,11 +3,17 @@ extends _layout
 block header
 	include _header.pug
 
+block content
+	div.container-fluid.site-content.home-container#content
+		section#home
+		section#services
+		section#portfolio
+		section#team
+		section#contact
+
 block footer
 	include _footer.pug
 
 block scripts
 	include _scripts.pug
 
-block content
-	h2.cover-heading.text-center=view.msg

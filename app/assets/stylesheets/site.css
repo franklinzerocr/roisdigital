@@ -26,3 +26,8 @@ body.coming-soon-body img{
   transform: translateY(-50%);
 
 }
+
+img{
+  max-width: 100%;
+}
+
