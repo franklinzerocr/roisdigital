@@ -1,4 +1,6 @@
 const interface = require ("../interface/interface.js")
+// const util = require('util');
+// console.log(util.inspect(result.data, false, null));
 
 //*** PRIVATE METHODS ***//
 
@@ -15,6 +17,7 @@ async function getStaticContent(lang,database){
 
 	    result.data= interface.setDefaultLangValues(lang,result.data)
 
+
 	    result.medias= await database.query(
 	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
 	        "FROM staticcontent sc, sections s, sections s2, multimedias m, medias_content mc "+ 
@@ -23,6 +26,9 @@ async function getStaticContent(lang,database){
 	    );
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
+
+	    result.data= await interface.setMediasToData(result.data,result.medias,"StaticContent_Id") 
+
 
 	} catch (error) {
 	    console.log(error);
@@ -51,6 +57,8 @@ async function getServices(lang,database){
 	    );
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
+
+	    result.data= await interface.setMediasToData(result.data,result.medias,"Service_Id")
 
 	} catch (error) {
 	    console.log(error);
@@ -89,6 +97,8 @@ async function getPortfolio(lang,database){
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
 
+	    result.data= await interface.setMediasToData(result.data,result.medias,"Portfolio_Id")
+
 	} catch (error) {
 	    console.log(error);
 	    result={};
@@ -117,6 +127,8 @@ async function getTeamMembers(lang,database){
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
 
+	    result.data= await interface.setMediasToData(result.data,result.medias,"TeamMember_Id")
+
 	} catch (error) {
 	    console.log(error);
 	    result={};
@@ -136,6 +148,7 @@ async function getSections(lang,database){
 	    );
 
 	    result.data= interface.setDefaultLangValues(lang,result.data)
+
 
 	} catch (error) {
 	    console.log(error);
