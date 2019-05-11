@@ -114,11 +114,15 @@ header {
 
 header .logo-container{
   position: unset;
+  padding: 0px;
+}
+
+header .logo-container > a{
+  margin-left: 50px;
 }
 
 header .logo-container #header_logo{
   max-width: 175px;
-  margin-left: 50px;
 }
 
 header .logo-container .rois-logo-line{
@@ -168,7 +172,7 @@ header .menu-container .rois-menu-line-thin{
 
 header .secundary-rois-container{
   position: relative;
-  display: none;
+  padding: 0px;
 }
 
 header .secundary-rois-container #secundary_rois{
@@ -212,4 +216,11 @@ header .secundary-rois-container .text-secundary-rois{
   vertical-align: middle;
   overflow: hidden;
 
+}
+
+
+header .logo-container{
+}
+header .secundary-rois-container{
+  display: none;
 }

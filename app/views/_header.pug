@@ -14,15 +14,9 @@ body
 					h5.text-secundary-rois Lorem Ipsum
 			div.menu-container.col-md-7
 				ul#header_menu
-					li
-						a(href='#Home') Inicio
-					li
-						a(href='#Servicios') Servicios
-					li
-						a(href='#Portafolio') Portafolio
-					li
-						a(href='#Equipo') Equipo
-					li
-						a(href='#Contacto') Contacto
+					each section in home.sections.data
+						li
+							a(href='#'+section.Section_Name_en)= section.Section_Name
+
 				span.rois-menu-line-thick
 				span.rois-menu-line-thin
