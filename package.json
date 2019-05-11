@@ -2,8 +2,12 @@
   "name": "roisdigital",
   "version": "1.0.0",
   "description": "roisdigital.agency",
-  "author": "Franklin Noriega",
-  "repository": "https://github.com/roisdigitalagency/roisdigital",
+  "main": "app.js",
+  "author": "franklinzerocr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roisdigitalagency/roisdigital",
+  },
   "license": "GPL-3.0",
   "scripts": {
     "start": "node app.js",

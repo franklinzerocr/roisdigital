@@ -43,16 +43,16 @@ module.exports = {
 		return rows;
 	},
 
-	// Joins the medias corresponding to each row in the data retrieved from the query
-	setMediasToData: async function(rows,medias,primaryKey){
+	// Joins the children corresponding to each row in the data retrieved from the query
+	setChildrenToData: async function(rows,children,primaryKey,childrenKey){
 		if (rows==null || !Object.keys(rows).length) return null;
 		
 		await Promise.all(rows.map(async (row) => {
 	   		let i = rows.indexOf(row)
-   			rows[i].Medias=[]
-	    	await Promise.all(medias.map(async (media) => {
-	    		if (media[primaryKey]==row[primaryKey])
-	    			rows[i].Medias.push(media)
+   			rows[i][childrenKey]=[]
+	    	await Promise.all(children.map(async (child) => {
+	    		if (child[primaryKey]==row[primaryKey])
+	    			rows[i][childrenKey].push(child)
 	    	}))
 	   	}))
 	   	return rows;

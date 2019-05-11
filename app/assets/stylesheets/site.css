@@ -49,7 +49,7 @@ h5{
 
 ::selection {
     background-color: #f9cf58; /* yellow */
-    color: #242424; /* black */
+    color: whitesmoke; /* black */
     /*text-shadow: 0.05px 0 0 #000, -0.05px 0 0 #000, 0 0.05px 0 #000, 0 -0.05px 0 #000, 0.05px 0.05px #000, -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000;*/
 }
 
@@ -175,10 +175,14 @@ header .secundary-rois-container{
   padding: 0px;
 }
 
-header .secundary-rois-container .secundary_rois{
+header .secundary-rois-container .animate.secundary-rois{
   width: 100px;
-  display: inline-block;
   vertical-align: middle;
+  display: none;
+}
+
+header .secundary-rois-container .animate.secundary-rois.pos-1{
+  display: inline-block;
 }
 
 header .secundary-rois-container .text-container.secundary-rois{
@@ -212,12 +216,14 @@ header .secundary-rois-container .text.secundary-rois{
   padding-bottom: 10px;
   margin-bottom: 0px;
   height: 80px;
-  display: table-cell;
   vertical-align: middle;
   overflow: hidden;
-
+  display: none;
 }
 
+header .secundary-rois-container .text.secundary-rois.pos-1{
+  display: table-cell;
+}
 
 header .logo-container{
   /*display: none;*/

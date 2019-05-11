@@ -1,41 +1,9 @@
 const interface = require ("../interface/interface.js")
-// const util = require('util');
-// console.log(util.inspect(result.data, false, null));
+const mainController = require ("./mainController.js")
+
 
 //*** PRIVATE METHODS ***//
 
-// Get the Static Content of the home. 'result.data' for the texts, descriptions and details. 'result.medias' for the medias to those contents
-async function getStaticContent(lang,database){
-	let result={};
-	try {
-	    result.data= await database.query(
-	        "SELECT sc.id StaticContent_Id, sc.name_es StaticContent_Name_es, sc.name_en StaticContent_Name_en, sc.type StaticContent_Type, sc.position StaticContent_Position, sc.description_es StaticContent_Description_es, sc.description_en StaticContent_Description_en, s.id Section_Id, s.name_es Section_Name_es, s.name_en Section_Name_en "+
-	        "FROM staticcontent sc, sections s, sections s2 "+ 
-	        "WHERE sc.fk_section=s.id AND s.fk_section=s2.id AND s2.name_en='Home' "+
-	        "ORDER BY Section_Id,StaticContent_Position"
-	    );
-
-	    result.data= interface.setDefaultLangValues(lang,result.data)
-
-
-	    result.medias= await database.query(
-	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
-	        "FROM staticcontent sc, sections s, sections s2, multimedias m, medias_content mc "+ 
-	        "WHERE sc.fk_section=s.id AND s.fk_section=s2.id AND s2.name_en='Home' AND mc.fk_content=sc.id AND mc.fk_media=m.id "+
-	        "ORDER BY StaticContent_Id, MediaContent_Position"
-	    );
-
-	    result.medias= interface.setDefaultLangValues(lang,result.medias)
-
-	    result.data= await interface.setMediasToData(result.data,result.medias,"StaticContent_Id") 
-
-
-	} catch (error) {
-	    console.log(error);
-	    result={};
-	}
-	return result;
-}
 
 // Get the Services of the home. 'result.data' for the texts, descriptions and details. 'result.medias' for the medias to those contents
 async function getServices(lang,database){
@@ -58,7 +26,7 @@ async function getServices(lang,database){
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
 
-	    result.data= await interface.setMediasToData(result.data,result.medias,"Service_Id")
+	    result.data= await interface.setChildrenToData(result.data,result.medias,"Service_Id","Medias")
 
 	} catch (error) {
 	    console.log(error);
@@ -68,7 +36,7 @@ async function getServices(lang,database){
 }
 
 // Get the Portfolio of the home. 'result.data' for the texts, descriptions and details. 'result.media' for the medias to those contents
-async function getPortfolio(lang,database){
+async function getPortfolios(lang,database){
 	let result={};
 	try {
 	    result.data= await database.query(
@@ -87,6 +55,7 @@ async function getPortfolio(lang,database){
 	    ); 
 
 	    result.categories= interface.setDefaultLangValues(lang,result.categories)
+	    result.data= await interface.setChildrenToData(result.data,result.categories,"Portfolio_Id","Categories")
 
 	    result.media= await database.query(
 	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mp.position MediaPortfolio_Position, p.id Portfolio_Id "+
@@ -96,8 +65,7 @@ async function getPortfolio(lang,database){
 	    );
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
-
-	    result.data= await interface.setMediasToData(result.data,result.medias,"Portfolio_Id")
+	    result.data= await interface.setChildrenToData(result.data,result.medias,"Portfolio_Id","Medias")
 
 	} catch (error) {
 	    console.log(error);
@@ -126,29 +94,7 @@ async function getTeamMembers(lang,database){
 	    );
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
-
-	    result.data= await interface.setMediasToData(result.data,result.medias,"TeamMember_Id")
-
-	} catch (error) {
-	    console.log(error);
-	    result={};
-	}
-	return result;
-}
-
-// Get the Sections. 'result.data' for the texts, descriptions and details.
-async function getSections(lang,database){
-	let result={};
-	try {
-	     result.data= await database.query(
-	        "SELECT s.id Section_Id, s.name_es Section_Name_es, s.name_en Section_Name_en, s2.id ParentSection_Id, s2.name_es ParentSection_Name_es, s2.name_en ParentSection_Name_en "+
-	        "FROM sections s, sections s2 "+
-	        "WHERE s.fk_section=s2.id "+
-	        "ORDER BY ParentSection_Id, Section_Id"
-	    );
-
-	    result.data= interface.setDefaultLangValues(lang,result.data)
-
+	    result.data= await interface.setChildrenToData(result.data,result.medias,"TeamMember_Id","Medias")
 
 	} catch (error) {
 	    console.log(error);
@@ -156,8 +102,6 @@ async function getSections(lang,database){
 	}
 	return result;
 }
-
-
 
 
 module.exports = {
@@ -167,14 +111,20 @@ module.exports = {
 	getFullHome: async function(lang,database){
 		var home={}
 		
-		home.statics= await getStaticContent(lang,database)
+		home.header= await mainController.getHeader(lang,database)
+		home.footer= await mainController.getFooter(lang,database)
+		home.menuSections= await mainController.getMenuSections(lang,database)
+		home.contents= await mainController.getContents(lang,database,"Home")
+
 		home.services= await getServices(lang,database)
-		home.portfolios= await getPortfolio(lang,database)
-		home.teammembers= await getTeamMembers(lang,database)
-		home.sections= await getSections(lang,database)
+		home.portfolios= await getPortfolios(lang,database)
+		home.teamMembers= await getTeamMembers(lang,database)
+
+		// const util = require('util');console.log(util.inspect(home, false, null));
 
 		return home;
 	}, 
 	
 
 }
+
