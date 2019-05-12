@@ -1,5 +1,5 @@
-const interface = require ("../interface/interface.js")
-const mainController = require ("./mainController.js")
+const interface = require ("../interface/interface")
+const mainController = require ("./mainController")
 
 
 //*** PRIVATE METHODS ***//
@@ -25,8 +25,9 @@ async function getServices(lang,database){
 	    );
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
+	    dataAux= await interface.setChildrenToData(result.data,result.medias,"Service_Id","Medias")
+		if (dataAux) result.data=dataAux
 
-	    result.data= await interface.setChildrenToData(result.data,result.medias,"Service_Id","Medias")
 
 	} catch (error) {
 	    console.log(error);
@@ -55,7 +56,8 @@ async function getPortfolios(lang,database){
 	    ); 
 
 	    result.categories= interface.setDefaultLangValues(lang,result.categories)
-	    result.data= await interface.setChildrenToData(result.data,result.categories,"Portfolio_Id","Categories")
+	    dataAux= await interface.setChildrenToData(result.data,result.categories,"Portfolio_Id","Categories")
+	    if (dataAux) result.data=dataAux
 
 	    result.media= await database.query(
 	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mp.position MediaPortfolio_Position, p.id Portfolio_Id "+
@@ -65,7 +67,8 @@ async function getPortfolios(lang,database){
 	    );
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
-	    result.data= await interface.setChildrenToData(result.data,result.medias,"Portfolio_Id","Medias")
+	    dataAux= await interface.setChildrenToData(result.data,result.medias,"Portfolio_Id","Medias")
+	    if (dataAux) result.data=dataAux
 
 	} catch (error) {
 	    console.log(error);
@@ -94,7 +97,8 @@ async function getTeamMembers(lang,database){
 	    );
 
 	    result.medias= interface.setDefaultLangValues(lang,result.medias)
-	    result.data= await interface.setChildrenToData(result.data,result.medias,"TeamMember_Id","Medias")
+	    dataAux= await interface.setChildrenToData(result.data,result.medias,"TeamMember_Id","Medias")
+	    if (dataAux) result.data=dataAux
 
 	} catch (error) {
 	    console.log(error);
@@ -108,14 +112,16 @@ module.exports = {
 
 	//*** PUBLIC METHODS ***//
 	
-	getFullHome: async function(lang,database){
+	getPageContent: async function(lang,database){
 		var home={}
-		
+
+		// Get Layout
 		home.header= await mainController.getHeader(lang,database)
 		home.footer= await mainController.getFooter(lang,database)
 		home.menuSections= await mainController.getMenuSections(lang,database)
 		home.contents= await mainController.getContents(lang,database,"Home")
 
+		// Get Actual Data
 		home.services= await getServices(lang,database)
 		home.portfolios= await getPortfolios(lang,database)
 		home.teamMembers= await getTeamMembers(lang,database)

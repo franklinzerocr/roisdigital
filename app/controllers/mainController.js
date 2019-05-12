@@ -1,4 +1,4 @@
-const interface = require ("../interface/interface.js")
+const interface = require ("../interface/interface")
 
 module.exports = {
 
@@ -26,7 +26,8 @@ module.exports = {
 		    )
 
 		    result.medias= interface.setDefaultLangValues(lang,result.medias)
-		    result.data= await interface.setChildrenToData(result.data,result.medias,"StaticContent_Id","Medias") 
+		    dataAux= await interface.setChildrenToData(result.data,result.medias,"StaticContent_Id","Medias") 
+		    if (dataAux) result.data=dataAux
 
 
 		    result.descriptions= await database.query(
@@ -37,7 +38,8 @@ module.exports = {
 		    )
 
 		    result.descriptions= interface.setDefaultLangValues(lang,result.descriptions)
-		    result.data= await interface.setChildrenToData(result.data,result.descriptions,"StaticContent_Id","Descriptions")
+		    dataAux= await interface.setChildrenToData(result.data,result.descriptions,"StaticContent_Id","Descriptions")
+		    if (dataAux) result.data=dataAux
 
 
 		} catch (error) {
@@ -68,7 +70,8 @@ module.exports = {
 		    );
 
 		    result.medias= interface.setDefaultLangValues(lang,result.medias)
-		    result.data= await interface.setChildrenToData(result.data,result.medias,"StaticContent_Id","Medias") 
+		    dataAux= await interface.setChildrenToData(result.data,result.medias,"StaticContent_Id","Medias") 
+		    if (dataAux) result.data=dataAux
 
 		    result.descriptions= await database.query(
 		        "SELECT sc_d.id ContentDescription_Id, sc_d.description_es ContentDescription_Description_es, sc_d.description_en ContentDescription_Description_en, sc_d.position ContentDescription_Position, sc.id StaticContent_Id "+
@@ -78,7 +81,8 @@ module.exports = {
 		    )
 
 		    result.descriptions= interface.setDefaultLangValues(lang,result.descriptions)
-		    result.data= await interface.setChildrenToData(result.data,result.descriptions,"StaticContent_Id","Descriptions")
+		    dataAux= await interface.setChildrenToData(result.data,result.descriptions,"StaticContent_Id","Descriptions")
+		    if (dataAux) result.data=dataAux
 
 
 
@@ -118,7 +122,7 @@ module.exports = {
 		    result.data= await database.query(
 		        "SELECT sc.id StaticContent_Id, sc.name_es StaticContent_Name_es, sc.name_en StaticContent_Name_en, sc.position StaticContent_Position, s.id Section_Id, s.name_es Section_Name_es, s.name_en Section_Name_en "+
 		        "FROM staticcontent sc, sections s, sections s2 "+ 
-		        "WHERE sc.fk_section=s.id AND s.fk_section=s2.id AND s2.name_en=? "+
+		        "WHERE sc.fk_section=s.id AND s.fk_section=s2.id AND s2.name_en=? AND s.enabled=1 "+
 		        "ORDER BY Section_Id,StaticContent_Position"
 		    , [page]);
 
@@ -127,22 +131,24 @@ module.exports = {
 		    result.medias= await database.query(
 		        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
 		        "FROM staticcontent sc, sections s, sections s2, multimedias m, medias_content mc "+ 
-		        "WHERE sc.fk_section=s.id AND s.fk_section=s2.id AND s2.name_en=? AND mc.fk_content=sc.id AND mc.fk_media=m.id "+
+		        "WHERE sc.fk_section=s.id AND s.fk_section=s2.id AND s2.name_en=? AND mc.fk_content=sc.id AND mc.fk_media=m.id AND s.enabled=1 "+
 		        "ORDER BY StaticContent_Id, MediaContent_Position"
 		    , [page]);
 
 		    result.medias= interface.setDefaultLangValues(lang,result.medias)
-		    result.data= await interface.setChildrenToData(result.data,result.medias,"StaticContent_Id","Medias") 
+		    dataAux= await interface.setChildrenToData(result.data,result.medias,"StaticContent_Id","Medias") 
+		    if (dataAux) result.data=dataAux
 
 		    result.descriptions= await database.query(
 		        "SELECT sc_d.id ContentDescription_Id, sc_d.description_es ContentDescription_Description_es, sc_d.description_en ContentDescription_Description_en, sc_d.position ContentDescription_Position, sc.id StaticContent_Id "+
 		        "FROM staticcontent sc, sections s, sections s2, staticcontent_descriptions sc_d "+ 
-		        "WHERE sc.fk_section=s.id AND s.name_en='Header' AND s.fk_section=s2.id AND s2.name_en=?  AND sc_d.fk_content=sc.id "+
+		        "WHERE sc.fk_section=s.id AND s.name_en='Header' AND s.fk_section=s2.id AND s2.name_en=?  AND sc_d.fk_content=sc.id AND s.enabled=1 "+
 		        "ORDER BY StaticContent_Id, ContentDescription_Position"
 		    , [page])
 
 		    result.descriptions= interface.setDefaultLangValues(lang,result.descriptions)
-		    result.data= await interface.setChildrenToData(result.data,result.descriptions,"StaticContent_Id","Descriptions")
+		    dataAux= await interface.setChildrenToData(result.data,result.descriptions,"StaticContent_Id","Descriptions")
+		    if (dataAux) result.data=dataAux
 
 
 

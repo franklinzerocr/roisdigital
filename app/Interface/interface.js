@@ -45,7 +45,7 @@ module.exports = {
 
 	// Joins the children corresponding to each row in the data retrieved from the query
 	setChildrenToData: async function(rows,children,primaryKey,childrenKey){
-		if (rows==null || !Object.keys(rows).length) return null;
+		if (rows==null || !Object.keys(rows).length || children==null || !Object.keys(children).length) return null;
 		
 		await Promise.all(rows.map(async (row) => {
 	   		let i = rows.indexOf(row)

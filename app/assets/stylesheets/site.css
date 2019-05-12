@@ -68,6 +68,14 @@ body,html{
   color: #242424; /* black */
 }
 
+img{
+  max-width: 100%;
+}
+
+.container-fluid{
+  position: relative;
+} 
+
 body.coming-soon-body{
   min-height: 100vh;
   background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffdd70 100%);
@@ -89,16 +97,21 @@ body.coming-soon-body img{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
 }
 
-img{
-  max-width: 100%;
+img.dead-link-img{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  align-self: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
-
-.container-fluid{
-  position: relative;
-} 
 
 
 

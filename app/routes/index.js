@@ -1,5 +1,5 @@
 module.exports = (router) => {
-    require('./home')(router)
-    require('./coming-soon')(router)
-    require('./dead-link')(router)
+    require('./homeRouter')(router)
+    require('./comingSoonRouter')(router)
+    require('./deadLinkRouter')(router)
 }
