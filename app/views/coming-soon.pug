@@ -1,7 +1,10 @@
 extends _layout.pug
 
 block header
-	include _header-coming-soon.pug
+	body.coming-soon-body
 
 block content
 	img.coming-soon-img(src=comingSoon.contents.medias[0].Multimedia_Path,alt=comingSoon.contents.medias[0].Multimedia_Description)
+
+block footer
+	footer

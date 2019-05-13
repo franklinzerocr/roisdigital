@@ -1,0 +1,11 @@
+-
+	function isSectionEnabled(sections,sectionName){
+		var enabled	= false 
+		for (var section of sections) {
+			if (section.Section_Name_en == sectionName) {
+				enabled = true;
+				break;
+			}
+		}
+		return enabled;
+	} 

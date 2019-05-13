@@ -28,6 +28,7 @@ app.use(views(
 // Server static files (scripts, css, images)
 app.use(serve(config.get('static.path')))
 
+
 // Hydrate ctx.state with global settings, to make them available in views
 app.use(async (ctx, next) => {
     
@@ -37,6 +38,7 @@ app.use(async (ctx, next) => {
             ctx.session.lang="es"
         else ctx.session.lang="en"
     }
+	
 
 	ctx.state.settings = config.get('settings')
     ctx.state.database = database.connection(config.get('database'));

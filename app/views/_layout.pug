@@ -9,9 +9,44 @@ html(lang="es")
     link(rel="stylesheet", href="/stylesheets/bootstrap.css")
     link(rel="stylesheet", href="/stylesheets/site.css")
 block header
+    include helpers.pug
+    body
+        header.container-fluid.header-container
+            div.container
+                div.logo-container.col-md-5
+                    a(href='/')
+                        - headerLogo =  layout.header.data[0].Medias[0]
+                        img#header_logo(src=headerLogo.Multimedia_Path, alt=headerLogo.Multimedia_Description)
+                    span.rois-logo-line
+                    span.rois-logo-dot
+                //- SECUNDARY ROIS
+                div.secundary-rois-container.col-md-5
+                    - secundaryRoisAnimations = layout.header.data[1].Medias
+                    each animation in secundaryRoisAnimations
+                        img(class='animate secundary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
+                    div.text-container.secundary-rois
+                        div.shadow-container.secundary-rois
+                            div.figure-box.secundary-rois
+                        - secundaryRoisTexts = layout.header.data[1].Descriptions
+                        each text in secundaryRoisTexts
+                            h5(class='text secundary-rois pos-'+text.ContentDescription_Position)= text.ContentDescription_Description
+                //- END OF SECUNDARY ROIS
+                div.menu-container.col-md-7
+                    ul#header_menu
+                        each section in layout.menuSections.data
+                            li.menu-item
+                                a(href='#'+section.Section_Name_en)= section.Section_Name
+                    span.rois-menu-line-thick
+                    span.rois-menu-line-thin
+
 	
 block content
+    div.page-content
 
 block footer
+    footer.container-fluid.footer-container
+        div.container
 
 block scripts
+    //- script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
+    script(src='/scripts/jQuery-2.1.4.min.js')

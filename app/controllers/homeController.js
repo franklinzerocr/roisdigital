@@ -18,7 +18,7 @@ async function getServices(lang,database){
 	    result.data= interface.setDefaultLangValues(lang,result.data)
 
 	    result.medias= await database.query(
-	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, ms.position MediaService_Position, s.id Service_Id "+ 
+	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, ms.position MediaService_Position, s.id Service_Id "+ 
 	        "FROM services s, multimedias m, medias_services ms "+
 	        "WHERE ms.fk_service=s.id AND ms.fk_media=m.id "+
 	        "ORDER BY Service_Id, MediaService_Position"
@@ -60,7 +60,7 @@ async function getPortfolios(lang,database){
 	    if (dataAux) result.data=dataAux
 
 	    result.media= await database.query(
-	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mp.position MediaPortfolio_Position, p.id Portfolio_Id "+
+	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mp.position MediaPortfolio_Position, p.id Portfolio_Id "+
 	        "FROM portfolio p, multimedias m, medias_portfolio mp "+
 	        "WHERE mp.fk_portfolio=p.id AND mp.fk_media=m.id "+
 	        "ORDER BY Portfolio_Id, MediaPortfolio_Position"
@@ -90,7 +90,7 @@ async function getTeamMembers(lang,database){
 	    result.data= interface.setDefaultLangValues(lang,result.data)
 
 	    result.media= await database.query(
-	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mt.position MediaTeam_Position, tm.id TeamMember_Id "+
+	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name,  m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mt.position MediaTeam_Position, tm.id TeamMember_Id "+
 	        "FROM teammembers tm, multimedias m, medias_team mt "+
 	        "WHERE mt.fk_team=tm.id AND mt.fk_media=m.id "+
 	        "ORDER BY TeamMember_Id, MediaTeam_Position"
@@ -111,24 +111,31 @@ async function getTeamMembers(lang,database){
 module.exports = {
 
 	//*** PUBLIC METHODS ***//
+
+	getLayout: async function(lang,database){
+		var layout={}
+
+		layout.header= await mainController.getHeader(lang,database)
+		layout.footer= await mainController.getFooter(lang,database)
+		layout.menuSections= await mainController.getMenuSections(lang,database)
+
+		// const util = require('util');console.log(util.inspect(layout, false, null));
+
+		return layout
+	},
 	
+
 	getPageContent: async function(lang,database){
 		var home={}
 
-		// Get Layout
-		home.header= await mainController.getHeader(lang,database)
-		home.footer= await mainController.getFooter(lang,database)
-		home.menuSections= await mainController.getMenuSections(lang,database)
 		home.contents= await mainController.getContents(lang,database,"Home")
-
-		// Get Actual Data
 		home.services= await getServices(lang,database)
 		home.portfolios= await getPortfolios(lang,database)
 		home.teamMembers= await getTeamMembers(lang,database)
 
 		// const util = require('util');console.log(util.inspect(home, false, null));
 
-		return home;
+		return home
 	}, 
 	
 

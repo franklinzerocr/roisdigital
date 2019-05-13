@@ -1,19 +1,72 @@
 extends _layout
 
-block header
-	include _header.pug
-
 block content
-	div.container-fluid.site-content.home-container#content
-		section#Home
-		section#Services
-		section#Portfolio
-		section#Team
-		section#Contact
+	div.page-content.container-fluid.home-container
 
-block footer
-	include _footer.pug
+		- if (isSectionEnabled(layout.menuSections.data,"Home"))
+			section#Home
+				div.container.primary-rois-container
+					div.text-container.primary-rois.inner-columns.col-md-4
+						div.shadow-container.primary-rois
+							div.black-background.corner-left.corner-top.primary-rois
+							div.figure-box.primary-rois
+						- primaryRoisTexts = home.contents.data[0].Descriptions
+						each text in primaryRoisTexts
+							h5(class='text primary-rois pos-'+text.ContentDescription_Position)!= text.ContentDescription_Description
+						div.dark-line.medium-line.thin-line.margin-left-20
+						div.light-line.medium-line.thin-line.margin-left-40
+					div.animated-rois-container.inner-columns.col-md-8
+						div.shadow-container.corner-right.corner-top
+							div.black-background.full-size
+						div.shadow-container.corner-left.corner-bottom
+							div.black-background.full-size
+						div.shadow-container
+							div.yellow-background.primary-rois
+								- primaryRoisAnimations = home.contents.data[0].Medias			
+								each animation in primaryRoisAnimations
+									img(class='animate primary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
+						div.box-container.corner-right.corner-bottom
+							div.bordered.full-size.relative
+							div.dark-line.short-line.thin-line.inline-line.margin-left-0
+							div.dark-line.short-line.thin-line.inline-line.margin-left-70
+						div.social-links-container.right-sided.vertical-middle
+							ul.social-links
+								- socialinks= home.contents.data[1].Descriptions
+								each link in socialinks
+									li
+										a(href=link.ContentDescription_Description, target='_blank', title=link.ContentDescription_Name)
+											i(class='fa fa-2x fa-'+link.ContentDescription_Name)
+						div.arrow-next-container(attr-target='Services')
+							span.arrow-next ↓
+		- if (isSectionEnabled(layout.menuSections.data,"Services"))
+			section#Services
+				div.container
+					div.inner-columns.col-md-4
+						ul.services-list
+							- services= home.services.data
+							each service in services
+								li(class='pos-'+service.Service_Position, attr-id=service.Service_Id )
+									span=service.Service_Name
+					div.inner-columns.col-md-8
+						div.shadow-container.corner-right.corner-top
+							div.yellow-background.full-size
+						div.shadow-container.box-container.margin-left-20.bottom
+							div.bordered.full-size
 
-block scripts
-	include _scripts.pug
+		- if (isSectionEnabled(layout.menuSections.data,"Portfolio"))
+			section#Portfolio
+				div.container
+					div.inner-columns.col-md-10
+
+		- if (isSectionEnabled(layout.menuSections.data,"Team"))
+			section#Team
+				div.container
+					div.inner-columns.col-md-5
+					div.inner-columns.col-md-2
+					div.inner-columns.col-md-5
+
+		- if (isSectionEnabled(layout.menuSections.data,"Contact"))
+			section#Contact
+				div.container
+					div.inner-columns.col-md-7
 

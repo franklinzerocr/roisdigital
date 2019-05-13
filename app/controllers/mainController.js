@@ -19,7 +19,7 @@ module.exports = {
 
 
 		    result.medias= await database.query(
-		        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
+		        "SELECT m.id Multimedia_Id, m.name Multimedia_Name,  m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
 		        "FROM staticcontent sc, sections s, multimedias m, medias_content mc "+ 
 		        "WHERE sc.fk_section=s.id AND s.name_en='Header' AND mc.fk_content=sc.id AND mc.fk_media=m.id "+
  		        "ORDER BY StaticContent_Id, MediaContent_Position"
@@ -63,7 +63,7 @@ module.exports = {
 		    result.data= interface.setDefaultLangValues(lang,result.data)
 
 		    result.medias= await database.query(
-		        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
+		        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
 		        "FROM staticcontent sc, sections s, multimedias m, medias_content mc "+ 
 		        "WHERE sc.fk_section=s.id AND s.name_en='Footer' AND mc.fk_content=sc.id AND mc.fk_media=m.id "+
 		        "ORDER BY StaticContent_Id, MediaContent_Position"
@@ -129,7 +129,7 @@ module.exports = {
 		    result.data= interface.setDefaultLangValues(lang,result.data)
 
 		    result.medias= await database.query(
-		        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.type Multimedia_type, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
+		        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mc.position MediaContent_Position, sc.id StaticContent_Id "+ 
 		        "FROM staticcontent sc, sections s, sections s2, multimedias m, medias_content mc "+ 
 		        "WHERE sc.fk_section=s.id AND s.fk_section=s2.id AND s2.name_en=? AND mc.fk_content=sc.id AND mc.fk_media=m.id AND s.enabled=1 "+
 		        "ORDER BY StaticContent_Id, MediaContent_Position"
@@ -140,9 +140,9 @@ module.exports = {
 		    if (dataAux) result.data=dataAux
 
 		    result.descriptions= await database.query(
-		        "SELECT sc_d.id ContentDescription_Id, sc_d.description_es ContentDescription_Description_es, sc_d.description_en ContentDescription_Description_en, sc_d.position ContentDescription_Position, sc.id StaticContent_Id "+
+		        "SELECT sc_d.id ContentDescription_Id, sc_d.name ContentDescription_Name, sc_d.description_es ContentDescription_Description_es, sc_d.description_en ContentDescription_Description_en, sc_d.position ContentDescription_Position, sc.id StaticContent_Id "+
 		        "FROM staticcontent sc, sections s, sections s2, staticcontent_descriptions sc_d "+ 
-		        "WHERE sc.fk_section=s.id AND s.name_en='Header' AND s.fk_section=s2.id AND s2.name_en=?  AND sc_d.fk_content=sc.id AND s.enabled=1 "+
+		        "WHERE sc.fk_section=s.id AND s.fk_section=s2.id AND s2.name_en=?  AND sc_d.fk_content=sc.id AND s.enabled=1 "+
 		        "ORDER BY StaticContent_Id, ContentDescription_Position"
 		    , [page])
 
