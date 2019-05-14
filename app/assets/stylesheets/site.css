@@ -138,7 +138,7 @@ img.dead-link-img{
 .highlight{
   font-weight: bold;
   font-family: 'Bebas Neue Bold';
-  background-color: #f9cf58; /* yellow */
+  background-color: #ffd04e; /* yellow */
 }
 
 .dark-line{
@@ -152,6 +152,33 @@ img.dead-link-img{
 }
 .medium-line{
   width: 150px;
+}
+.long-line-10{
+  width: 10%;
+}
+.long-line-20{
+  width: 20%;
+}
+.long-line-30{
+  width: 30%;
+}
+.long-line-40{
+  width: 40%;
+}
+.long-line-50{
+  width: 50%;
+}
+.long-line-60{
+  width: 60%;
+}
+.long-line-70{
+  width: 70%;
+}
+.long-line-80{
+  width: 80%;
+}
+.long-line-90{
+  width: 90%;
 }
 .thin-line{
   height: 1px;
@@ -170,6 +197,9 @@ img.dead-link-img{
 } 
 .margin-left-60{
   margin-left: 60%;
+}
+.margin-left-80{
+  margin-left: 80%;
 }
 .margin-left-10{
   margin-left: 10%;
@@ -192,7 +222,7 @@ img.dead-link-img{
   filter: drop-shadow(4px 4px 3px rgba(0,0,0,0.60));
 }
 .yellow-background{
-  background: #ffd04e; /* yellow */
+  background: #f5cc5b; /* yellow */
 }
 .white-background{
   background: white;
@@ -217,6 +247,14 @@ img.dead-link-img{
 .right-sided{
   position: absolute;
   right: 0px
+}
+.top-sided{
+  position: absolute;
+  top: 0px
+}
+.bottom-sided{
+  position: absolute;
+  bottom: 0px
 }
 .vertical-middle{
   position: absolute;
@@ -247,11 +285,16 @@ img.dead-link-img{
   border-bottom:none;
   width: 40px;
   height: 40px;
-  position: relative;
-  z-index: 2;
-  top: 30px;
+  position: absolute;
+  z-index: 10000;
+  bottom: 10px;
+  left:40px;
   text-align: center;
   cursor: pointer;
+}
+
+.arrow-next-container:hover{
+  background:#ffd04e; /* yellow */
 }
 .arrow-next-container:before{
   content: '';
@@ -419,10 +462,10 @@ header .secundary-rois-container .text.secundary-rois.pos-1{
 }
 
 header .logo-container{
-  /*display: none;*/
+  display: none;
 }
 header .secundary-rois-container{
-  display: none;
+  /*display: none;*/
 }
 
 
@@ -493,19 +536,32 @@ header .secundary-rois-container{
 
 #Home .primary-rois-container .animated-rois-container .yellow-background.primary-rois{
   width: 90%;
-  height: 85%;
+  height: 82.5%;
   margin-top: 20px;
 }
 
  
 #Home .primary-rois-container .animated-rois-container .animate.primary-rois{
-  width: 90%;
-  max-width: 500px;
+  width: 60%;
+  max-width: 400px;
   vertical-align: middle;
   margin: 0px auto;
   position: relative;
+  top: 15%;
   z-index: 1;
   display: none;
+}
+
+#Home .primary-rois-container .animated-rois-container .yellow-background.primary-rois:after{
+  content: '';
+  position: absolute;
+  bottom: 17%;
+  width: 30%;
+  height: 1px;
+  left: 45%;
+  transform: translateX(-50%);
+  background: #432918; /* brown */
+  z-index: 100000;
 }
 
 #Home .primary-rois-container .animated-rois-container .animate.primary-rois.pos-1{
@@ -532,7 +588,7 @@ header .secundary-rois-container{
   width: 65%;
   height: 25%;
   z-index: -1;
-  bottom: calc(15% - 40px);
+  bottom: calc(17.5% - 40px);
   left: -5px;
 }
 
@@ -544,7 +600,7 @@ header .secundary-rois-container{
 
 #Home .primary-rois-container .animated-rois-container .corner-right.corner-bottom{
   position: absolute;
-  bottom: calc(15% - 50px);
+  bottom: calc(17.5% - 50px);
   right: calc(10% - 15px);
   width: 100px;
   height:100px;
@@ -592,4 +648,96 @@ header .secundary-rois-container{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 100%;
+  padding: 0px;
 }
+
+#Services .services-list li{
+  display: block; 
+  font-size: 20px;
+  padding: 8px 0px;
+  position: relative;
+  cursor: pointer;
+}
+
+#Services .services-list li:hover:after{
+  content: '';
+  width: 87.5%;
+  height: 1px;
+  position: absolute;
+  right: 0px;
+  bottom: 10px; 
+  background:black;  
+}
+
+#Services .services-list li span{
+  font-family: "Roboto Condensed";
+  position: relative;
+}
+
+#Services .services-list li.active span:after{
+  content: '';
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background:black;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+#Services .services-images-container{
+  position: absolute;
+  top: 20%;
+  z-index: 15;
+  width: 46vw;
+  max-width: 80%;
+}
+
+#Services .service-container{
+  display: none;
+}
+#Services .service-container.pos-1{
+  display: block;
+}
+
+#Services .service-img-container{
+  position: relative;
+  overflow-y: scroll;
+  height: 31vw;
+  z-index: 0;
+
+}
+
+#Services .service-img{
+  width: 100%;
+  display: none;
+}
+
+#Services .service-img.pos-1{
+  display: block;
+}
+
+#Services .service-text{ 
+  width: 85%;
+  float: right;
+  background: #211915;
+  color: white;
+  padding: 30px 20px;
+  margin-bottom: 0px;
+  margin-right: -25%;
+  margin-top: 0%;
+  transform: translateY(-50%);
+  z-index: 10;
+} 
+
+#Services .thin-line{
+  position: absolute;
+  top: 88%;
+}
+#Services .thin-line:last-child{
+  top: 90%;
+}
+ 

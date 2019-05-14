@@ -36,7 +36,7 @@ block content
 									li
 										a(href=link.ContentDescription_Description, target='_blank', title=link.ContentDescription_Name)
 											i(class='fa fa-2x fa-'+link.ContentDescription_Name)
-						div.arrow-next-container(attr-target='Services')
+						div.arrow-next-container(href='#Services')
 							span.arrow-next ↓
 		- if (isSectionEnabled(layout.menuSections.data,"Services"))
 			section#Services
@@ -45,24 +45,46 @@ block content
 						ul.services-list
 							- services= home.services.data
 							each service in services
-								li(class='pos-'+service.Service_Position, attr-id=service.Service_Id )
-									span=service.Service_Name
+								- if (service.Service_Position == 1)
+									li(class='active pos-'+service.Service_Position, attr-id=service.Service_Id )
+										span=service.Service_Name
+								- else 
+									li(class='pos-'+service.Service_Position, attr-id=service.Service_Id )
+										span=service.Service_Name
+										
+						div.thin-line.medium-line.dark-line.margin-left-80
+						div.thin-line.medium-line.light-line.margin-left-70
+
 					div.inner-columns.col-md-8
 						div.shadow-container.corner-right.corner-top
 							div.yellow-background.full-size
 						div.shadow-container.box-container.margin-left-20.bottom
 							div.bordered.full-size
+						div.services-images-container
+								- services= home.services.data
+								each service in services
+									div(class='service-container pos-'+service.Service_Position)
+										div(class='shadow-container service-img-container')
+											each media in service.Medias
+												img(class='service-img pos-'+media.MediaService_Position, src=media.Multimedia_Path, alt=media.Multimedia_Description)
+										p(class='service-text')= service.Service_Description
+						div.arrow-next-container(href='#Portfolio')
+							span.arrow-next ↓
 
 		- if (isSectionEnabled(layout.menuSections.data,"Portfolio"))
 			section#Portfolio
 				div.container
 					div.inner-columns.col-md-10
+						div.arrow-next-container(href='#Team')
+							span.arrow-next ↓
 
 		- if (isSectionEnabled(layout.menuSections.data,"Team"))
 			section#Team
 				div.container
 					div.inner-columns.col-md-5
 					div.inner-columns.col-md-2
+						div.arrow-next-container(href='#Contact')
+							span.arrow-next ↓
 					div.inner-columns.col-md-5
 
 		- if (isSectionEnabled(layout.menuSections.data,"Contact"))
