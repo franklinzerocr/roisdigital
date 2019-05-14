@@ -1,16 +1,19 @@
 extends _layout
 
 block content
+	- socialinks= home.contents.data[1].Descriptions
 	div.page-content.container-fluid.home-container
 
+		//- HOME SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Home"))
+			- primaryRoisTexts = home.contents.data[0].Descriptions
+			- primaryRoisAnimations = home.contents.data[0].Medias			
 			section#Home
 				div.container.primary-rois-container
 					div.text-container.primary-rois.inner-columns.col-md-4
 						div.shadow-container.primary-rois
 							div.black-background.corner-left.corner-top.primary-rois
 							div.figure-box.primary-rois
-						- primaryRoisTexts = home.contents.data[0].Descriptions
 						each text in primaryRoisTexts
 							h5(class='text primary-rois pos-'+text.ContentDescription_Position)!= text.ContentDescription_Description
 						div.dark-line.medium-line.thin-line.margin-left-20
@@ -22,28 +25,22 @@ block content
 							div.black-background.full-size
 						div.shadow-container
 							div.yellow-background.primary-rois
-								- primaryRoisAnimations = home.contents.data[0].Medias			
 								each animation in primaryRoisAnimations
 									img(class='animate primary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
 						div.box-container.corner-right.corner-bottom
 							div.bordered.full-size.relative
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0
 							div.dark-line.short-line.thin-line.inline-line.margin-left-70
-						div.social-links-container.right-sided.vertical-middle
-							ul.social-links
-								- socialinks= home.contents.data[1].Descriptions
-								each link in socialinks
-									li
-										a(href=link.ContentDescription_Description, target='_blank', title=link.ContentDescription_Name)
-											i(class='fa fa-2x fa-'+link.ContentDescription_Name)
-						div.arrow-next-container(href='#Services')
-							span.arrow-next ↓
+						+social_sidebar(socialinks)
+						+next_section_arrow("Services")
+
+		//- SERVICES SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Services"))
+			- services= home.services.data
 			section#Services
 				div.container
 					div.inner-columns.col-md-4
 						ul.services-list
-							- services= home.services.data
 							each service in services
 								- if (service.Service_Position == 1)
 									li(class='active pos-'+service.Service_Position, attr-id=service.Service_Id )
@@ -51,7 +48,6 @@ block content
 								- else 
 									li(class='pos-'+service.Service_Position, attr-id=service.Service_Id )
 										span=service.Service_Name
-										
 						div.thin-line.medium-line.dark-line.margin-left-80
 						div.thin-line.medium-line.light-line.margin-left-70
 
@@ -60,35 +56,52 @@ block content
 							div.yellow-background.full-size
 						div.shadow-container.box-container.margin-left-20.bottom
 							div.bordered.full-size
-						div.services-images-container
-								- services= home.services.data
+						div.services-container
 								each service in services
-									div(class='service-container pos-'+service.Service_Position)
+									div(class='service pos-'+service.Service_Position)
 										div(class='shadow-container service-img-container')
 											each media in service.Medias
-												img(class='service-img pos-'+media.MediaService_Position, src=media.Multimedia_Path, alt=media.Multimedia_Description)
-										p(class='service-text')= service.Service_Description
-						div.arrow-next-container(href='#Portfolio')
-							span.arrow-next ↓
-
+												img(class='service-img overlayed pos-'+media.MediaService_Position, src=media.Multimedia_Path, alt=media.Multimedia_Description)
+										div.shadow-container
+											p(class='service-text')= service.Service_Description
+						+next_section_arrow("Portfolio")
+		//- PORTFOLIO SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Portfolio"))
+			- portfolios= home.portfolios.data
 			section#Portfolio
 				div.container
-					div.inner-columns.col-md-10
-						div.arrow-next-container(href='#Team')
-							span.arrow-next ↓
+					div.inner-columns.col-md-12
+						div.box-container-1.shadow-container.left-sided.top-25
+							div.yellow-background.full-size
+						div.box-container-2.margin-left-40
+							div.dark-line.short-line.thin-line.inline-line.margin-left-0
+							div.dark-line.short-line.thin-line.inline-line.margin-left-60
+						div.box-container-3
+							div.bordered.full-size
+						div.box-container-4.shadow-container
+							div.black-background.full-size
+						div.box-container-5
+							div.bordered.full-size
+						div.box-container-6.portfolios-container
+							each portfolio in portfolios 
+								div(class='portfolio pos-'+portfolio.Portfolio_Position)
+									img(class='portfolio-img overlayed', src=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
+									h4(class='portfolio-title') #{portfolio.Portfolio_Position}.- #{portfolio.Portfolio_Name}
+									p(class='portfolio-description') #{portfolio.Portfolio_Description}
+						+social_sidebar(socialinks)
+						+next_section_arrow("Team")
 
+		//- TEAM SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Team"))
 			section#Team
 				div.container
 					div.inner-columns.col-md-5
 					div.inner-columns.col-md-2
-						div.arrow-next-container(href='#Contact')
-							span.arrow-next ↓
+						+next_section_arrow("Contact")
 					div.inner-columns.col-md-5
 
+		//- CONTACT SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Contact"))
 			section#Contact
 				div.container
 					div.inner-columns.col-md-7
-

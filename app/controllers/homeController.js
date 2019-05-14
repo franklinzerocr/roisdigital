@@ -59,7 +59,7 @@ async function getPortfolios(lang,database){
 	    dataAux= await interface.setChildrenToData(result.data,result.categories,"Portfolio_Id","Categories")
 	    if (dataAux) result.data=dataAux
 
-	    result.media= await database.query(
+	    result.medias= await database.query(
 	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name, m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mp.position MediaPortfolio_Position, p.id Portfolio_Id "+
 	        "FROM portfolio p, multimedias m, medias_portfolio mp "+
 	        "WHERE mp.fk_portfolio=p.id AND mp.fk_media=m.id "+

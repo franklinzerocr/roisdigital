@@ -1,0 +1,11 @@
+mixin social_sidebar(socialinks)
+	div.social-links-container.right-sided.vertical-middle
+		ul.social-links
+			each link in socialinks
+				li
+					a(href=link.ContentDescription_Description, target='_blank', title=link.ContentDescription_Name)
+						i(class='fa fa-2x fa-'+link.ContentDescription_Name)
+
+mixin next_section_arrow(section)
+	div.arrow-next-container(href='#'+section)
+		span.arrow-next ↓
