@@ -53,18 +53,18 @@ block content
 						div.thin-line.medium-line.light-line.margin-left-70
 
 					div.inner-columns.col-md-8
-						div.shadow-container.corner-right.corner-top
+						div.box-container-1.shadow-container.corner-right.corner-top
 							div.yellow-background.full-size
-						div.shadow-container.box-container.margin-left-20.bottom
+						div.box-container-2.shadow-container.box-container.margin-left-20.bottom
 							div.bordered.full-size
-						div.services-container
+						div.box-container-3.services-container
 								each service in services
 									div(class='service pos-'+service.Service_Position)
 										div(class='shadow-container service-img-container')
 											each media in service.Medias
 												img(class='service-img overlayed pos-'+media.MediaService_Position, src=media.Multimedia_Path, alt=media.Multimedia_Description)
 										div.shadow-container
-											p(class='service-text')= service.Service_Description
+											p(class='service-description')= service.Service_Description
 						+next_section_arrow("Portfolio")
 		//- PORTFOLIO SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Portfolio"))

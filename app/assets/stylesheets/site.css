@@ -661,26 +661,6 @@ header .secundary-rois-container{
 */
 
 
-#Services .corner-right.corner-top{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 80%;
-  height: 75%;
-}
-
-#Services .margin-left-20.bottom{
-  position: absolute;
-  bottom: 10%;
-  width: 70%;
-  height: 55%;
-  z-index: 10;
-}
-
-#Services .margin-left-20.bottom .bordered{
-  border-width: 8px;
-}
-
 #Services .services-list{
   position: absolute;
   top: 50%;
@@ -725,7 +705,27 @@ header .secundary-rois-container{
   overflow: hidden;
 }
 
-#Services .services-container{
+#Services .box-container-1{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 80%;
+  height: 75%;
+}
+
+#Services .box-container-2{
+  position: absolute;
+  bottom: 10%;
+  width: 70%;
+  height: 55%;
+  z-index: 10;
+}
+
+#Services .box-container-2 .bordered{
+  border-width: 8px;
+}
+
+#Services .box-container-3.services-container{
   position: absolute;
   top: 20%;
   z-index: 15;
@@ -736,11 +736,12 @@ header .secundary-rois-container{
 #Services .service{
   display: none;
 }
+
 #Services .service.pos-1{
   display: block;
 }
 
-#Services .service-img-container{
+#Services .service .service-img-container{
   position: relative;
   overflow: auto;
   height: 32vw;
@@ -748,16 +749,16 @@ header .secundary-rois-container{
 
 }
 
-#Services .service-img{
+#Services .service .service-img-container .service-img{
   width: 100%;
   display: none;
 }
 
-#Services .service-img.pos-1{
+#Services .service .service-img-container .service-img.pos-1{
   display: block;
 }
 
-#Services .service-text{ 
+#Services .service .service-description{ 
   width: 85%;
   float: right;
   background: #211915;
@@ -877,3 +878,10 @@ header .secundary-rois-container{
   transform: translateX(-50%)
   ;
 }
+
+
+
+/*
+********** TEAM **********
+*/
+
