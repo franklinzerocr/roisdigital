@@ -6,5 +6,6 @@ module.exports = (router) => {
     	require('./comingSoonRouter')(router)
     else 
     	require('./homeRouter')(router)  
+    
     require('./deadLinkRouter')(router)
 } 
