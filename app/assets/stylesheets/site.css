@@ -153,6 +153,12 @@ img.dead-link-img{
 .medium-line{
   width: 150px;
 }
+.mediumish-line{
+  width: 130px;
+}
+.long-line{
+  width: 250px;
+}
 .long-line-10{
   width: 10%;
 }
@@ -216,6 +222,36 @@ img.dead-link-img{
 .margin-left-90{
   margin-left: 90%;
 }  
+.left-0{
+  left: 0%;
+}
+.left-20{
+  left: 20%;
+}
+.left-40{
+  left: 40%;
+} 
+.left-60{
+  left: 60%;
+}
+.left-80{
+  left: 80%;
+}
+.left-10{
+  left: 10%;
+}
+.left-30{
+  left: 30%;
+}
+.left-50{
+  left: 50%;
+} 
+.left-70{
+  left: 70%;
+}
+.left-90{
+  left: 90%;
+}  
 .top-20{
   top: 20%;
 }
@@ -245,6 +281,40 @@ img.dead-link-img{
 }
 .top-90{
   top: 90%;
+} 
+
+.margin-top-20{
+  margin-top: 20%;
+}
+.margin-top-40{
+  margin-top: 40%;
+} 
+.margin-top-60{
+  margin-top: 60%;
+}
+.margin-top-80{
+  margin-top: 80%;
+}
+.margin-top-10{
+  margin-top: 10%;
+}
+.margin-top-25{
+  margin-top: 25%;
+}
+.margin-top-30{
+  margin-top: 30%;
+}
+.margin-top-5{
+  margin-top: 5%;
+} 
+.margin-top-50{
+  margin-top: 50%;
+} 
+.margin-top-70{
+  margin-top: 70%;
+}
+.margin-top-90{
+  margin-top: 90%;
 } 
 
 .overlayed{
@@ -293,6 +363,18 @@ img.dead-link-img{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+.centered-x{
+  transform: translateX(-50%);
+}
+.centered-x-25{
+  transform: translateX(-25%);
+}
+.centered-y{
+  transform: translateY(-50%);
+}
+.centered-xy{
+  transform: translate(-50%,-50%);
 }
 
 .social-links{
@@ -871,6 +953,7 @@ header .secundary-rois-container{
   padding: 50px;
   color: white;
   font-family: "Roboto Condensed";
+  font-size: 18px;
 }
 
 #Portfolio .arrow-next-container{
@@ -885,3 +968,141 @@ header .secundary-rois-container{
 ********** TEAM **********
 */
 
+#Team .box-container-1{
+  width: 85%;
+  height: 30%;
+}
+
+#Team .box-container-2{
+  position: relative;
+  width: 9.8%;
+}
+
+#Team .box-container-3{
+  position: absolute;
+}
+
+#Team .box-container-3 .positive-logotype{
+  width: 80px;
+}
+
+#Team .box-container-4{
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  z-index: -1;
+}
+
+#Team .box-container-5.teamMembers-container{
+  position: absolute;
+  width: 100%;
+}
+
+#Team .member{
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+  position: relative;
+}
+#Team .member .member-controls{
+  position: relative;
+  top: -10px;
+}
+#Team .member .member-controls .point{
+  cursor: auto;
+}
+
+#Team .member .member-controls .prev-arrow,
+#Team .member .member-controls .next-arrow{
+  margin: 0px 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#Team .member .member-img-container{
+  position: relative;
+}
+ 
+
+#Team .member .black-background{
+  width: 75%;
+  height: 95%;
+  position: absolute;
+  top: -5%;
+  left: 5%;
+  z-index: 0;
+}
+
+
+#Team .member .black-background .member-description{
+  position: absolute;
+  width: 50%;
+  color: white;
+  font-family: "Roboto Bold";
+  display: none;
+
+}
+
+#Team .member .member-img{
+  height: 250px;
+  margin: 0px auto;
+  position: relative;
+  display: none;
+  z-index: 0;
+}
+#Team .member .member-img.pos-1{
+  display: block;
+}
+
+#Team .member .member-info-container{
+  width: 72.5%;
+  position: relative;
+  margin: 15px auto;
+  border-bottom: 1px solid #242424; /* black */
+}
+
+#Team .member .member-info-container:before{
+  content: '';
+  position: absolute;
+  left: 15px;
+  width: 1px;
+  height: 80%;
+  background: #242424; /* black */
+}
+
+#Team .member .member-info-container .member-name{
+  width: calc(100% - 22.5px);
+  margin-top: 0px;
+  margin-bottom: 7.5px;
+  margin-left: 22.5px;
+  font-size: 18px;
+  font-family: "Roboto Condensed";
+}
+
+#Team .member .member-info-container .member-positionName{
+  width: calc(100% - 22.5px);
+  margin-top: 0px;
+  margin-bottom: 7.5px;
+  margin-left: 22.5px;
+  font-size: 14px;
+  font-family: "Roboto Bold"; 
+}
+
+#Team .member .member-links-container a{
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+#Team .member .member-links-container a i{
+  font-size: 25px;
+}
+
+#Team .arrow-next-container{
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+#Team .member{
+  margin: 0px 2.5%;
+}

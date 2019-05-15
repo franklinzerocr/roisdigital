@@ -89,7 +89,7 @@ async function getTeamMembers(lang,database){
 
 	    result.data= interface.setDefaultLangValues(lang,result.data)
 
-	    result.media= await database.query(
+	    result.medias= await database.query(
 	        "SELECT m.id Multimedia_Id, m.name Multimedia_Name,  m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mt.position MediaTeam_Position, tm.id TeamMember_Id "+
 	        "FROM teammembers tm, multimedias m, medias_team mt "+
 	        "WHERE mt.fk_team=tm.id AND mt.fk_media=m.id "+

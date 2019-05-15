@@ -101,24 +101,25 @@ block content
 					div.inner-columns.col-md-12
 						div.box-container-1.shadow-container.left-sided.top-25
 							div.yellow-background.full-size
-						div.box-container-2.margin-left-80
+						div.box-container-2.left-80.top-30
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0
 							div.dark-line.short-line.thin-line.inline-line.margin-left-60
-						div.box-container-3.top-50.left-50.centered-xy
+						div.box-container-3.top-50.left-50.text-center.centered-x
 							img.positive-logotype(src=positiveLogotype.Multimedia_Path,alt=positiveLogotype.Multimedia_Description)
-							div.dark-line.short-line.thin-line.margin-left-30.top-60
-							div.dark-line.short-line.thin-line.margin-left-0.top-70
-						div.box-container-4.top-40
+							div.dark-line.medium-line.thin-line.margin-left-30.margin-top-10
+							div.dark-line.medium-line.thin-line.margin-left-0.margin-top-5.centered-x-25
+						div.box-container-4.top-40.left-70
 							div.bordered.full-size
-						div.box-container-5.row.teamMembers-container
+						div.box-container-5.teamMembers-container.top-30.text-center
 							each member in teamMembers
-								div(class='col-md-4 member pos-'+member.TeamMember_Position)
+								div(class='col-md-3 member pos-'+member.TeamMember_Position)
 									div.member-controls.text-center
 										span.prev-arrow ←
 										span.point •
 										span.next-arrow →
 									div.member-img-container
 										div.black-background.left-0.top-0
+											p.member-description.top-50.left-50.centered-xy=member.TeamMember_Description
 										each media in member.Medias
 											img(class='member-img pos-'+media.MediaTeam_Position, src=media.Multimedia_Path, alt=media.Multimedia_Description)
 									div.member-info-container
@@ -138,7 +139,7 @@ block content
 											a(href=member.TeamMember_Website, target="_blank")
 												i.fa.fa-globe
 										- if (member.TeamMember_Email)
-											a(href=member.TeamMember_Email, target="_blank")
+											a(href='https://mail.google.com/mail/?view=cm&fs=1&to='+member.TeamMember_Email, target="_blank")
 												i.fa.fa-envelope
 						+next_section_arrow("Contact")
 
