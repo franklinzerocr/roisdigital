@@ -94,12 +94,53 @@ block content
 
 		//- TEAM SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Team"))
+			- positiveLogotype = home.contents.data[2].Medias[0]
+			- teamMembers = home.teamMembers.data
 			section#Team
 				div.container
-					div.inner-columns.col-md-5
-					div.inner-columns.col-md-2
+					div.inner-columns.col-md-12
+						div.box-container-1.shadow-container.left-sided.top-25
+							div.yellow-background.full-size
+						div.box-container-2.margin-left-80
+							div.dark-line.short-line.thin-line.inline-line.margin-left-0
+							div.dark-line.short-line.thin-line.inline-line.margin-left-60
+						div.box-container-3.top-50.left-50.centered-xy
+							img.positive-logotype(src=positiveLogotype.Multimedia_Path,alt=positiveLogotype.Multimedia_Description)
+							div.dark-line.short-line.thin-line.margin-left-30.top-60
+							div.dark-line.short-line.thin-line.margin-left-0.top-70
+						div.box-container-4.top-40
+							div.bordered.full-size
+						div.box-container-5.row.teamMembers-container
+							each member in teamMembers
+								div(class='col-md-4 member pos-'+member.TeamMember_Position)
+									div.member-controls.text-center
+										span.prev-arrow ←
+										span.point •
+										span.next-arrow →
+									div.member-img-container
+										div.black-background.left-0.top-0
+										each media in member.Medias
+											img(class='member-img pos-'+media.MediaTeam_Position, src=media.Multimedia_Path, alt=media.Multimedia_Description)
+									div.member-info-container
+										h3.member-name= member.TeamMember_Name
+										h4.member-positionName= member.TeamMember_PositionName
+									div.member-links-container
+										- if (member.TeamMember_Instagram)
+											a(href=member.TeamMember_Instagram, target="_blank")
+												i.fa.fa-instagram
+										- if (member.TeamMember_Facebook)
+											a(href=member.TeamMember_Facebook, target="_blank")
+												i.fa.fa-facebook
+										- if (member.TeamMember_Twitter)
+											a(href=member.TeamMember_Twitter, target="_blank")
+												i.fa.fa-twitter
+										- if (member.TeamMember_Website)
+											a(href=member.TeamMember_Website, target="_blank")
+												i.fa.fa-globe
+										- if (member.TeamMember_Email)
+											a(href=member.TeamMember_Email, target="_blank")
+												i.fa.fa-envelope
 						+next_section_arrow("Contact")
-					div.inner-columns.col-md-5
 
 		//- CONTACT SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Contact"))
