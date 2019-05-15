@@ -29,5 +29,6 @@
         "password":"",
         "databaseName": "roisdigital_agency"
     },
-    "key": "R@is"
-}
+    "key": "R@is",
+    "devMode": 0
+}   

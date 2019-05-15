@@ -1,5 +1,10 @@
+const config = require("config")
+
+
 module.exports = (router) => {
-    require('./homeRouter')(router)  
-    require('./comingSoonRouter')(router)
+	if (config.devMode)
+    	require('./comingSoonRouter')(router)
+    else 
+    	require('./homeRouter')(router)  
     require('./deadLinkRouter')(router)
 } 
