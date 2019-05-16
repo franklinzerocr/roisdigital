@@ -27,16 +27,16 @@
         "host":"localhost",
         "user":"root",
         "password":"",
-        "databaseName": "roisjnjf_roisdigital_agency"
+        "databaseName": ""
     },
     "email":{
-        "address":"contact@roisdigital.com",
-        "host":"roisdigital.com",
-        "port":"465",
-        "secure":true,
-        "user":"contact@roisdigital.com",
-        "pass":"r01sdigitalagencY"
+        "address": "",
+        "host": "",
+        "port": "",
+        "secure": false,
+        "user": "",
+        "pass": ""
     },
-    "key": "R@isD1g1t4l.!",
+    "key": "R@is",
     "devMode": 0
 }   
