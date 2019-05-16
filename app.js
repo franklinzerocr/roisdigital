@@ -13,6 +13,8 @@ const koaBody = require('koa-body')
 const app = new Koa()
 const router = new Router()
 
+
+
 app.keys = [config.get("key")];
 
 app.use(session(app));
@@ -33,10 +35,12 @@ app.use(serve(config.get('static.path')))
 app.use(async (ctx, next) => {
     
     if (!ctx.session.lang){ // checking accepted lang (if not defined) from user browser to set default lang
-        var languagesAccepted = ctx.request.header['accept-language'].match(/[a-zA-Z\-]{2,10}/g) || [];
-        if (languagesAccepted.includes("es") || languagesAccepted.includes("es-ES"))
-            ctx.session.lang="es"
-        else ctx.session.lang="en"
+        ctx.session.lang="en"
+        if (ctx.request.header['accept-language']){
+	        var languagesAccepted = ctx.request.header['accept-language'].match(/[a-zA-Z\-]{2,10}/g) || [];
+	        if (languagesAccepted.includes("es") || languagesAccepted.includes("es-ES"))
+	            ctx.session.lang="es"
+        }
     }
 	
 
@@ -52,10 +56,10 @@ loadRoutes(router)
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-// Reroute to Dead Link whenever 404
-app.use(async (ctx, next) => {
-	ctx.redirect('/dead-link')
-});
+// // Reroute to Dead Link whenever 404
+// app.use(async (ctx, next) => {
+// 	ctx.redirect('/dead-link')
+// });
 
 
 
