@@ -7,6 +7,7 @@ const views = require('koa-views')
 const serve = require('koa-static')
 const session = require('koa-session')
 const database = require('./app/database/db.js')
+const mailer = require('./app/email/mailer.js')
 const interface = require('./app/interface/interface.js')
 const koaBody = require('koa-body')
 
@@ -43,9 +44,10 @@ app.use(async (ctx, next) => {
         }
     }
 	
-
 	ctx.state.settings = config.get('settings')
-    ctx.state.database = database.connection(config.get('database'));
+    ctx.state.emailConfiguration= config.get('email')
+    ctx.state.database = database.connection(config.get('database'))
+    ctx.state.mailer = mailer.transporter(config.get('email'))
 	ctx.state.urlWithoutQuery = ctx.origin + ctx.path
 
 	await next()

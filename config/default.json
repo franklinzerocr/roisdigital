@@ -21,19 +21,21 @@
         "path":"app/controllers"
     },
     "settings": {
-        "siteName": "ROIS Digital Agency"
+        "siteName": "ROIS Digital Agency",
+        "contactEmail": ""
     },
     "database": {
         "host":"localhost",
-        "user":"root",
+        "user":"root", 
         "password":"",
-        "databaseName": ""
+        "databaseName": "roisdigital_agency"
     },
     "email":{
-        "address": "",
+        "owner": "",
+        "mainAddress": "",
         "host": "",
         "port": "",
-        "secure": false,
+        "secure": true,
         "user": "",
         "pass": ""
     },
