@@ -373,7 +373,7 @@ img.dead-link-img{
   background: white;
 }
 .black-background{
-  background: black;
+  background: #242424; /* black */
 }
 .full-size{
   width: 100%;
