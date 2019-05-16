@@ -56,7 +56,7 @@ block content
 						div.box-container-1.shadow-container.corner-right.corner-top
 							div.yellow-background.full-size
 						div.box-container-2.shadow-container.box-container.margin-left-20.bottom
-							div.bordered.full-size
+							div.bordered.full-size.thick-border
 						div.box-container-3.services-container
 								each service in services
 									div(class='service pos-'+service.Service_Position)
@@ -106,7 +106,7 @@ block content
 							div.dark-line.short-line.thin-line.inline-line.margin-left-60
 						div.box-container-3.top-50.left-50.text-center.centered-x
 							img.positive-logotype(src=positiveLogotype.Multimedia_Path,alt=positiveLogotype.Multimedia_Description)
-							div.dark-line.medium-line.thin-line.margin-left-30.margin-top-10
+							div.dark-line.medium-line.thin-line.margin-left-30.margin-top-15
 							div.dark-line.medium-line.thin-line.margin-left-0.margin-top-5.centered-x-25
 						div.box-container-4.top-40.left-70
 							div.bordered.full-size
@@ -144,7 +144,40 @@ block content
 						+next_section_arrow("Contact")
 
 		//- CONTACT SECTION
-		- if (isSectionEnabled(layout.menuSections.data,"Contact"))
-			section#Contact
+		- if (isSectionEnabled(layout.menuSections.data,"Contact-Us"))
+			- contactFormLabels = home.contents.data[3].Descriptions
+			section#Contact-Us
 				div.container
-					div.inner-columns.col-md-7
+					div.inner-columns.col-md-12
+						div.box-container-1.left-435.top-25
+							div.shadow-container
+								div.bordered.full-size.thick-border
+							+social_sidebar(socialinks)
+						div.box-container-2.left-15.top-325
+							div.dark-line.medium-line.thin-line.margin-left-50
+							div.dark-line.medium-line.thin-line.margin-left-20.margin-top-5
+						div.box-container-3.shadow-container.left-285.top-375
+							div.black-background.full-size
+						div.box-container-4.left-325.top-30.contactForm-container
+							div.box-container-5.full-size.shadow-container
+								div.yellow-background.full-size
+									form(class='contact-form', action='/contact', method='POST')
+										div.form-group.required
+											label(for='contact-name')= contactFormLabels[0].ContentDescription_Description
+											input(class='form-control',id='contact-name',type='text',name='name',required='required')
+										div.form-group.required
+											label(for='contact-email')= contactFormLabels[1].ContentDescription_Description
+											input(class='form-control',id='contact-email',type='email',name='email',required='required')
+										div.form-group
+											label(for='contact-phone')= contactFormLabels[2].ContentDescription_Description
+											input(class='form-control',id='contact-phone',type='text',name='phone')
+										div.form-group.required
+											label(for='contact-message')= contactFormLabels[3].ContentDescription_Description
+											textarea(class='form-control',id='contact-message',type='text',name='message',rows="5",required='required')
+										div.form-group.text-center
+											button(class="btn btn-default",type = "submit")= contactFormLabels[4].ContentDescription_Description
+							div.box-container-6
+								div.dark-line.short-line.thin-line.inline-line.margin-left-0
+								div.dark-line.medium-line.thin-line.inline-line.margin-left-20
+						div.box-container-7.right-sided.top-50.centered-y
+							img.contact-logo(src=logoType.Multimedia_Path, alt=logoType.Multimedia_Description)

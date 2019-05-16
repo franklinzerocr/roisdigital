@@ -6,7 +6,7 @@
   "author": "franklinzerocr",
   "repository": {
     "type": "git",
-    "url": "https://github.com/roisdigitalagency/roisdigital",
+    "url": "https://github.com/roisdigitalagency/roisdigital"
   },
   "license": "GPL-3.0",
   "scripts": {
@@ -17,6 +17,7 @@
     "config": "^1.30.0",
     "fs-extra": "^6.0.1",
     "koa": "^2.5.2",
+    "koa-body": "^4.1.0",
     "koa-router": "^7.4.0",
     "koa-session": "^5.11.0",
     "koa-static": "^5.0.0",

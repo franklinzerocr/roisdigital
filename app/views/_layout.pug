@@ -11,24 +11,24 @@ html(lang="es")
 block header
     include _helpers.pug
     include _mixins.pug
+    - logoType =  layout.header.data[0].Medias[0]
+    - secundaryRoisAnimations = layout.header.data[1].Medias
+    - secundaryRoisTexts = layout.header.data[1].Descriptions
     body
         header.container-fluid.header-container
             div.container
                 div.logo-container.col-md-5
                     a(href='/')
-                        - headerLogo =  layout.header.data[0].Medias[0]
-                        img#header_logo(src=headerLogo.Multimedia_Path, alt=headerLogo.Multimedia_Description)
+                        img#header_logo(src=logoType.Multimedia_Path, alt=logoType.Multimedia_Description)
                     span.rois-logo-line
                     span.rois-logo-dot
                 //- SECUNDARY ROIS
                 div.secundary-rois-container.col-md-5
-                    - secundaryRoisAnimations = layout.header.data[1].Medias
                     each animation in secundaryRoisAnimations
                         img(class='animate secundary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
                     div.text-container.secundary-rois
                         div.shadow-container.secundary-rois
                             div.figure-box.secundary-rois
-                        - secundaryRoisTexts = layout.header.data[1].Descriptions
                         each text in secundaryRoisTexts
                             h5(class='text secundary-rois pos-'+text.ContentDescription_Position)= text.ContentDescription_Description
                 //- END OF SECUNDARY ROIS

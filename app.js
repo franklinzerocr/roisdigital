@@ -8,6 +8,7 @@ const serve = require('koa-static')
 const session = require('koa-session')
 const database = require('./app/database/db.js')
 const interface = require('./app/interface/interface.js')
+const koaBody = require('koa-body')
 
 const app = new Koa()
 const router = new Router()
@@ -15,8 +16,7 @@ const router = new Router()
 app.keys = [config.get("key")];
 
 app.use(session(app));
-
-
+app.use(koaBody());
 
 
 // Views setup, adds render() function to ctx object

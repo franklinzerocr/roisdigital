@@ -7,5 +7,6 @@ module.exports = (router) => {
     else 
     	require('./homeRouter')(router)  
     
+    require('./contactFormRouter')(router)
     require('./deadLinkRouter')(router)
 } 
