@@ -14,20 +14,13 @@ const koaBody = require('koa-body')
 const app = new Koa()
 const router = new Router()
 
-
-
 app.keys = [config.get("key")];
 
 app.use(session(app));
 app.use(koaBody());
 
-
 // Views setup, adds render() function to ctx object
-app.use(views(
-	path.join(__dirname, config.get('views.path')),
-	config.get('views.options')
-))
-
+app.use(views(path.join(__dirname, config.get('views.path')),config.get('views.options')))
 // Server static files (scripts, css, images)
 app.use(serve(config.get('static.path')))
 
@@ -58,12 +51,10 @@ loadRoutes(router)
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-// // Reroute to Dead Link whenever 404
-// app.use(async (ctx, next) => {
-// 	ctx.redirect('/dead-link')
-// });
-
-
+// Reroute to Dead Link whenever 404
+app.use(async (ctx, next) => {
+	ctx.redirect('/Dead-Link')
+});
 
 // Start the app
 const port = process.env.PORT || config.get('server.port')

@@ -480,6 +480,10 @@ img.dead-link-img{
   z-index: 0; 
 } 
 
+.itsatrap{
+  position: absolute;
+  z-index: 100000000;
+}
 
 section .container {
   position: relative;
@@ -490,6 +494,7 @@ section .container > .inner-columns{
   height: 100vh;
   z-index: 5;
 }
+
 
 /*
 ********** HEADER **********
@@ -568,9 +573,14 @@ header .secundary-rois-container{
   position: relative;
   padding: 0px;
 }
+header .secundary-rois-container .animation-container{
+  width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
 
 header .secundary-rois-container .animate.secundary-rois{
-  width: 100px;
+  width: 100%;
   vertical-align: middle;
   display: none;
 }
@@ -622,10 +632,10 @@ header .secundary-rois-container .text.secundary-rois.pos-1{
 /* HEADER SWITCH */
 
 header .logo-container{
-  /*display: none;*/
+  display: none;
 }
 header .secundary-rois-container{
-  display: none;
+  /*display: none;*/
 }
 
 
@@ -853,6 +863,28 @@ header .secundary-rois-container{
   max-width: 80%;
 }
 
+#Services .box-container-3.services-container:after{
+  content: '';
+  position: absolute;
+  right: 20px;
+  top: 12.5%;
+  height: 50%;
+  width: 2px;
+  background: rgba(255,255,255,0.4);
+}
+
+#Services .box-container-3.services-container:before{
+  content: '';
+  position: absolute;
+  right: 19px;
+  top: 12.5%;
+  height: 10%;
+  width: 4px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 5px;
+  z-index: 1;
+}
+
 #Services .service{
   display: none;
 }
@@ -883,7 +915,7 @@ header .secundary-rois-container{
   float: right;
   background: #211915;
   color: white;
-  padding: 30px 20px;
+  padding: 22.5px 15px;
   margin-bottom: 0px;
   margin-right: -25%;
   margin-top: 0%;
@@ -948,7 +980,29 @@ header .secundary-rois-container{
   top: 30%;
   height: 50%;
   width: 80%; 
-  overflow-y: auto;
+}
+
+#Portfolio .box-container-6.portfolios-container:after{
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 17.5%;
+  height: 65%;
+  width: 2px;
+  background: rgba(255,255,255,0.4);
+  z-index: 1000000000000000000000000;
+}
+
+#Portfolio .box-container-6.portfolios-container:before{
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 17.5%;
+  height: 10%;
+  width: 4px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 5px;
+  z-index: 1000000000000000000000000000;
 }
 
 #Portfolio .portfolio{

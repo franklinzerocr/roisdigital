@@ -24,8 +24,10 @@ block header
                     span.rois-logo-dot
                 //- SECUNDARY ROIS
                 div.secundary-rois-container.col-md-5
-                    each animation in secundaryRoisAnimations
-                        img(class='animate secundary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
+                    div.animation-container
+                        div.itsatrap.full-size
+                        each animation in secundaryRoisAnimations
+                            img(class='animate secundary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
                     div.text-container.secundary-rois
                         div.shadow-container.secundary-rois
                             div.figure-box.secundary-rois
@@ -50,4 +52,4 @@ block footer
 
 block scripts
     //- script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
-    script(src='/scripts/jQuery-2.1.4.min.js')
+    //- script(src='/scripts/jQuery-2.1.4.min.js')
