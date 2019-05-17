@@ -38,7 +38,7 @@ block header
                     ul#header_menu
                         each section in layout.menuSections.data
                             li.menu-item
-                                a(href='#'+section.Section_Name_en)= section.Section_Name
+                                a(class='scrollto', href='#'+section.Section_Name_en )= section.Section_Name
                     span.rois-menu-line-thick
                     span.rois-menu-line-thin
 
@@ -53,4 +53,6 @@ block footer
 block scripts
     //- script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
     //- script(src='/scripts/jQuery-2.1.4.min.js')
-    script(src='/scripts/site.js')
+
+    script(src='/scripts/siteFunctions.js')
+    script(src='/scripts/siteEvents.js')

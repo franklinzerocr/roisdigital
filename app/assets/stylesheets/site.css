@@ -81,28 +81,72 @@ body,html{
   overflow-x:hidden;
   font-size: 15px;
   color: #242424; /* black */
-  /*height: 100%;*/
+  position: relative;
+  z-index: 1000000000000000000000000000;
+  /*scroll-behavior: smooth;*/
 }
 
-/* Track */
-html::-webkit-scrollbar {
-  -webkit-box-shadow: inset 0 0 6px rgb(255, 208, 78,0.3); 
-}
-
-/* Handle */
-html::-webkit-scrollbar-thumb {
-    background: rgb(255, 208, 78); /* yellow */
-}
-html::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(255, 208, 78,0.4); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+body{
+  height: 100%;
 }
 
 
+/* CUSTOM SCROLLBAR*/
+
+/*
+html{
+  height: 100%;
+}
 .page-content{
-  /*height: 100%;*/
-  /*overflow: hidden;*/
+  height: 100%;
+  overflow: hidden;
 }
+
+html:before{
+  content: '';
+  position: absolute;
+  right: 0px;
+  top: 0%;
+  height: 100%;
+  width: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 208, 78,0.5); 
+  background: rgba(255, 208, 78,0.1); 
+  z-index: 100000000000000000000000000;
+}
+ 
+html:after{
+  content: '';
+  position: absolute;
+  right: 0px;
+  top: 0%;
+  height: 20%;
+  width: 10px;
+  background: #ffd04e; 
+  z-index: 1000000000000000000000000000;
+}
+*/
+
+
+/* BROWSER DEFAULT SCROLLBAR */
+::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgb(255, 208, 78,0.5); 
+}
+::-webkit-scrollbar:hover { 
+  -webkit-box-shadow: inset 0 0 6px rgb(255, 208, 78,1);  
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(255, 208, 78);
+}
+::-webkit-scrollbar-thumb:hover { 
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,1); 
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 208, 78,0.4); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1); 
+}
+
 
 img{
   max-width: 100%;
@@ -458,7 +502,7 @@ img.dead-link-img{
 }
 
 
-.arrow-next-container{
+.arrow-next{
   border: 1px solid black;
   border-bottom:none;
   width: 40px;
@@ -469,12 +513,14 @@ img.dead-link-img{
   left:40px;
   text-align: center;
   cursor: pointer;
+  font-size: 30px;
 }
 
-.arrow-next-container:hover{
+.arrow-next:hover{
   background:#ffd04e; /* yellow */
+  text-decoration: none;
 }
-.arrow-next-container:before{
+.arrow-next:before{
   content: '';
   position: absolute;
   bottom: 0px;
@@ -484,7 +530,7 @@ img.dead-link-img{
   height: 10px;
   background:white; 
 }
-.arrow-next-container:after{
+.arrow-next:after{
   content: '';
   position: absolute;
   bottom: 0px;
@@ -493,12 +539,6 @@ img.dead-link-img{
   width: 2px;
   height: 10px;
   background:white; 
-}
-.arrow-next-container .arrow-next{
-  font-size: 30px;
-  display: inline-block;
-  position: relative;
-  z-index: 0; 
 } 
 
 .itsatrap{
@@ -512,7 +552,7 @@ section .container {
 }
 section .container > .inner-columns{
   position: relative;
-  height: 100vh;
+  height: 48.1vw;
   z-index: 5;
 }
 
@@ -522,10 +562,11 @@ section .container > .inner-columns{
 */
 
 header.header-container {
-  padding-top: 30px;
+  /*position: absolute;*/
   position: fixed;
+  padding-top: 30px;
   z-index: 10000000000000000000000000;
-  width: 100%;
+  width: calc(100% - 17px);
 }
 
 header .logo-container{
@@ -1069,7 +1110,7 @@ header .secundary-rois-container{
   font-size: 18px;
 }
 
-#Portfolio .arrow-next-container{
+#Portfolio .arrow-next{
   left: 50%;
   transform: translateX(-50%)
   ;
@@ -1211,7 +1252,7 @@ header .secundary-rois-container{
   font-size: 25px;
 }
 
-#Team .arrow-next-container{
+#Team .arrow-next{
   left: 50%;
   transform: translateX(-50%);
 
