@@ -81,6 +81,27 @@ body,html{
   overflow-x:hidden;
   font-size: 15px;
   color: #242424; /* black */
+  /*height: 100%;*/
+}
+
+/* Track */
+html::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgb(255, 208, 78,0.3); 
+}
+
+/* Handle */
+html::-webkit-scrollbar-thumb {
+    background: rgb(255, 208, 78); /* yellow */
+}
+html::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 208, 78,0.4); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+.page-content{
+  /*height: 100%;*/
+  /*overflow: hidden;*/
 }
 
 img{
@@ -632,10 +653,10 @@ header .secundary-rois-container .text.secundary-rois.pos-1{
 /* HEADER SWITCH */
 
 header .logo-container{
-  display: none;
+  /*display: none;*/
 }
 header .secundary-rois-container{
-  /*display: none;*/
+  display: none;
 }
 
 
