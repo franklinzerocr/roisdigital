@@ -13,21 +13,15 @@ for (let elem of document.querySelectorAll('.scrollto')) {
 
 
 
- 
 
-document.querySelector('body').addEventListener('scroll', function(event){
-  var currentScrollPosition=this.scrollTop
-  // if (currentScrollPosition>previousScrollPosition) {
-  //   console.log('down')
-  // }else if(currentScrollPosition<previousScrollPosition){
-  //   console.log('up')
-  // }else if(currentScrollPosition==previousScrollPosition){
-  //   console.log('same')
-  // }
-  previousScrollPosition=currentScrollPosition
+document.querySelector('body').addEventListener("keyup", function(e) {
+  e.preventDefault();
+});
+document.querySelector('body').addEventListener("keypress", function(e) {
+  e.preventDefault();
 });
 
-window.addEventListener("keydown", function(e) {
+document.querySelector('body').addEventListener("keydown", function(e) {
     var activeSection = getActiveSectionIndex();
     // home, end, lef, right keys:
     if([/*35,36,*/37,39].indexOf(e.keyCode) > -1) {
@@ -56,7 +50,7 @@ window.addEventListener("keydown", function(e) {
 }, false);
 
 
-window.addEventListener('wheel', function(e) {  
+document.querySelector('body').addEventListener('wheel', function(e) {  
     if (!scrolling){
       scrolling=1;
       const delta = Math.sign(e.deltaY);
@@ -78,3 +72,18 @@ window.addEventListener('wheel', function(e) {
     }
     e.preventDefault();
 },{ passive: false });
+
+ 
+
+document.querySelector('body').addEventListener('scroll', function(event){
+  var currentScrollPosition=this.scrollTop
+  // if (currentScrollPosition>previousScrollPosition) {
+  //   console.log('down')
+  // }else if(currentScrollPosition<previousScrollPosition){
+  //   console.log('up')
+  // }else if(currentScrollPosition==previousScrollPosition){
+  //   console.log('same')
+  // }
+  previousScrollPosition=currentScrollPosition
+}); 
+// document.querySelector('body').addEventListener('scroll', scrollEnd()); 

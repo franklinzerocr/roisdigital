@@ -24,6 +24,29 @@ function simulateClick (elem) {
 	var canceled = !elem.dispatchEvent(evt);
 };
 
+function scrollEnd(){
+	console.log("scrollEnd")
+	// document.querySelector('body').addEventListener('mouseup', function(e){
+	// 	let currentScrollPosition=document.querySelector('body').scrollTop
+	// 	var activeSection = getActiveSectionIndex();
+
+	// 	if(currentScrollPosition<previousScrollPosition){ // down
+	// 		console.log("down")
+	// 		targetSection=document.querySelectorAll('Section')[activeSection+1].getAttribute("id")
+	// 		simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
+
+	// 	} 
+	// 	else if (currentScrollPosition>previousScrollPosition) { // up
+	// 		console.log("up")
+	// 		targetSection=document.querySelectorAll('Section')[activeSection-1].getAttribute("id")
+	// 		simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
+
+	// 	}
+	// });
+	var currentScrollPosition=document.querySelector('body').scrollTop
+	previousScrollPosition=currentScrollPosition
+}
+
 
 (function() {
 	var lastTime = 0;
