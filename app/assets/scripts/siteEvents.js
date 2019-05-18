@@ -1,29 +1,19 @@
+
+
 for (let elem of document.querySelectorAll('.scrollto')) {
   elem.addEventListener('click',function(e) {
     e.preventDefault();
 
-    // 1. Get the element id to which you want to scroll
-    console.log(e.target)
-    const scrollElemId = e.target.href.split('#')[1];
+    let targetSection = e.target.href.split('#')[1];
+    window.history.pushState("object or string", "Title", "#"+targetSection);
+    document.querySelector('body').scroll({left: 0, top: document.querySelector('#'+targetSection).offsetTop , behavior: 'smooth'});
 
-    // 2. find that node from the document
-    const scrollEndElem = document.getElementById(scrollElemId);
-
-    // 3. and well animate to that node.. 
-    const anim = requestAnimationFrame((timestamp) => {
-      const stamp = timestamp || new Date().getTime();
-      const duration = 1000;
-      const start = stamp;
-
-      const startScrollOffset = previousScrollPosition;
-      const scrollEndElemTop = scrollEndElem.getBoundingClientRect().top;
-
-      scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
-    })
   })
 }
 
 
+
+ 
 
 document.querySelector('body').addEventListener('scroll', function(event){
   var currentScrollPosition=this.scrollTop
@@ -47,17 +37,9 @@ window.addEventListener("keydown", function(e) {
     else if([32, 34, 40].indexOf(e.keyCode) > -1) {
       e.preventDefault();
       if (activeSection< document.querySelectorAll('Section').length -1 ){ //  down
-
-        const anim = requestAnimationFrame((timestamp) => {
-          const stamp = timestamp || new Date().getTime();
-          const duration = 1000;
-          const start = stamp;
-
-          const startScrollOffset = previousScrollPosition;
-          const scrollEndElemTop = document.querySelectorAll('Section')[activeSection+1].getBoundingClientRect().top;
-
-          scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
-        })
+        targetSection=document.querySelectorAll('Section')[activeSection+1].getAttribute("id")
+        simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
+ 
 
       }
     }
@@ -66,16 +48,9 @@ window.addEventListener("keydown", function(e) {
       e.preventDefault();
       if (activeSection> 0 ){ // up 
 
-        const anim = requestAnimationFrame((timestamp) => {
-          const stamp = timestamp || new Date().getTime();
-          const duration = 1000;
-          const start = stamp;
-
-          const startScrollOffset = previousScrollPosition;
-          const scrollEndElemTop = document.querySelectorAll('Section')[activeSection-1].getBoundingClientRect().top;
-
-          scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
-        })
+        targetSection=document.querySelectorAll('Section')[activeSection-1].getAttribute("id")
+        simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
+ 
       }
     }
 }, false);
@@ -87,32 +62,16 @@ window.addEventListener('wheel', function(e) {
       const delta = Math.sign(e.deltaY);
       var activeSection = getActiveSectionIndex();
       if (delta>0 && activeSection< document.querySelectorAll('Section').length -1 ){ // Wheel down
-        // document.querySelector('body').scroll(0,document.querySelectorAll('Section')[activeSection+1].offsetTop);
 
-        const anim = requestAnimationFrame((timestamp) => {
-          const stamp = timestamp || new Date().getTime();
-          const duration = 1000;
-          const start = stamp;
-
-          const startScrollOffset = previousScrollPosition;
-          const scrollEndElemTop = document.querySelectorAll('Section')[activeSection+1].getBoundingClientRect().top;
-
-          scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
-        })
+        targetSection=document.querySelectorAll('Section')[activeSection+1].getAttribute("id")
+        simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
+ 
 
       }else if (delta<0 && activeSection >0 ){ // Wheel up
-        // document.querySelector('body').scroll(0,document.querySelectorAll('Section')[activeSection-1].offsetTop);
 
-        const anim = requestAnimationFrame((timestamp) => {
-          const stamp = timestamp || new Date().getTime();
-          const duration = 1000;
-          const start = stamp;
-
-          const startScrollOffset = previousScrollPosition;
-          const scrollEndElemTop = document.querySelectorAll('Section')[activeSection-1].getBoundingClientRect().top;
-
-          scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
-        })
+        targetSection=document.querySelectorAll('Section')[activeSection-1].getAttribute("id")
+        simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
+ 
       }
       scrolling=0;
       // add custom scroll code if you want

@@ -83,7 +83,7 @@ body,html{
   color: #242424; /* black */
   position: relative;
   z-index: 1000000000000000000000000000;
-  /*scroll-behavior: smooth;*/
+  transition: 1s
 }
 
 body{
