@@ -96,11 +96,6 @@ body{
   height: 100%;
 }
 
-.page-content.loading{
-  height: 100%;
-  overflow: hidden;
-}
-
 
 
 /* CUSTOM SCROLLBAR*/
@@ -573,8 +568,23 @@ section .container > .inner-columns{
 
 
 .loader{
-  position: fixed;
+  position: absolute;
   z-index: 10000000000;
+  background: white;
+}
+
+.loading{
+  height: 100%;
+  overflow: hidden;
+}
+
+.loading-gif{
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
   background: #ffd04e; /* yellow */
 }
 

@@ -4,7 +4,6 @@ var loaded=0;
 
 /*** JUMP SECTION SCROLL ***/
 
-
 function getActiveSectionIndex(){
 	var i =0;
 	for (var section of document.querySelectorAll('Section')) {
@@ -16,7 +15,6 @@ function getActiveSectionIndex(){
 	}
 	return i;
 } 
-
 function simulateClick (elem) {
 	// Create our event (with options)
 	var evt = new MouseEvent('click', {
@@ -87,6 +85,8 @@ function menuActiveSection(activeSection){
 	};
 	/*** - END - ***/
 
+
+	// Reset the page after reload
 	if(window.location.href.indexOf("#") > -1) {
 		activeSection=getActiveSectionIndex()
 		targetSection=document.querySelectorAll('Section')[activeSection].getAttribute("id")
@@ -100,12 +100,12 @@ function menuActiveSection(activeSection){
 
 
 /*** OnLoad ***/
-var loaderNone = move(".loader").set('display', "none")
+var loaderOff = move(".loader").set('display', "none")
 var roisOn= move(".animate.primary-rois.pos-1").set("display","block").delay('0.5s')
 
 window.onload = function() {
 	loaded=1;
 	document.querySelector(".page-content.loading").classList.remove("loading")
-  	move(".loader").set('opacity', 0).duration("1s")
-  		.then(loaderNone).then(roisOn).end()
+  	move(".loader").set('opacity', 0).duration("0.5s")
+  		.then(loaderOff).then(roisOn).end()
 };
