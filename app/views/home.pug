@@ -3,7 +3,7 @@ extends _layout
 
 block content
 	- socialinks= home.contents.data[1].Descriptions
-	div.page-content.container-fluid.home-container
+	div.page-content.container-fluid.home-container.loading
 
 		//- HOME SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Home"))

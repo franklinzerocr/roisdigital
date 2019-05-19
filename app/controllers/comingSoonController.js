@@ -1,4 +1,3 @@
-const interface = require ("../interface/interface")
 const mainController = require ("./mainController")
 
 module.exports = {

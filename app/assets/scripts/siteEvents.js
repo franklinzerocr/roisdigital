@@ -8,7 +8,10 @@ for (let elem of document.querySelectorAll('.scrollto')) {
   
   // Click the anchor link, go to target section and animate menu
   elem.addEventListener('click',function(e) {
+
     e.preventDefault();
+    if (!loaded) return false;
+    
 
     window.requestAnimationFrame(function() {
 
@@ -45,7 +48,7 @@ for (let elem of document.querySelectorAll('.scrollto')) {
           move("header .rois-menu-line-thin").set("margin-left",0).duration('0.4s').end()
         }, 100);
 
-      }, 500);
+      }, 400);
     });
 
   })

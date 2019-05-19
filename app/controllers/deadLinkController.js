@@ -1,4 +1,3 @@
-const interface = require ("../interface/interface")
 const mainController = require ("./mainController")
 
 module.exports = {
@@ -6,14 +5,14 @@ module.exports = {
 	//*** PUBLIC METHODS ***//
 	
 	getPageContent: async function(lang,database){
-		var comingSoon={}
+		var deadLink={}
 
 		// Get Layout
-		comingSoon.contents= await mainController.getContents(lang,database,"Dead Link")
+		deadLink.contents= await mainController.getContents(lang,database,"Dead Link")
 
-		// const util = require('util');console.log(util.inspect(comingSoon, false, null))
+		// const util = require('util');console.log(util.inspect(deadLink, false, null))
 
-		return comingSoon;
+		return deadLink;
 	}, 
 	
 

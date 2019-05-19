@@ -1,5 +1,6 @@
 var scrolling=0;
 var previousScrollPosition=0; 
+var loaded=0;
 
 /*** JUMP SECTION SCROLL ***/
 
@@ -56,6 +57,7 @@ function menuActiveSection(activeSection){
 
 
 
+
 /*** init ***/
 
 (function() {
@@ -85,7 +87,25 @@ function menuActiveSection(activeSection){
 	};
 	/*** - END - ***/
 
-	
-	menuActiveSection("Home")
+	if(window.location.href.indexOf("#") > -1) {
+		activeSection=getActiveSectionIndex()
+		targetSection=document.querySelectorAll('Section')[activeSection].getAttribute("id")
+		simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
+		menuActiveSection(targetSection)
+		window.history.pushState("object or string", "Title", "/");
+    }
+
 
 }());
+
+
+/*** OnLoad ***/
+var loaderNone = move(".loader").set('display', "none")
+var roisOn= move(".animate.primary-rois.pos-1").set("display","block").delay('0.5s')
+
+window.onload = function() {
+	loaded=1;
+	document.querySelector(".page-content.loading").classList.remove("loading")
+  	move(".loader").set('opacity', 0).duration("1s")
+  		.then(loaderNone).then(roisOn).end()
+};
