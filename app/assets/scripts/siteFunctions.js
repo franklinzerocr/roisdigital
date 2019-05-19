@@ -58,11 +58,15 @@ function menuActiveSection(activeSection){
 /*** Rois Entering and breathing animation ***/
 
 function primaryRoisOn(){
-	move(".animate.primary-rois.pos-1").set("display","block").delay('0.5s').end()
+	startDelay= 500
+	animation1= 3000
 	setTimeout(function() {
-		move(".animate.primary-rois.pos-1").set("display","none").end()
-		move(".animate.primary-rois.pos-2").set("display","block").end()
-	}, 3000);
+	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
+		setTimeout(function() {
+			document.querySelector(".animate.primary-rois.pos-1").style.display = 'none'
+			document.querySelector(".animate.primary-rois.pos-2").style.display = 'block'
+		}, animation1);
+	}, startDelay);
 }
 
 /*** - END - ***/
