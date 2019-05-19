@@ -7,6 +7,6 @@ module.exports = (router) => {
     ctx.state.view = {
     	title: "Dead Link"
     }
-    await ctx.render('Dead-Link');
+    await ctx.render('dead-link');
   })
 }
