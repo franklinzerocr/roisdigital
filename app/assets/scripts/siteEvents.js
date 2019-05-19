@@ -128,10 +128,15 @@ document.querySelector('body').addEventListener('wheel', function(e) {
 
 for (let serviceTitle of document.querySelectorAll('#Services .services-list li')) {
   
+  serviceTitle.onmouseenter= function(e) { 
+    displayService(serviceTitle)
+    setActiveService(serviceTitle)
+  };
 
   serviceTitle.addEventListener('click',function(e) {
-    setActiveService(serviceTitle)
     displayService(serviceTitle)
+    setActiveService(serviceTitle)
   });
  
 }
+
