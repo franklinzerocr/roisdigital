@@ -423,8 +423,8 @@ img.dead-link-img{
 } 
 
 .overlayed{
-  -webkit-filter: brightness(0.65); /* Safari 6.0 - 9.0 */
-  filter: brightness(0.65);
+  -webkit-filter: brightness(0.75); /* Safari 6.0 - 9.0 */
+  filter: brightness(0.75);
 }
 .thick-border{
   border-width: 6px!important;
@@ -796,26 +796,14 @@ header .secundary-rois-container{
 
  
 #Home .primary-rois-container .animated-rois-container .animate.primary-rois{
-  width: 60%;
-  max-width: 400px;
+  width: 90%;
+  max-width: 600px;
   vertical-align: middle;
   margin: 0px auto;
   position: relative;
-  top: 15%;
+  top: 85px;
   z-index: 1;
   display: none;
-}
-
-#Home .primary-rois-container .animated-rois-container .yellow-background.primary-rois:after{
-  content: '';
-  position: absolute;
-  bottom: 17%;
-  width: 30%;
-  height: 1px;
-  left: 45%;
-  transform: translateX(-50%);
-  background: #432918; /* brown */
-  z-index: 100000;
 }
 
 #Home .primary-rois-container .animated-rois-container .animate.primary-rois.pos-1{

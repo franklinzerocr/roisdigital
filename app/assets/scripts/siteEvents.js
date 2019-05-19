@@ -1,13 +1,16 @@
-
-
+// *****
+// Explore thhrough to the .scrollto anchor elements and add the listener
 for (let elem of document.querySelectorAll('.scrollto')) {
   
   elem.addEventListener('click',function(e) {
     e.preventDefault();
 
     window.requestAnimationFrame(function() {
+
+      //Scroll to the target section
       let targetSection = e.target.href.split('#')[1];
       window.history.pushState("object or string", "Title", "#"+targetSection);
+      document.querySelector('body').scroll({left: 0, top: document.querySelector('#'+targetSection).offsetTop , behavior: 'smooth'});
 
       move("header .logo-container a").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
       move("header .rois-logo-line").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
@@ -17,7 +20,6 @@ for (let elem of document.querySelectorAll('.scrollto')) {
       move("header .rois-menu-line-thick").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
       move("header .rois-menu-line-thin").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
 
-      document.querySelector('body').scroll({left: 0, top: document.querySelector('#'+targetSection).offsetTop , behavior: 'smooth'});
 
       setTimeout(function() {
         var activeSection = getActiveSectionIndex(); 
@@ -38,7 +40,6 @@ for (let elem of document.querySelectorAll('.scrollto')) {
       }, 500);
     });
 
-
   })
 
 }
@@ -55,7 +56,7 @@ document.querySelector('body').addEventListener("keypress", function(e) {
 document.querySelector('body').addEventListener("keydown", function(e) {
     var activeSection = getActiveSectionIndex();
     // home, end, lef, right keys:
-    if([35,36,37,39].indexOf(e.keyCode) > -1) {
+    if([/*35,36*/,37,39].indexOf(e.keyCode) > -1) {
       e.preventDefault();
     }
     // space, page down, down keys:
@@ -103,9 +104,8 @@ document.querySelector('body').addEventListener('wheel', function(e) {
     e.preventDefault();
 },{ passive: false });
 
- 
+
 document.querySelector('body').addEventListener('scroll', function(event){
-  previousScrollPosition=this.scrollTop
-  
+  previousScrollPosition=this.scrollTop  
 });
 
