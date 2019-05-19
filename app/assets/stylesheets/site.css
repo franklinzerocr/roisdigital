@@ -635,6 +635,9 @@ header .menu-container ul#header_menu li{
   padding: 5px;
   margin: 0px 15px;
 }
+header .menu-container ul#header_menu li.active a{
+  font-family: 'Roboto Bold'
+}
 
 header .menu-container .rois-menu-line-thick{
   position: relative;

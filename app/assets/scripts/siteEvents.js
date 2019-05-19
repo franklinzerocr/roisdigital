@@ -6,6 +6,7 @@ document.querySelector('body').addEventListener('scroll', function(event){
 // Explore thhrough all the .scrollto anchor elements and add listeners
 for (let elem of document.querySelectorAll('.scrollto')) {
   
+  // Click the anchor link, go to target section and animate menu
   elem.addEventListener('click',function(e) {
     e.preventDefault();
 
@@ -16,7 +17,7 @@ for (let elem of document.querySelectorAll('.scrollto')) {
       window.history.pushState("object or string", "Title", "#"+targetSection);
       document.querySelector('body').scroll({left: 0, top: document.querySelector('#'+targetSection).offsetTop , behavior: 'smooth'});
 
-      // Move menu outside screen
+      // Move menu elements outside screen
       move("header .logo-container a").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
       move("header .rois-logo-line").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
       move("header .rois-logo-dot").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
@@ -26,12 +27,12 @@ for (let elem of document.querySelectorAll('.scrollto')) {
       move("header .rois-menu-line-thin").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
 
       setTimeout(function() {
-        var activeSection = getActiveSectionIndex(); 
 
-        // Move header to target section
+        menuActiveSection(targetSection)
+
+        // Move header menu to target section
         document.querySelector('header.header-container').style.top=document.querySelector('#'+targetSection).offsetTop
 
-        
 
         // Move menu inside screen again
         move("header .logo-container a").set("margin-left",0).duration('0.2s').end()
@@ -64,13 +65,13 @@ document.querySelector('body').addEventListener("keydown", function(e) {
       e.preventDefault();
     }
     // home keys
-    else if([35].indexOf(e.keyCode) > -1) {
+    else if([36].indexOf(e.keyCode) > -1) {
       e.preventDefault();
       targetSection=document.querySelectorAll('Section')[0].getAttribute("id")
       simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
     }
     // end keys
-    else if([36].indexOf(e.keyCode) > -1) {
+    else if([35].indexOf(e.keyCode) > -1) {
       e.preventDefault();
       targetSection=document.querySelectorAll('Section')[document.querySelectorAll('Section').length -1].getAttribute("id")
       simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))

@@ -29,9 +29,38 @@ function simulateClick (elem) {
 
 /*** - END - ***/
 
-/*** SMOOTHSCROLL init ***/
+
+
+/*** ACTIVE SECTION ON MENU ***/
+
+function menuActiveSection(activeSection){
+	i=0;
+	flag=false;
+	for (let el of document.querySelectorAll('#header_menu li a')) {
+		currentIteration=document.querySelectorAll('#header_menu li')[i]
+		currentIteration.classList.remove("active")
+	  
+		if (el.getAttribute("href").split('#')[1]==activeSection || flag){
+	    	currentIteration.classList.remove("hidden")
+	    	flag=true;
+	    if (el.getAttribute("href").split('#')[1]==activeSection) 
+	     	currentIteration.classList.add("active")
+	  	}
+	  	else currentIteration.classList.add("hidden")
+
+	  	i++;
+	}
+}
+
+/*** - END - ***/
+
+
+
+/*** init ***/
 
 (function() {
+
+	/**** SMOOTHSCROLL ***/
 	var lastTime = 0;
 	var vendors = ['ms', 'moz', 'webkit', 'o'];
 	for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
@@ -54,7 +83,9 @@ function simulateClick (elem) {
 		window.cancelAnimationFrame = function(id) {
 		clearTimeout(id);
 	};
+	/*** - END - ***/
+
+	
+	menuActiveSection("Home")
 
 }());
-
-/*** - END - ***/
