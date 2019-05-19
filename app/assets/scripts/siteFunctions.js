@@ -1,6 +1,6 @@
-var scrolling=0;
-var previousScrollPosition=0; 
-var loaded=0;
+var scrolling=0; //If scrolling animation
+var previousScrollPosition=0;  // the previos scroll position before scrolling starts
+var loaded=0; // if the page has loaded
 
 /*** JUMP SECTION SCROLL ***/
 
@@ -55,6 +55,43 @@ function menuActiveSection(activeSection){
 
 
 
+/*** Rois Entering and breathing animation ***/
+
+function primaryRoisOn(){
+	move(".animate.primary-rois.pos-1").set("display","block").delay('0.5s').end()
+	setTimeout(function() {
+		move(".animate.primary-rois.pos-1").set("display","none").end()
+		move(".animate.primary-rois.pos-2").set("display","block").end()
+	}, 3000);
+}
+
+/*** - END - ***/
+
+
+/*** Stop the loader ***/
+
+function preLoaderOff(){
+	loaded=1;
+	var loaderOff = move(".loader").set('display', "none")
+	document.querySelector(".page-content.loading").classList.remove("loading")
+  	move(".loader").set('opacity', 0).duration("0.5s")
+  		.then(loaderOff).end()
+}
+
+/*** - END - ***/
+
+
+
+/*** OnLoad ***/
+
+window.onload = function() {
+	preLoaderOff()
+  	primaryRoisOn()
+};
+
+/*** - END - ***/
+
+
 
 /*** init ***/
 
@@ -97,15 +134,3 @@ function menuActiveSection(activeSection){
 
 
 }());
-
-
-/*** OnLoad ***/
-var loaderOff = move(".loader").set('display', "none")
-var roisOn= move(".animate.primary-rois.pos-1").set("display","block").delay('0.5s')
-
-window.onload = function() {
-	loaded=1;
-	document.querySelector(".page-content.loading").classList.remove("loading")
-  	move(".loader").set('opacity', 0).duration("0.5s")
-  		.then(loaderOff).then(roisOn).end()
-};
