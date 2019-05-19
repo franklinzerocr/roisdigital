@@ -625,6 +625,10 @@ header .logo-container > a{
   margin-left: 50px;
 }
 
+header .logo-container > a:hover{
+  background: none;
+}
+
 header .logo-container #header_logo{
   max-width: 175px;
 }
