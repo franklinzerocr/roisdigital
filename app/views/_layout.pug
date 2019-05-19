@@ -3,8 +3,6 @@ html(lang="es")
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title #{view.title} | #{settings.siteName}
-    //- link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css")
-    //- link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.1.0/css/all.css")
     link(rel="stylesheet", href="/plugins/font-awesome/css/font-awesome.min.css")
     link(rel="stylesheet", href="/stylesheets/bootstrap.css")
     link(rel="stylesheet", href="/stylesheets/site.css")
@@ -20,8 +18,8 @@ block header
                 div.logo-container.col-md-5
                     a(href='/')
                         img#header_logo(src=logoType.Multimedia_Path, alt=logoType.Multimedia_Description)
-                    span.rois-logo-line
-                    span.rois-logo-dot
+                    div.rois-logo-line
+                    div.rois-logo-dot
                 //- SECUNDARY ROIS
                 div.secundary-rois-container.col-md-5
                     div.animation-container
@@ -39,8 +37,8 @@ block header
                         each section in layout.menuSections.data
                             li.menu-item
                                 a(class='scrollto', href='#'+section.Section_Name_en )= section.Section_Name
-                    span.rois-menu-line-thick
-                    span.rois-menu-line-thin
+                    div.rois-menu-line-thick
+                    div.rois-menu-line-thin
 
 	
 block content
@@ -51,8 +49,9 @@ block footer
         div.container
 
 block scripts
-    //- script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
-    //- script(src='/scripts/jQuery-2.1.4.min.js')
+    
+
+    script(src="/scripts/move.min.js")
     script(src='/scripts/siteFunctions.js')
     script(src="/scripts/smoothscroll.js")
     script(src='/scripts/siteEvents.js')

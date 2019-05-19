@@ -1,7 +1,7 @@
 
 module.exports = {
 
-	sendMail: async function(mailer,emailConfiguration,settings,params){ 
+	sendContactMail: async function(mailer,emailConfiguration,settings,params){ 
 
 		// Send Email
 		return await mailer.sendMail({

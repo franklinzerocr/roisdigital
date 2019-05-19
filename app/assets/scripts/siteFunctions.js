@@ -1,5 +1,8 @@
-var previousScrollPosition=0
 var scrolling=0;
+var previousScrollPosition=0; 
+
+/*** JUMP SECTION SCROLL ***/
+
 
 function getActiveSectionIndex(){
 	var i =0;
@@ -22,31 +25,11 @@ function simulateClick (elem) {
 	});
 	// If cancelled, don't dispatch our event
 	var canceled = !elem.dispatchEvent(evt);
-};
+}; 
 
-function scrollEnd(){
-	console.log("scrollEnd")
-	// document.querySelector('body').addEventListener('mouseup', function(e){
-	// 	let currentScrollPosition=document.querySelector('body').scrollTop
-	// 	var activeSection = getActiveSectionIndex();
+/*** - END - ***/
 
-	// 	if(currentScrollPosition<previousScrollPosition){ // down
-	// 		console.log("down")
-	// 		targetSection=document.querySelectorAll('Section')[activeSection+1].getAttribute("id")
-	// 		simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
-
-	// 	} 
-	// 	else if (currentScrollPosition>previousScrollPosition) { // up
-	// 		console.log("up")
-	// 		targetSection=document.querySelectorAll('Section')[activeSection-1].getAttribute("id")
-	// 		simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
-
-	// 	}
-	// });
-	var currentScrollPosition=document.querySelector('body').scrollTop
-	previousScrollPosition=currentScrollPosition
-}
-
+/*** SMOOTHSCROLL init ***/
 
 (function() {
 	var lastTime = 0;
@@ -73,3 +56,5 @@ function scrollEnd(){
 	};
 
 }());
+
+/*** - END - ***/
