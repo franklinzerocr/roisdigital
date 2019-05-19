@@ -963,11 +963,10 @@ header .secundary-rois-container{
   position: absolute;
   top: 20%;
   z-index: 15;
-  width: 46vw;
-  max-width: 80%;
+  width: 80%;
 }
 
-#Services .box-container-3.services-container:after{
+/*#Services .box-container-3.services-container:after{
   content: '';
   position: absolute;
   right: 20px;
@@ -975,9 +974,9 @@ header .secundary-rois-container{
   height: 50%;
   width: 2px;
   background: rgba(255,255,255,0.4);
-}
+}*/
 
-#Services .box-container-3.services-container:before{
+/*#Services .box-container-3.services-container:before{
   content: '';
   position: absolute;
   right: 19px;
@@ -987,7 +986,7 @@ header .secundary-rois-container{
   background: rgba(255,255,255,0.8);
   border-radius: 5px;
   z-index: 1;
-}
+}*/
 
 #Services .service{
   display: none;
@@ -1086,7 +1085,7 @@ header .secundary-rois-container{
   width: 80%; 
 }
 
-#Portfolio .box-container-6.portfolios-container:after{
+/*#Portfolio .box-container-6.portfolios-container:after{
   content: '';
   position: absolute;
   left: 20px;
@@ -1107,7 +1106,7 @@ header .secundary-rois-container{
   background: rgba(255,255,255,0.8);
   border-radius: 5px;
   z-index: 1000000000000000000000000000;
-}
+}*/
 
 #Portfolio .portfolio{
   position: relative;

@@ -55,8 +55,9 @@ function menuActiveSection(activeSection){
 
 
 
-/*** Rois Entering and breathing animation ***/
 
+
+/*** Rois Entering and breathing animation ***/
 function primaryRoisOn(){
 	startDelay= 500
 	animation1= 3000
@@ -69,11 +70,6 @@ function primaryRoisOn(){
 	}, startDelay);
 }
 
-/*** - END - ***/
-
-
-/*** Stop the loader ***/
-
 function preLoaderOff(){
 	loaded=1;
 	var loaderOff = move(".loader").set('display', "none")
@@ -82,7 +78,28 @@ function preLoaderOff(){
   		.then(loaderOff).end()
 }
 
-/*** - END - ***/
+
+
+function displayService(activeService) { 
+	console.log("displayService")
+  	for (let classItem of activeService.classList){
+    	if (classItem.indexOf("pos-")> -1) {
+	  		for (let serviceBox of document.querySelectorAll('#Services .services-container .service')) {
+	    		if (serviceBox.classList.contains(classItem))
+	    			serviceBox.style.display= "block"
+	    		else serviceBox.style.display= "none"
+	  		}
+    	}
+  	}
+}
+function setActiveService(activeService){
+  	for (let subServiceTitle of document.querySelectorAll('#Services .services-list li')) {
+	    subServiceTitle.classList.remove("active");
+  	}
+  	activeService.classList.add("active");
+}
+
+
 
 
 

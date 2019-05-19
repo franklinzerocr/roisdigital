@@ -4,10 +4,10 @@ document.querySelector('body').addEventListener('scroll', function(event){
 });
 
 // Explore thhrough all the .scrollto anchor elements and add listeners
-for (let elem of document.querySelectorAll('.scrollto')) {
+for (let anchor of document.querySelectorAll('.scrollto')) {
   
   // Click the anchor link, go to target section and animate menu
-  elem.addEventListener('click',function(e) {
+  anchor.addEventListener('click',function(e) {
 
     e.preventDefault();
     if (!loaded) return false;
@@ -125,3 +125,13 @@ document.querySelector('body').addEventListener('wheel', function(e) {
 
 
 
+
+for (let serviceTitle of document.querySelectorAll('#Services .services-list li')) {
+  
+
+  serviceTitle.addEventListener('click',function(e) {
+    setActiveService(serviceTitle)
+    displayService(serviceTitle)
+  });
+ 
+}
