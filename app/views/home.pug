@@ -45,10 +45,10 @@ block content
 						ul.services-list
 							each service in services
 								- if (service.Service_Position == 1)
-									li(class='active pos-'+service.Service_Position, attr-id=service.Service_Id )
+									li(class='active pos-'+service.Service_Position )
 										span=service.Service_Name
 								- else 
-									li(class='pos-'+service.Service_Position, attr-id=service.Service_Id )
+									li(class='pos-'+service.Service_Position )
 										span=service.Service_Name
 						div.thin-line.medium-line.dark-line.margin-left-80
 						div.thin-line.medium-line.light-line.margin-left-70
@@ -90,6 +90,12 @@ block content
 									img(class='portfolio-img overlayed', src=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
 									h4(class='portfolio-title') #{portfolio.Portfolio_Position}.- #{portfolio.Portfolio_Name}
 									p(class='portfolio-description') #{portfolio.Portfolio_Description}
+							div.portfolio-controls
+								each portfolio in portfolios 
+									- if (portfolio.Portfolio_Position==1)
+										a(class="portfolio-index active pos-"+portfolio.Portfolio_Position)= portfolio.Portfolio_Position
+									- else 
+										a(class="portfolio-index pos-"+portfolio.Portfolio_Position)= portfolio.Portfolio_Position
 						+social_sidebar(socialinks)
 						+next_section_arrow("Team")
 

@@ -1108,6 +1108,31 @@ header .secundary-rois-container{
   z-index: 1000000000000000000000000000;
 }*/
 
+#Portfolio .box-container-6.portfolios-container .portfolio-controls{
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: 47.5%;
+  transform: translateX(-50%);
+  z-index: 1000000;
+}
+
+#Portfolio .box-container-6.portfolios-container .portfolio-controls .portfolio-index{
+  margin: 0px 5px;
+  border: 1px solid #242424; /* black */
+  display: inline-block;
+  background: rgba(255,255,255,0.5);
+  width: 23px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#Portfolio .box-container-6.portfolios-container .portfolio-controls .portfolio-index.active,
+#Portfolio .box-container-6.portfolios-container .portfolio-controls .portfolio-index:hover{
+  background: #ffd04e; /* yellow */
+}
+
 #Portfolio .portfolio{
   position: relative;
   display: none;

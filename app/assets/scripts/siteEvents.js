@@ -125,17 +125,28 @@ document.querySelector('body').addEventListener('wheel', function(e) {
 
 
 
-
+// Service List 
 for (let serviceTitle of document.querySelectorAll('#Services .services-list li')) {
   
   serviceTitle.onmouseenter= function(e) { 
-    displayService(serviceTitle)
-    setActiveService(serviceTitle)
+    displayBox(serviceTitle,document.querySelectorAll('#Services .service'))
+    setActive(serviceTitle,document.querySelectorAll('#Services .services-list li'))
   };
 
   serviceTitle.addEventListener('click',function(e) {
-    displayService(serviceTitle)
-    setActiveService(serviceTitle)
+    displayBox(serviceTitle,document.querySelectorAll('#Services .service'))
+    setActive(serviceTitle,document.querySelectorAll('#Services .services-list li'))
+  });
+ 
+}
+
+
+// Portfolio List
+for (let portfolioIndex of document.querySelectorAll('#Portfolio .portfolio-controls .portfolio-index')) {
+
+  portfolioIndex.addEventListener('click',function(e) {
+    displayBox(portfolioIndex,document.querySelectorAll('#Portfolio .portfolio'))
+    setActive(portfolioIndex,document.querySelectorAll('#Portfolio .portfolio-controls a'))
   });
  
 }

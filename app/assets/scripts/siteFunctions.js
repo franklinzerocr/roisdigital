@@ -79,24 +79,31 @@ function preLoaderOff(){
 }
 
 
-
-function displayService(activeService) { 
-	console.log("displayService")
-  	for (let classItem of activeService.classList){
+function getPos(elem){
+	pos=""
+	for (let classItem of elem.classList){
     	if (classItem.indexOf("pos-")> -1) {
-	  		for (let serviceBox of document.querySelectorAll('#Services .services-container .service')) {
-	    		if (serviceBox.classList.contains(classItem))
-	    			serviceBox.style.display= "block"
-	    		else serviceBox.style.display= "none"
-	  		}
+    		pos=classItem
+    		break
     	}
-  	}
+    }
+    return pos
 }
-function setActiveService(activeService){
-  	for (let subServiceTitle of document.querySelectorAll('#Services .services-list li')) {
-	    subServiceTitle.classList.remove("active");
+
+
+function displayBox(active,boxes) { 
+	pos=getPos(active)
+	for (let box of boxes) {
+		if (box.classList.contains(pos))
+			box.style.display= "block"
+		else box.style.display= "none"
+	}
+}
+function setActive(active,list){
+  	for (let item of list) {
+	    item.classList.remove("active");
   	}
-  	activeService.classList.add("active");
+  	active.classList.add("active");
 }
 
 
