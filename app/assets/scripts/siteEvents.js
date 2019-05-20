@@ -3,6 +3,7 @@ document.querySelector('body').addEventListener('scroll', function(event){
   previousScrollPosition=this.scrollTop  
 });
 
+
 // Explore thhrough all the .scrollto anchor elements and add listeners
 for (let anchor of document.querySelectorAll('.scrollto')) {
   
@@ -12,47 +13,27 @@ for (let anchor of document.querySelectorAll('.scrollto')) {
     e.preventDefault();
     if (!loaded) return false;
     
-
     window.requestAnimationFrame(function() {
 
-      //Scroll to the target section
       let targetSection = e.target.href.split('#')[1];
-      window.history.pushState("object or string", "Title", "#"+targetSection);
-      document.querySelector('body').scroll({left: 0, top: document.querySelector('#'+targetSection).offsetTop , behavior: 'smooth'});
-
-      // Move menu elements outside screen
-      move("header .logo-container a").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
-      move("header .rois-logo-line").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
-      move("header .rois-logo-dot").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
-      move("header .secundary-rois-container").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
-      move("header #header_menu").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
-      move("header .rois-menu-line-thick").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
-      move("header .rois-menu-line-thin").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
+      scrollToTargetSectionID(targetSection)
+      menuOutOfScreen()
 
       setTimeout(function() {
-
+        
+        showSecundaryRoisOrLogo(targetSection)
         menuActiveSection(targetSection)
 
         // Move header menu to target section
         document.querySelector('header.header-container').style.top=document.querySelector('#'+targetSection).offsetTop
 
-
-        // Move menu inside screen again
-        move("header .logo-container a").set("margin-left",0).duration('0.2s').end()
-        move("header .rois-logo-line").set("margin-left",0).duration('0.2s').end()
-        move("header .rois-logo-dot").set("margin-left",0).duration('0.2s').end()
-        move("header .secundary-rois-container").set("margin-left",0).duration('0.2s').end()
-        setTimeout(function() {
-          move("header #header_menu").set("margin-left",0).duration('0.4s').end()
-          move("header .rois-menu-line-thick").set("margin-left",0).duration('0.4s').end()
-          move("header .rois-menu-line-thin").set("margin-left",0).duration('0.4s').end()
-        }, 100);
+        menuInsideScreen()
 
       }, 400);
+
     });
 
   })
-
 }
 
 // Disable events froms keyboard
@@ -125,7 +106,7 @@ document.querySelector('body').addEventListener('wheel', function(e) {
 
 
 
-// Service List 
+// Service List Navigation
 for (let serviceTitle of document.querySelectorAll('#Services .services-list li')) {
   
   serviceTitle.onmouseenter= function(e) { 
@@ -141,7 +122,7 @@ for (let serviceTitle of document.querySelectorAll('#Services .services-list li'
 }
 
 
-// Portfolio List
+// Portfolio List Navigation
 for (let portfolioIndex of document.querySelectorAll('#Portfolio .portfolio-controls .portfolio-index')) {
 
   portfolioIndex.addEventListener('click',function(e) {

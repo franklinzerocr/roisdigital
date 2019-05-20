@@ -2,6 +2,8 @@ var scrolling=0; //If scrolling animation
 var previousScrollPosition=0;  // the previos scroll position before scrolling starts
 var loaded=0; // if the page has loaded
 
+
+
 /*** JUMP SECTION SCROLL ***/
 
 function getActiveSectionIndex(){
@@ -15,6 +17,27 @@ function getActiveSectionIndex(){
 	}
 	return i;
 } 
+function getSectionIndex(id){
+	var i =0;
+	for (var section of document.querySelectorAll('Section')) {
+		if (section.getAttribute("id")== id ){
+			break;
+		}
+		i++;
+	}
+	return i;
+}
+function showSecundaryRoisOrLogo(targetSection){
+	targetSectionIndex=getSectionIndex(targetSection)
+	if (targetSectionIndex>0){
+		document.querySelector("header .logo-container").style.display="none"
+		document.querySelector("header .secundary-rois-container").style.display="inline-block"
+	} else {
+		document.querySelector("header .logo-container").style.display="inline-block"
+		document.querySelector("header .secundary-rois-container").style.display="none"
+	}
+
+}	
 function simulateClick (elem) {
 	// Create our event (with options)
 	var evt = new MouseEvent('click', {
@@ -24,7 +47,34 @@ function simulateClick (elem) {
 	});
 	// If cancelled, don't dispatch our event
 	var canceled = !elem.dispatchEvent(evt);
-}; 
+}
+function scrollToTargetSectionID(targetSection){
+  window.history.pushState("object or string", "Title", "#"+targetSection);
+  document.querySelector('body').scroll({left: 0, top: document.querySelector('#'+targetSection).offsetTop , behavior: 'smooth'});
+}
+function menuOutOfScreen(){
+  move("header .logo-container a").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
+  move("header .rois-logo-line").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
+  move("header .rois-logo-dot").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
+  move("header .animation-container").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
+  move("header .text-container.secundary-rois").set("margin-left",-document.querySelector("body").offsetWidth * 0.52).duration('0.2s').end()
+  move("header #header_menu").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
+  move("header .rois-menu-line-thick").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
+  move("header .rois-menu-line-thin").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
+}
+function menuInsideScreen(){
+  move("header .logo-container a").set("margin-left",0).duration('0.2s').end()
+  move("header .rois-logo-line").set("margin-left",0).duration('0.2s').end()
+  move("header .rois-logo-dot").set("margin-left",0).duration('0.2s').end()
+  move("header .animation-container").set("margin-left",0).duration('0.2s').end()
+  move("header .text-container.secundary-rois").set("margin-left",0).duration('0.2s').end()
+  setTimeout(function() {
+    move("header #header_menu").set("margin-left",0).duration('0.4s').end()
+    move("header .rois-menu-line-thick").set("margin-left",0).duration('0.4s').end()
+    move("header .rois-menu-line-thin").set("margin-left",0).duration('0.4s').end()
+  }, 100);
+}
+
 
 /*** - END - ***/
 
@@ -54,30 +104,7 @@ function menuActiveSection(activeSection){
 /*** - END - ***/
 
 
-
-
-
-/*** Rois Entering and breathing animation ***/
-function primaryRoisOn(){
-	startDelay= 500
-	animation1= 2900
-	setTimeout(function() {
-	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
-		setTimeout(function() {
-			document.querySelector(".animate.primary-rois.pos-1").style.display = 'none'
-			document.querySelector(".animate.primary-rois.pos-2").style.display = 'block'
-		}, animation1);
-	}, startDelay);
-}
-
-function preLoaderOff(){
-	loaded=1;
-	var loaderOff = move(".loader").set('display', "none")
-	document.querySelector(".page-content.loading").classList.remove("loading")
-  	move(".loader").set('opacity', 0).duration("0.5s")
-  		.then(loaderOff).end()
-}
-
+/***  NAVIGATION HELPERS ***/
 
 function getPos(elem){
 	pos=""
@@ -89,8 +116,6 @@ function getPos(elem){
     }
     return pos
 }
-
-
 function displayBox(active,boxes) { 
 	pos=getPos(active)
 	for (let box of boxes) {
@@ -107,6 +132,33 @@ function setActive(active,list){
 }
 
 
+/*** END ***/
+
+
+
+
+
+
+/*** ANIMATIONS ***/
+
+function primaryRoisOn(){
+	startDelay= 500
+	animation1= 2900
+	setTimeout(function() {
+	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
+		setTimeout(function() {
+			document.querySelector(".animate.primary-rois.pos-1").style.display = 'none'
+			document.querySelector(".animate.primary-rois.pos-2").style.display = 'block'
+		}, animation1);
+	}, startDelay);
+}
+function preLoaderOff(){
+	loaded=1;
+	var loaderOff = move(".loader").set('display', "none")
+	document.querySelector(".page-content.loading").classList.remove("loading")
+  	move(".loader").set('opacity', 0).duration("0.5s")
+  		.then(loaderOff).end()
+}
 
 
 
