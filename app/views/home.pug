@@ -67,7 +67,7 @@ block content
 										div.shadow-container
 											p(class='service-description')= service.Service_Description
 						+next_section_arrow("Portfolio")
-						
+
 		//- PORTFOLIO SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Portfolio"))
 			- portfolios= home.portfolios.data
@@ -187,8 +187,11 @@ block content
 							div.box-container-6
 								div.dark-line.short-line.thin-line.inline-line.margin-left-0
 								div.dark-line.medium-line.thin-line.inline-line.margin-left-20
-						div.box-container-7.right-sided.top-50.centered-y
-							img.contact-logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)
+						div.box-container-7.right-sided.top-50.centered-y.text-center
+							a(class='scrollto arrow-next', href='#Home') 
+								span ↑
+							a(class='scrollto', href='#Home') 
+								img.contact-logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)
 							
 block initScript
 	script(src='/scripts/homeInit.js')

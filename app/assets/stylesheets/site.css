@@ -1550,3 +1550,12 @@ header .secundary-rois-container{
   top: 7px;
   background:#242424; /* black */
 }
+#Contact-Us .box-container-7 .arrow-next{
+  position: relative;
+  left: 0px;
+  display: inline-block;
+}
+
+#Contact-Us .box-container-7 .contact-logo{
+  display: block;
+}
