@@ -1226,10 +1226,12 @@ header .secundary-rois-container{
 
 #Portfolio .box-container-6.portfolios-container .portfolio-controls .portfolio-index{
   margin: 0px 5px;
-  border: 1px solid #242424; /* black */
+  border-radius: 100%;
   display: inline-block;
   background: rgba(255,255,255,0.5);
-  width: 23px;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
   cursor: pointer;
   text-align: center;
 }

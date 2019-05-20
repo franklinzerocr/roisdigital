@@ -90,13 +90,13 @@ block content
 								div(class='portfolio pos-'+portfolio.Portfolio_Position)
 									img(class='portfolio-img overlayed', src=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
 									h4(class='portfolio-title') #{portfolio.Portfolio_Position}.- #{portfolio.Portfolio_Name}
-									p(class='portfolio-description') #{portfolio.Portfolio_Description}
+									p(class='portfolio-description')!= portfolio.Portfolio_Description
 							div.portfolio-controls
 								each portfolio in portfolios 
 									- if (portfolio.Portfolio_Position==1)
-										a(class="portfolio-index active pos-"+portfolio.Portfolio_Position)= portfolio.Portfolio_Position
+										a(class="portfolio-index active pos-"+portfolio.Portfolio_Position)
 									- else 
-										a(class="portfolio-index pos-"+portfolio.Portfolio_Position)= portfolio.Portfolio_Position
+										a(class="portfolio-index pos-"+portfolio.Portfolio_Position)
 						+social_sidebar(socialinks)
 						+next_section_arrow("Team")
 
