@@ -82,7 +82,7 @@ async function getTeamMembers(lang,database){
 	let result={};
 	try {
 	     result.data= await database.query(
-	        "SELECT tm.id TeamMember_Id, tm.name TeamMember_Name, tm.positionname_es TeamMember_PositionName_es, tm.positionname_en TeamMember_PositionName_en, tm.description_es TeamMember_Description_es, tm.description_en TeamMember_Description_en, tm.facebook TeamMember_Facebook, tm.instagram TeamMember_Instagram, tm.twitter TeamMember_Twitter, tm.website TeamMember_Website, tm.email TeamMember_Email, tm.position TeamMember_Position "+
+	        "SELECT tm.id TeamMember_Id, tm.name TeamMember_Name, tm.positionname_es TeamMember_PositionName_es, tm.positionname_en TeamMember_PositionName_en, tm.description_es TeamMember_Description_es, tm.description_en TeamMember_Description_en, tm.facebook TeamMember_Facebook, tm.instagram TeamMember_Instagram, tm.twitter TeamMember_Twitter, tm.github TeamMember_Github, tm.behance TeamMember_Behance, tm.website TeamMember_Website, tm.email TeamMember_Email, tm.position TeamMember_Position "+
 	        "FROM teammembers tm "+
 	        "ORDER BY TeamMember_Position"
 	    );
