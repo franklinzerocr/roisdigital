@@ -7,15 +7,12 @@ html(lang="es")
     link(rel="stylesheet", href="/stylesheets/bootstrap.css")
     link(rel="stylesheet", href="/stylesheets/site.css")
 block header
-    include _helpers.pug
-    include _mixins.pug
-    - loader =  layout.header.data[0].Medias[0]
-    - logo =  layout.header.data[1].Medias[0]
-    - secundaryRoisAnimations = layout.header.data[2].Medias
-    - secundaryRoisTexts = layout.header.data[2].Descriptions
+    include _helpers
+    include _mixins
+    - logo =  layout.header.data[0].Medias[0]
+    - secundaryRoisAnimations = layout.header.data[1].Medias
+    - secundaryRoisTexts = layout.header.data[1].Descriptions
     body
-        div.loader.full-size.fixed-screen
-                img.loading-gif(src=loader.Multimedia_Path, alt=loader.Multimedia_Description)
         header.container-fluid.header-container
             div.container
                 div.logo-container.col-md-5
@@ -47,8 +44,11 @@ block header
 block content
     div.page-content
 
-block messagebox
-    - messagesTexts = layout.footer.data[0].Descriptions
+block loader&messagebox
+    - loader =  layout.footer.data[0].Medias[0]
+    - messagesTexts = layout.footer.data[1].Descriptions
+    div.loader.full-size.fixed-screen
+            img.loading-gif(src=loader.Multimedia_Path, alt=loader.Multimedia_Description)
     div.message-box.full-size.fixed-screen
         div.message-text-container
             each text in messagesTexts
@@ -64,4 +64,4 @@ block scripts
     script(src="/scripts/smoothScroll.min.js")
     script(src='/scripts/siteEvents.js')
 
-block initscripts
+block initScript
