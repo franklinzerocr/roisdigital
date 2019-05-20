@@ -135,25 +135,25 @@ block content
 										h4.member-positionName= member.TeamMember_PositionName
 									div.member-links-container
 										- if (member.TeamMember_Instagram)
-											a(href=member.TeamMember_Instagram, target="_blank")
+											a(href=member.TeamMember_Instagram, target="_blank", title="instagram")
 												i.fa.fa-instagram
 										- if (member.TeamMember_Facebook)
-											a(href=member.TeamMember_Facebook, target="_blank")
+											a(href=member.TeamMember_Facebook, target="_blank", title="facebook")
 												i.fa.fa-facebook
 										- if (member.TeamMember_Twitter)
-											a(href=member.TeamMember_Twitter, target="_blank")
+											a(href=member.TeamMember_Twitter, target="_blank", title="twitter")
 												i.fa.fa-twitter
 										- if (member.TeamMember_Github)
-											a(href=member.TeamMember_Github, target="_blank")
+											a(href=member.TeamMember_Github, target="_blank", title="github")
 												i.fa.fa-github
 										- if (member.TeamMember_Behance)
-											a(href=member.TeamMember_Behance, target="_blank")
+											a(href=member.TeamMember_Behance, target="_blank", title="behance")
 												i.fa.fa-behance
 										- if (member.TeamMember_Website)
-											a(href=member.TeamMember_Website, target="_blank")
+											a(href=member.TeamMember_Website, target="_blank", title="website")
 												i.fa.fa-globe
 										- if (member.TeamMember_Email)
-											a(href='https://mail.google.com/mail/?view=cm&fs=1&to='+member.TeamMember_Email, target="_blank")
+											a(href='https://mail.google.com/mail/?view=cm&fs=1&to='+member.TeamMember_Email, target="_blank", title="email")
 												i.fa.fa-envelope
 						+next_section_arrow("Contact")
 
