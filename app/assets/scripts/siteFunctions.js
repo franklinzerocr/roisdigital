@@ -13,7 +13,8 @@ var timeDelayPreloaderOff= 400
 var timeDelayPrimayText=2750
 var timeDelayPrimaryRoisAnimation1= 100
 
-var messageBox="";
+// Original URL of page
+var originalURL=window.location.href;
 
 
 
@@ -88,8 +89,7 @@ function menuInsideScreen(){
   }, 100);
 }
 
-
-/*** - END - ***/
+/*** END OF - JUMP SECTION SCROLL ***/
 
 
 
@@ -115,7 +115,7 @@ function menuActiveSection(activeSection){
 	}
 }
 
-/*** - END - ***/
+/*** END OF - ACTIVE SECTION ON MENU ***/
 
 
 
@@ -163,26 +163,8 @@ function arrowNavigation(active,step){
 }
 
 
-/*** END ***/
+/*** END OF - NAVIGATION HELPERS ***/
 
-
-
-
-/*** MESSAGES BOX ***/
-
-
-function showMessage(){
-  	if(messageBox.indexOf("#Contacted") > -1) {
-  		setTimeout(function() {
-  			document.querySelector(".message-box").style.display="block"
-  			document.querySelector(".message-box").style.opacity=1
-  			document.querySelector(".message-box .message-text.pos-1").style.display="table-cell"
-  		}, timeDelayPreloaderOff);
-  	}
-}
-
-
-/*** END ***/
 
 
 
@@ -232,3 +214,72 @@ function preLoaderOff(){
   		.then(loaderOff).end()
 }
 
+/*** END OF - ANIMATIONS ***/
+
+
+
+
+/*** MESSAGES BOX ***/
+
+
+function showMessage(){
+  	if(originalURL.indexOf("#Contacted") > -1) {
+  		setTimeout(function() {
+  			document.querySelector(".message-box").style.display="block"
+  			document.querySelector(".message-box").style.opacity=1
+  			document.querySelector(".message-box .message-text.pos-1").style.display="table-cell"
+  		}, timeDelayPreloaderOff);
+  	}
+}
+
+
+/*** END OF - MESSAGE BOX ***/
+
+
+
+
+/*** INIT SMOOTHSCROLL ***/
+
+function initSmoothscroll(){
+	var lastTime = 0;
+	var vendors = ['ms', 'moz', 'webkit', 'o'];
+	for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+		window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+		window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+		|| window[vendors[x]+'CancelRequestAnimationFrame'];
+	}
+
+	if (!window.requestAnimationFrame)
+		window.requestAnimationFrame = function(callback, element) {
+			var currTime = new Date().getTime();
+			var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+			var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+			timeToCall);
+			lastTime = currTime + timeToCall;
+			return id;
+		};
+
+	if (!window.cancelAnimationFrame)
+		window.cancelAnimationFrame = function(id) {
+		clearTimeout(id);
+	};
+}
+
+/*** END OF - INIT SMOOTHSCROLL ***/
+
+
+
+
+/*** AFTER RELOADING ***/
+
+function resetPosition(){
+	if(originalURL.indexOf("#") > -1) {
+		activeSection=getActiveSectionIndex()
+		targetSection=document.querySelectorAll('Section')[activeSection].getAttribute("id")
+		simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
+		menuActiveSection(targetSection)
+		window.history.pushState("object or string", "Title", "/");
+    }
+}
+
+/*** END OF - AFTER RELOADING ***/
