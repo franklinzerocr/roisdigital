@@ -14,8 +14,8 @@ block header
     - secundaryRoisAnimations = layout.header.data[2].Medias
     - secundaryRoisTexts = layout.header.data[2].Descriptions
     body
-        div.loader.full-size
-            img.loading-gif(src=loader.Multimedia_Path, alt=loader.Multimedia_Description)
+        div.loader.full-size.fixed-screen
+                img.loading-gif(src=loader.Multimedia_Path, alt=loader.Multimedia_Description)
         header.container-fluid.header-container
             div.container
                 div.logo-container.col-md-5
@@ -33,7 +33,7 @@ block header
                         div.shadow-container.secundary-rois
                             div.figure-box.secundary-rois
                         each text in secundaryRoisTexts
-                            h5(class='text secundary-rois pos-'+text.ContentDescription_Position)= text.ContentDescription_Description
+                            h5(class='text secundary-rois pos-'+text.ContentDescription_Position)!= text.ContentDescription_Description
                 //- END OF SECUNDARY ROIS
                 div.menu-container.col-md-7
                     ul#header_menu
@@ -47,14 +47,21 @@ block header
 block content
     div.page-content
 
+block messagebox
+    - messagesTexts = layout.footer.data[0].Descriptions
+    div.message-box.full-size.fixed-screen
+        div.message-text-container
+            each text in messagesTexts
+                p(class='message-text pos-'+text.ContentDescription_Position)!= text.ContentDescription_Description
+
 block footer
     footer.container-fluid.footer-container
         div.container
 
 block scripts
-    
-
     script(src="/scripts/move.min.js")
     script(src='/scripts/siteFunctions.js')
     script(src="/scripts/smoothscroll.js")
     script(src='/scripts/siteEvents.js')
+
+block initscripts

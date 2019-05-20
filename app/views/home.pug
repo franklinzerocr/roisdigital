@@ -16,7 +16,7 @@ block content
 							div.black-background.corner-left.corner-top.primary-rois
 							div.figure-box.primary-rois
 						each text in primaryRoisTexts
-							h5(class='text primary-rois pos-'+text.ContentDescription_Position)!= text.ContentDescription_Description
+							h5(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )
 						div.dark-line.medium-line.thin-line.margin-left-20
 						div.light-line.medium-line.thin-line.margin-left-40
 					div.animated-rois-container.inner-columns.col-md-8
@@ -121,9 +121,9 @@ block content
 							each member in teamMembers
 								div(class='col-md-3 member pos-'+member.TeamMember_Position)
 									div.member-controls.text-center
-										span.prev-arrow ←
+										span(class="arrow prev-arrow pos-"+member.Medias.length, attr-length=member.Medias.length) ←
 										span.point •
-										span.next-arrow →
+										span(class="arrow next-arrow pos-"+2, attr-length=member.Medias.length) →
 									div.member-img-container
 										div.black-background.left-0.top-0
 											p.member-description.top-50.left-50.centered-xy=member.TeamMember_Description
@@ -188,3 +188,6 @@ block content
 								div.dark-line.medium-line.thin-line.inline-line.margin-left-20
 						div.box-container-7.right-sided.top-50.centered-y
 							img.contact-logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)
+							
+block initscripts
+	script(src='/scripts/homeInit.js')

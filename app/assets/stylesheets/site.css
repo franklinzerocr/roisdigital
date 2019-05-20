@@ -505,6 +505,34 @@ img.dead-link-img{
   height: 100%;
 }
 
+@keyframes arrowColorAnimation{
+  0%   { opacity: 1; }
+  25%   { opacity: 1; }
+  50%   { opacity: 0; }
+  75%   { opacity: 1; }
+  100%   { opacity: 1; }
+}
+@-o-keyframes arrowColorAnimation{
+  0%   { opacity: 1; }
+  25%   { opacity: 1; }
+  50%   { opacity: 0; }
+  75%   { opacity: 1; }
+  100%   { opacity: 1; }
+}
+@-moz-keyframes arrowColorAnimation{
+  0%   { opacity: 1; }
+  25%   { opacity: 1; }
+  50%   { opacity: 0; }
+  75%   { opacity: 1; }
+  100%   { opacity: 1; }
+}
+@-webkit-keyframes arrowColorAnimation{
+  0%   { opacity: 1; }
+  25%   { opacity: 1; }
+  50%   { opacity: 0; }
+  75%   { opacity: 1; }
+  100%   { opacity: 1; }
+}
 
 .arrow-next{
   border: 1px solid black;
@@ -518,6 +546,12 @@ img.dead-link-img{
   text-align: center;
   cursor: pointer;
   font-size: 30px;
+}
+#Home .arrow-next span{
+  -webkit-animation: arrowColorAnimation 3s infinite;
+  -moz-animation: arrowColorAnimation 3s infinite;
+  -o-animation: arrowColorAnimation 3s infinite;
+  animation: arrowColorAnimation 3s infinite;
 }
 
 .arrow-next:hover{
@@ -566,10 +600,15 @@ section .container > .inner-columns{
   z-index: 5;
 }
 
+.fixed-screen{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 10000000000;
+}
+
 
 .loader{
-  position: absolute;
-  z-index: 10000000000;
   background: white;
 }
 
@@ -599,10 +638,10 @@ section .container > .inner-columns{
   100% { opacity:1; }
 }
 .loading-gif {
-   -webkit-animation: flickerAnimation 1.5s infinite;
-   -moz-animation: flickerAnimation 1.5s infinite;
-   -o-animation: flickerAnimation 1.5s infinite;
-    animation: flickerAnimation 1.5s infinite;
+  -webkit-animation: flickerAnimation 1.5s infinite;
+  -moz-animation: flickerAnimation 1.5s infinite;
+  -o-animation: flickerAnimation 1.5s infinite;
+  animation: flickerAnimation 1.5s infinite;
 }
 
 .loading-gif{
@@ -614,6 +653,40 @@ section .container > .inner-columns{
   transform: translate(-50%,-50%);
 }
 
+.message-box{
+  display: none;
+  background: rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.message-box .message-text-container{
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  width: 280px;
+  min-height: 100px;
+  padding: 10px 15px;
+  background: white;
+  -webkit-box-shadow: inset 0px 0px 5px 5px rgba(255, 208, 78,0.8);
+  display: table;
+  cursor: pointer;
+}
+
+.message-box .message-text-container .message-text{
+  margin: 0px;
+  text-align: center;
+  font-family: "Bebas Neue";
+  font-size:20px;
+  vertical-align: middle;
+  display: none;
+  /*display: table-cell;*/
+}
+
+.message-box .message-text-container .message-text b{
+  font-family: "Bebas Neue Bold";
+}
 
 
 
@@ -832,6 +905,11 @@ header .secundary-rois-container{
   background: white;
   padding-left: 20px;
   padding: 13.5px;
+  height: 257px;
+}
+#Home .text-container.primary-rois{
+  opacity: 0;
+  transition: 0.5s;
 }
 
 #Home .primary-rois-container .text-container.primary-rois .dark-line{
@@ -1257,7 +1335,13 @@ header .secundary-rois-container{
   top: -10px;
 }
 #Team .member .member-controls .point{
-  cursor: auto;
+  cursor: default;
+}
+#Team .member .member-controls .point::selection, 
+#Team .member .member-controls .prev-arrow::selection,
+#Team .member .member-controls .next-arrow::selection{
+  background: none;
+  color:#242424;
 }
 
 #Team .member .member-controls .prev-arrow,
@@ -1288,7 +1372,7 @@ header .secundary-rois-container{
   width: 50%;
   color: white;
   font-family: "Roboto Bold";
-  display: none;
+  display: block;
 
 }
 
@@ -1298,9 +1382,13 @@ header .secundary-rois-container{
   position: relative;
   display: none;
   z-index: 0;
+  transition: 0.5s;
 }
 #Team .member .member-img.pos-1{
   display: block;
+}
+#Team .member .member-img:hover{
+  opacity: 0.2;
 }
 
 #Team .member .member-info-container{

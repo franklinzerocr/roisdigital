@@ -2,6 +2,19 @@ var scrolling=0; //If scrolling animation
 var previousScrollPosition=0;  // the previos scroll position before scrolling starts
 var loaded=0; // if the page has loaded
 
+// typewriter function global params
+var typeWriterDestination=null 
+var typeWriterIndex =0;
+var typeWriterSpeed=0;
+var typeWriterText=""
+
+// Primary Rois Animation Variables
+var timeDelayPreloaderOff= 400
+var timeDelayPrimayText=2750
+var timeDelayPrimaryRoisAnimation1= 100
+
+var messageBox="";
+
 
 
 /*** JUMP SECTION SCROLL ***/
@@ -80,6 +93,7 @@ function menuInsideScreen(){
 
 
 
+
 /*** ACTIVE SECTION ON MENU ***/
 
 function menuActiveSection(activeSection){
@@ -102,6 +116,8 @@ function menuActiveSection(activeSection){
 }
 
 /*** - END - ***/
+
+
 
 
 /***  NAVIGATION HELPERS ***/
@@ -130,6 +146,21 @@ function setActive(active,list){
   	}
   	active.classList.add("active");
 }
+function arrowNavigation(active,step){
+	pos=getPos(active)
+	posLength=active.getAttribute("attr-length")
+	active.classList.remove(pos)
+	
+
+	pos=Number(pos.split("-")[1])
+	newpos=pos+step
+
+	if (newpos>posLength)
+		active.classList.add("pos-"+1)
+	else if (newpos<1)
+		active.classList.add("pos-"+posLength)
+	else active.classList.add("pos-"+newpos)
+}
 
 
 /*** END ***/
@@ -137,20 +168,61 @@ function setActive(active,list){
 
 
 
+/*** MESSAGES BOX ***/
+
+
+function showMessage(){
+  	if(messageBox.indexOf("#Contacted") > -1) {
+  		setTimeout(function() {
+  			document.querySelector(".message-box").style.display="block"
+  			document.querySelector(".message-box").style.opacity=1
+  			document.querySelector(".message-box .message-text.pos-1").style.display="table-cell"
+  		}, timeDelayPreloaderOff);
+  	}
+}
+
+
+/*** END ***/
+
+
 
 
 /*** ANIMATIONS ***/
-
+function typeWriter() {
+  	if (typeWriterIndex < typeWriterText.length) {
+  		window.requestAnimationFrame(function() {
+	    	typeWriterDestination.innerHTML = typeWriterText.substring(0, typeWriterIndex)+"_";
+		});
+	    typeWriterIndex++;
+	    setTimeout(typeWriter, typeWriterSpeed);
+  	}else 
+	  	window.requestAnimationFrame(function() {
+	  		typeWriterDestination.innerHTML = typeWriterText
+	  	});
+}
+function typeWriterAnimation(element,velocity){
+	typeWriterDestination=element
+	typeWriterIndex =0;
+	typeWriterSpeed=velocity;
+	typeWriterText=typeWriterDestination.getAttribute("attr-text")
+	typeWriter()
+}
 function primaryRoisOn(){
-	startDelay= 500
-	animation1= 2900
 	setTimeout(function() {
 	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
+
 		setTimeout(function() {
-			document.querySelector(".animate.primary-rois.pos-1").style.display = 'none'
-			document.querySelector(".animate.primary-rois.pos-2").style.display = 'block'
-		}, animation1);
-	}, startDelay);
+			document.querySelector("#Home .text-container.primary-rois").style.opacity=1
+			typeWriterAnimation(document.querySelector(".text.primary-rois"),20)
+
+			setTimeout(function() {
+				document.querySelector(".animate.primary-rois.pos-1").style.display = 'none'
+				document.querySelector(".animate.primary-rois.pos-2").style.display = 'block'
+			}, timeDelayPrimaryRoisAnimation1);
+
+		}, timeDelayPrimayText);
+
+	}, timeDelayPreloaderOff);
 }
 function preLoaderOff(){
 	loaded=1;
@@ -160,57 +232,3 @@ function preLoaderOff(){
   		.then(loaderOff).end()
 }
 
-
-
-/*** OnLoad ***/
-
-window.onload = function() {
-	preLoaderOff()
-  	primaryRoisOn()
-};
-
-/*** - END - ***/
-
-
-
-/*** init ***/
-
-(function() {
-
-	/**** SMOOTHSCROLL ***/
-	var lastTime = 0;
-	var vendors = ['ms', 'moz', 'webkit', 'o'];
-	for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-		window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-		window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
-		|| window[vendors[x]+'CancelRequestAnimationFrame'];
-	}
-
-	if (!window.requestAnimationFrame)
-		window.requestAnimationFrame = function(callback, element) {
-			var currTime = new Date().getTime();
-			var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-			var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-			timeToCall);
-			lastTime = currTime + timeToCall;
-			return id;
-		};
-
-	if (!window.cancelAnimationFrame)
-		window.cancelAnimationFrame = function(id) {
-		clearTimeout(id);
-	};
-	/*** - END - ***/
-
-
-	// Reset the page after reload
-	if(window.location.href.indexOf("#") > -1) {
-		activeSection=getActiveSectionIndex()
-		targetSection=document.querySelectorAll('Section')[activeSection].getAttribute("id")
-		simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
-		menuActiveSection(targetSection)
-		window.history.pushState("object or string", "Title", "/");
-    }
-
-
-}());

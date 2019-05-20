@@ -8,4 +8,5 @@ mixin social_sidebar(socialinks)
 
 mixin next_section_arrow(section)
 	- if (section=="Contact") section+="-Us"
-	a(class='scrollto arrow-next', href='#'+section) ↓
+	a(class='scrollto arrow-next', href='#'+section) 
+		span ↓

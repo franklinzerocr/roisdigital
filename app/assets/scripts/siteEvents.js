@@ -15,7 +15,7 @@ for (let anchor of document.querySelectorAll('.scrollto')) {
     
     window.requestAnimationFrame(function() {
 
-      let targetSection = e.target.href.split('#')[1];
+      let targetSection = anchor.getAttribute("href").split('#')[1];
       scrollToTargetSectionID(targetSection)
       menuOutOfScreen()
 
@@ -132,3 +132,22 @@ for (let portfolioIndex of document.querySelectorAll('#Portfolio .portfolio-cont
  
 }
 
+
+// Team Arrows Navigation
+for (let arrow of document.querySelectorAll('#Team .member .member-controls .arrow')) {
+  arrow.addEventListener('click',function(e) {
+    displayBox(arrow,arrow.parentElement.parentElement.querySelectorAll(".member-img"))
+    if (arrow.classList.contains("next-arrow")){
+      arrowNavigation(arrow,1)
+      arrowNavigation(arrow.parentElement.querySelector(".prev-arrow"),1)
+    }else  if (arrow.classList.contains("prev-arrow")){
+      arrowNavigation(arrow,-1)
+      arrowNavigation(arrow.parentElement.querySelector(".next-arrow"),-1)
+    }
+  })
+}
+
+// Close Message Box
+document.querySelector(".message-box").addEventListener("click",function(){
+  this.style.display="none"
+})
