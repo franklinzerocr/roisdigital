@@ -9,17 +9,18 @@ html(lang="es")
 block header
     include _helpers.pug
     include _mixins.pug
-    - logoType =  layout.header.data[0].Medias[0]
-    - secundaryRoisAnimations = layout.header.data[1].Medias
-    - secundaryRoisTexts = layout.header.data[1].Descriptions
+    - loader =  layout.header.data[0].Medias[0]
+    - logo =  layout.header.data[1].Medias[0]
+    - secundaryRoisAnimations = layout.header.data[2].Medias
+    - secundaryRoisTexts = layout.header.data[2].Descriptions
     body
         div.loader.full-size
-            div.loading-gif
+            img.loading-gif(src=loader.Multimedia_Path, alt=loader.Multimedia_Description)
         header.container-fluid.header-container
             div.container
                 div.logo-container.col-md-5
                     a(href='/')
-                        img#header_logo(src=logoType.Multimedia_Path, alt=logoType.Multimedia_Description)
+                        img#header_logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)
                     div.rois-logo-line
                     div.rois-logo-dot
                 //- SECUNDARY ROIS

@@ -60,7 +60,7 @@ function menuActiveSection(activeSection){
 /*** Rois Entering and breathing animation ***/
 function primaryRoisOn(){
 	startDelay= 500
-	animation1= 3000
+	animation1= 3300
 	setTimeout(function() {
 	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
 		setTimeout(function() {

@@ -101,7 +101,7 @@ block content
 
 		//- TEAM SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Team"))
-			- positiveLogotype = home.contents.data[2].Medias[0]
+			- positiveLogo = home.contents.data[2].Medias[0]
 			- teamMembers = home.teamMembers.data
 			section#Team
 				div.container
@@ -112,7 +112,7 @@ block content
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0
 							div.dark-line.short-line.thin-line.inline-line.margin-left-60
 						div.box-container-3.top-50.left-50.text-center.centered-x
-							img.positive-logotype(src=positiveLogotype.Multimedia_Path,alt=positiveLogotype.Multimedia_Description)
+							img.positive-logotype(src=positiveLogo.Multimedia_Path,alt=positiveLogo.Multimedia_Description)
 							div.dark-line.medium-line.thin-line.margin-left-30.margin-top-15
 							div.dark-line.medium-line.thin-line.margin-left-0.margin-top-5.centered-x-25
 						div.box-container-4.top-40.left-70
@@ -187,4 +187,4 @@ block content
 								div.dark-line.short-line.thin-line.inline-line.margin-left-0
 								div.dark-line.medium-line.thin-line.inline-line.margin-left-20
 						div.box-container-7.right-sided.top-50.centered-y
-							img.contact-logo(src=logoType.Multimedia_Path, alt=logoType.Multimedia_Description)
+							img.contact-logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)
