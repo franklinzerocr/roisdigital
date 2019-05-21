@@ -348,6 +348,12 @@ img.dead-link-img{
 }  
 .top-20{
   top: 20%;
+} 
+.top-225{
+  top: 22.5%;
+} 
+.top-325{
+  top: 32.5%;
 }
 .top-40{
   top: 40%;
@@ -495,10 +501,14 @@ img.dead-link-img{
   text-align: center;
   width: 35px;
   position: relative;
+  margin-bottom: 0px;
 }
 .social-links li{
   position: relative;
   margin-bottom: 15px;
+}
+.social-links li:last-child{
+  margin: 0px;
 }
 .social-links li a{ 
   display: inline-block;
@@ -547,7 +557,8 @@ img.dead-link-img{
   cursor: pointer;
   font-size: 30px;
 }
-#Home .arrow-next span{
+#Home .arrow-next span,
+#Contact-Us .arrow-next span{
   -webkit-animation: arrowColorAnimation 3s infinite;
   -moz-animation: arrowColorAnimation 3s infinite;
   -o-animation: arrowColorAnimation 3s infinite;
@@ -794,6 +805,9 @@ header .secundary-rois-container .animation-container{
   width: 100px;
   display: inline-block;
   vertical-align: middle;
+}
+header .secundary-rois-container .animation-container .itsatrap{
+  width: 100px;
 }
 
 header .secundary-rois-container .animate.secundary-rois{
@@ -1286,8 +1300,7 @@ header .secundary-rois-container{
 
 #Portfolio .arrow-next{
   left: 50%;
-  transform: translateX(-50%)
-  ;
+  transform: translateX(-50%);
 }
 
 
@@ -1314,14 +1327,7 @@ header .secundary-rois-container{
   width: 80px;
 }
 
-#Team .box-container-4{
-  position: absolute;
-  width: 20%;
-  height: 20%;
-  z-index: -1;
-}
-
-#Team .box-container-5.teamMembers-container{
+#Team .box-container-4.teamMembers-container{
   position: absolute;
   width: 100%;
 }
@@ -1454,12 +1460,12 @@ header .secundary-rois-container{
 
 #Contact-Us .box-container-1{
   width: 30%; 
-  height: 50%;
+  height: 262px;
   position: absolute;
 }
 
 #Contact-Us .box-container-1 .social-links-container{
-  transform: translate(-50%, -33%);
+  transform: translate(-50%, -50%);
 }
 
 #Contact-Us .box-container-2{
@@ -1552,12 +1558,14 @@ header .secundary-rois-container{
   top: 7px;
   background:#242424; /* black */
 }
-#Contact-Us .box-container-7 .arrow-next{
-  position: relative;
-  left: 0px;
-  display: inline-block;
-}
+
 
 #Contact-Us .box-container-7 .contact-logo{
   display: block;
+}
+
+
+#Contact-Us .arrow-next{
+  left: 50%;
+  transform: translateX(-50%);
 }

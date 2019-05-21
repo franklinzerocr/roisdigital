@@ -9,7 +9,6 @@ for (let anchor of document.querySelectorAll('.scrollto')) {
   
   // Click the anchor link, go to target section and animate menu
   anchor.addEventListener('click',function(e) {
-
     e.preventDefault();
     if (!loaded) return false;
     
@@ -37,12 +36,20 @@ for (let anchor of document.querySelectorAll('.scrollto')) {
 }
 
 // Disable events froms keyboard
-document.querySelector('body').addEventListener("keyup", function(e) {e.preventDefault();});
-document.querySelector('body').addEventListener("keypress", function(e) {e.preventDefault();});
+document.querySelector('body').addEventListener("keyup", function(e) {
+  if (focusForm && [33, 34].indexOf(e.keyCode) <= -1 ) return true;
+  e.preventDefault();
+});
+document.querySelector('body').addEventListener("keypress", function(e) {
+  if (focusForm && [33, 34].indexOf(e.keyCode) <= -1 ) return true;
+  e.preventDefault();
+});
 
 
 // Enable keydown from these navigation keys only to trigger click on respective anchor link
 document.querySelector('body').addEventListener("keydown", function(e) {
+    if (focusForm && [33, 34].indexOf(e.keyCode) <= -1 ) return true;
+
     var activeSection = getActiveSectionIndex();
     // lef, right keys:
     if([37,39].indexOf(e.keyCode) > -1) {
@@ -151,3 +158,13 @@ for (let arrow of document.querySelectorAll('#Team .member .member-controls .arr
 document.querySelector(".message-box").addEventListener("click",function(){
   this.style.display="none"
 })
+
+// Flag for keydown
+for (let input of document.querySelectorAll('input,textarea')) {
+  input.onfocus=function(){
+    focusForm=1;
+  }
+  input.onblur=function(){
+    focusForm=0;
+  }
+}

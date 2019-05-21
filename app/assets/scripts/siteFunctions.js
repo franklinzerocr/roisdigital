@@ -16,6 +16,9 @@ var timeDelayPrimaryRoisAnimation1= 100
 // Original URL of page
 var originalURL=window.location.href;
 
+// Flag if form is focus
+var focusForm=0;
+
 
 
 /*** JUMP SECTION SCROLL ***/
