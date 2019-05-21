@@ -49,14 +49,12 @@ app.use(async (ctx, next) => {
 // Configure router
 loadRoutes(router)
 app.use(router.routes())
-// app.use(router.allowedMethods())
+app.use(router.allowedMethods())
 
 // Reroute to Dead Link whenever 404 
 app.use(async (ctx, next) => {
 	ctx.redirect('/Dead-Link')
-	var err = new Error('Not Found');
-  	err.status = 404;
-	await next(err);
+	await next();
 }); 
 
 // Start the app
