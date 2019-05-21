@@ -146,7 +146,6 @@ function displayBox(active,boxes,display="") {
 	pos=getPos(active)
 	for (let box of boxes) {
 		if (box.classList.contains(pos)){
-			console.log(pos)
 			if (display) {box.style.display= display;} 
 			else {box.style.display= "block";}
 		}else box.style.display= "none"
