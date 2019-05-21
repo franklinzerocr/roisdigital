@@ -10,7 +10,7 @@ var typeWriterText=""
 
 // Primary Rois Animation Variables
 var timeDelayPreloaderOff= 400
-var timeDelayPrimayText=2700
+var timeDelayPrimayText=2750
 var timeDelayPrimaryRoisAnimation1= 100
 
 // Original URL of page
@@ -19,7 +19,12 @@ var originalURL=window.location.href;
 // Flag if form is focus
 var focusForm=0;
 
+// Flags for section first time visited 
+var sectionFirstTime=[0,1,1,1,1]
 
+// Delays to show secundary text
+var shortDelay= 700;
+var longDelay= 2500;
 
 /*** JUMP SECTION SCROLL ***/
 
@@ -44,23 +49,31 @@ function getSectionIndex(id){
 	}
 	return i;
 }
-function showSecundaryRoisOrLogo(targetSectionIndex){
+function firstTimeScrollingToSection(targetSectionIndex){
+	if (!sectionFirstTime[targetSectionIndex]) return 0;
+	sectionFirstTime[targetSectionIndex]=0;
+	return 1;
+}
+function showSecundaryRoisOrLogo(targetSectionIndex,firstTime=0){
 	if (targetSectionIndex>0){ // Show Secundary ROis
 		document.querySelector("header .secundary-rois-container").style.display="inline-block"
 		document.querySelector("header .logo-container").style.display="none"
-		showSecundaryText(targetSectionIndex)
+		showSecundaryText(targetSectionIndex,firstTime)
 	} else { // Show Logo
 		document.querySelector("header .logo-container").style.display="inline-block"
 		document.querySelector("header .secundary-rois-container").style.display="none"
 	}
 }	
-function showSecundaryText(pos){
+function showSecundaryText(pos,firstTime){
 	activeSecundaryText=document.querySelector(".text.secundary-rois.pos-"+pos)
 	displayBox(activeSecundaryText,document.querySelectorAll(".text.secundary-rois"),"table-cell")
 	activeSecundaryText.innerHTML=""
+	delayToShowText=shortDelay;
+	if (firstTime) delayToShowText=longDelay;
 	setTimeout(function() {
+		
 		typeWriterAnimation(activeSecundaryText,30)
-	}, 600);
+	}, delayToShowText);
 }
 function simulateClick (elem) {
 	// Create our event (with options)
@@ -224,6 +237,11 @@ function preLoaderOff(){
 	document.querySelector(".page-content.loading").classList.remove("loading")
   	move(".loader").set('opacity', 0).duration("0.5s")
   		.then(loaderOff).end()
+}
+function animateEnteringSection(){
+	for (let element of document.querySelectorAll(".transition")){
+		element.classList.remove("transition")
+	}
 }
 
 /*** END OF - ANIMATIONS ***/

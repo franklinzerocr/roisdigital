@@ -13,21 +13,24 @@ for (let anchor of document.querySelectorAll('.scrollto')) {
     if (!loaded) return false;
     
     window.requestAnimationFrame(function() {
-
       let targetSection = anchor.getAttribute("href").split('#')[1];
       let targetSectionIndex=getSectionIndex(targetSection)
+
       scrollToTargetSectionID(targetSection)
       menuOutOfScreen()
 
       setTimeout(function() {
-        
-        showSecundaryRoisOrLogo(targetSectionIndex)
-        
-        setTimeout(function() {
+        if (firstTimeScrollingToSection(targetSectionIndex)) {
+          showSecundaryRoisOrLogo(targetSectionIndex,1)
+          animateEnteringSection(targetSection)
+        }else 
+          showSecundaryRoisOrLogo(targetSectionIndex)
 
+
+        setTimeout(function() {
           menuActiveSection(targetSection)
 
-          // Move header menu to target section
+          // Move header to target section
           document.querySelector('header.header-container').style.top=document.querySelector('#'+targetSection).offsetTop
 
           menuInsideScreen()
@@ -51,11 +54,12 @@ document.querySelector('body').addEventListener("keypress", function(e) {
 });
 
 
-// Enable keydown from these navigation keys only to trigger click on respective anchor link
+// Enable keydown from these navigation keys only, to trigger click on respective anchor link
 document.querySelector('body').addEventListener("keydown", function(e) {
     if (focusForm && [33, 34].indexOf(e.keyCode) <= -1 ) return true;
 
     var activeSection = getActiveSectionIndex();
+
     // lef, right keys:
     if([37,39].indexOf(e.keyCode) > -1) {
       e.preventDefault();
@@ -84,7 +88,6 @@ document.querySelector('body').addEventListener("keydown", function(e) {
     else if([ 33, 38].indexOf(e.keyCode) > -1) {
       e.preventDefault();
       if (activeSection> 0 ){ // up 
-
         targetSection=document.querySelectorAll('Section')[activeSection-1].getAttribute("id")
         simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
  
@@ -92,7 +95,7 @@ document.querySelector('body').addEventListener("keydown", function(e) {
     }
 }, false);
 
-// Flag for keydown
+// Flag for enabling keyboard on forms
 for (let input of document.querySelectorAll('input,textarea')) {
   input.onfocus=function(){
     focusForm=1;
@@ -157,6 +160,7 @@ for (let portfolioIndex of document.querySelectorAll('#Portfolio .portfolio-cont
 
 // Team Arrows Navigation
 for (let arrow of document.querySelectorAll('#Team .member .member-controls .arrow')) {
+
   arrow.addEventListener('click',function(e) {
     displayBox(arrow,arrow.parentElement.parentElement.querySelectorAll(".member-img"))
     if (arrow.classList.contains("next-arrow")){
@@ -167,6 +171,7 @@ for (let arrow of document.querySelectorAll('#Team .member .member-controls .arr
       arrowNavigation(arrow.parentElement.querySelector(".next-arrow"),-1)
     }
   })
+  
 }
 
 // Close Message Box

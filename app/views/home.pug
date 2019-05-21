@@ -50,15 +50,15 @@ block content
 								- else 
 									li(class='pos-'+service.Service_Position )
 										span=service.Service_Name
-						div.thin-line.medium-line.dark-line.margin-left-80
-						div.thin-line.medium-line.light-line.margin-left-70
+						div.thin-line.medium-line.dark-line.margin-left-80.transition.mid-entering-transition.slide-from-left
+						div.thin-line.medium-line.light-line.margin-left-70.transition.mid-entering-transition.slide-from-left
 
 					div.inner-columns.col-md-8
 						div.box-container-1.shadow-container.corner-right.corner-top
-							div.yellow-background.full-size
+							div.yellow-background.full-size.transition.slow-entering-transition.slide-from-top
 						div.box-container-2.shadow-container.box-container.margin-left-20.bottom
-							div.bordered.full-size.thick-border
-						div.box-container-3.services-container
+							div.bordered.full-size.thick-border.transition.mid-entering-transition.slide-from-right
+						div.box-container-3.services-container.transition.mid-entering-transition.opacity
 								each service in services
 									div(class='service pos-'+service.Service_Position)
 										div(class='shadow-container service-img-container')

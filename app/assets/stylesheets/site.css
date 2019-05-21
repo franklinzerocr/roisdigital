@@ -599,6 +599,7 @@ section{
   min-height: 48.1vw;
   height: 100vh;
   max-height: 658.125px;
+  overflow: hidden;
 }
 
 section .container {
@@ -699,6 +700,42 @@ section .container > .inner-columns{
   font-family: "Bebas Neue Bold";
 }
 
+
+
+.slow-entering-transition{
+  transition: 2s ease-out;
+  overflow: hidden;
+}
+.mid-entering-transition{
+  transition: 1s ease-out;
+  overflow: hidden;
+}
+.fast-entering-transition{
+  transition: 0.5s ease-out;
+  overflow: hidden;
+}
+
+.transition.opacity{
+  opacity: 0;
+}
+.transition.width{
+  width: 0px;
+}
+.transition.height{
+  height: 0px;
+}
+.transition.slide-from-left{
+  margin-left: -100vw;
+}
+.transition.slide-from-right{
+  margin-left: 100vw;
+}
+.transition.slide-from-top{
+  margin-top: -100vh;
+}
+.transition.slide-from-bottom{
+  margin-top: 100vh;
+}
 
 
 /*
@@ -1027,6 +1064,7 @@ header .secundary-rois-container{
   padding: 0px;
 }
 
+
 #Services .services-list li{
   display: block; 
   font-size: 20px;
@@ -1034,7 +1072,6 @@ header .secundary-rois-container{
   position: relative;
   cursor: pointer;
 }
-
 #Services .services-list li:hover:after{
   content: '';
   width: 87.5%;
