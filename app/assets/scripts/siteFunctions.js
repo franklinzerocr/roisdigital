@@ -29,7 +29,8 @@ var sectionFirstTime=[0,1,1,1,1]
 
 // Delays to show secundary text
 var shortDelay= 700;
-var longDelay= 2000;
+var longDelay= 1800;
+
 
 /*** JUMP SECTION SCROLL ***/
 

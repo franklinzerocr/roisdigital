@@ -47,18 +47,19 @@ Colors
     src: url('/fonts/roboto/Roboto-Condensed.ttf') format('truetype');
 }
 
-h5,
-h5 span{
-  font-family: Bebas Neue;
-}
-
 *{
   font-family: "Roboto Regular";
 }
-
-#header_menu a, h1, h2, h3, h4{
+h1, h1 span, h2{
+  font-family: Bebas Neue;
+}
+#header_menu a, h3, h4{
   font-family: "Roboto Condensed";
 }
+h5, h5 span{
+ font-family: Bebas Neue Bold; 
+}
+
 
 
 
@@ -713,7 +714,7 @@ section .container > .inner-columns{
   overflow: hidden;
 }
 .fast-entering-transition{
-  transition: all 0.5s;
+  transition: all 0.85s;
   overflow: hidden;
 }
 .ease-in{

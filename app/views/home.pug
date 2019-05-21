@@ -16,7 +16,7 @@ block content
 							div.black-background.corner-left.corner-top.primary-rois
 							div.figure-box.primary-rois
 						each text in primaryRoisTexts
-							h5(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )
+							h1(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )
 						div.dark-line.medium-line.thin-line.margin-left-20.transition.slow-entering-transition.slide-from-left
 						div.light-line.medium-line.thin-line.margin-left-40.transition.slow-entering-transition.slide-from-bottom
 					div.animated-rois-container.inner-columns.col-md-8
@@ -30,7 +30,7 @@ block content
 								each animation in primaryRoisAnimations
 									img(class='animate primary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
 						div.box-container.corner-right.corner-bottom
-							div.bordered.full-size.relative.transition.mid-entering-transition.height.opacity
+							//- div.bordered.full-size.relative.transition.mid-entering-transition.height.opacity
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
 							div.dark-line.short-line.thin-line.inline-line.margin-left-70.transition.slow-entering-transition.width
 						+social_sidebar(socialinks) 
@@ -57,7 +57,7 @@ block content
 						div.box-container-1.shadow-container.corner-right.corner-top
 							div.yellow-background.full-size.transition
 						div.box-container-2.shadow-container.box-container.margin-left-20.bottom
-							div.bordered.full-size.thick-border.transition.slow-entering-transition.ease-in.opacity
+							div.bordered.full-size.thick-border.transition.slow-entering-transition.opacity.height.linear
 						div.box-container-3.services-container
 								each service in services
 									div(class='service pos-'+service.Service_Position)
@@ -166,7 +166,7 @@ block content
 								div.bordered.full-size.thick-border
 							+social_sidebar(socialinks)
 						div.box-container-2.left-15.top-275
-							div.dark-line.medium-line.thin-line.margin-left-50.transition.mid-entering-transition.slide-from-top
+							div.dark-line.medium-line.thin-line.margin-left-50.transition.fast-entering-transition.slide-from-top
 							div.dark-line.medium-line.thin-line.margin-left-20.margin-top-5.transition.slow-entering-transition.slide-from-left
 						div.box-container-3.shadow-container.left-285.top-325
 							div.black-background.full-size
