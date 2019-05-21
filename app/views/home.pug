@@ -17,8 +17,8 @@ block content
 							div.figure-box.primary-rois
 						each text in primaryRoisTexts
 							h5(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )
-						div.dark-line.medium-line.thin-line.margin-left-20
-						div.light-line.medium-line.thin-line.margin-left-40
+						div.dark-line.medium-line.thin-line.margin-left-20.transition.slow-entering-transition.slide-from-left
+						div.light-line.medium-line.thin-line.margin-left-40.transition.slow-entering-transition.slide-from-bottom
 					div.animated-rois-container.inner-columns.col-md-8
 						div.shadow-container.corner-right.corner-top
 							div.black-background.full-size
@@ -30,9 +30,9 @@ block content
 								each animation in primaryRoisAnimations
 									img(class='animate primary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
 						div.box-container.corner-right.corner-bottom
-							div.bordered.full-size.relative
-							div.dark-line.short-line.thin-line.inline-line.margin-left-0
-							div.dark-line.short-line.thin-line.inline-line.margin-left-70
+							div.bordered.full-size.relative.transition.mid-entering-transition.height.opacity
+							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
+							div.dark-line.short-line.thin-line.inline-line.margin-left-70.transition.slow-entering-transition.width
 						+social_sidebar(socialinks) 
 						+next_section_arrow("Services")
 
@@ -50,15 +50,15 @@ block content
 								- else 
 									li(class='pos-'+service.Service_Position )
 										span=service.Service_Name
-						div.thin-line.medium-line.dark-line.margin-left-80.transition.mid-entering-transition.slide-from-left
-						div.thin-line.medium-line.light-line.margin-left-70.transition.mid-entering-transition.slide-from-left
+						div.thin-line.medium-line.dark-line.margin-left-80.transition.slow-entering-transition.slide-from-left
+						div.thin-line.medium-line.light-line.margin-left-70.transition.slow-entering-transition.slide-from-bottom
 
 					div.inner-columns.col-md-8
 						div.box-container-1.shadow-container.corner-right.corner-top
-							div.yellow-background.full-size.transition.slow-entering-transition.slide-from-top
+							div.yellow-background.full-size.transition
 						div.box-container-2.shadow-container.box-container.margin-left-20.bottom
-							div.bordered.full-size.thick-border.transition.mid-entering-transition.slide-from-right
-						div.box-container-3.services-container.transition.mid-entering-transition.opacity
+							div.bordered.full-size.thick-border.transition.slow-entering-transition.ease-in.opacity
+						div.box-container-3.services-container
 								each service in services
 									div(class='service pos-'+service.Service_Position)
 										div(class='shadow-container service-img-container')
@@ -77,14 +77,14 @@ block content
 						div.box-container-1.shadow-container.left-sided.top-25
 							div.yellow-background.full-size
 						div.box-container-2.margin-left-40
-							div.dark-line.short-line.thin-line.inline-line.margin-left-0
-							div.dark-line.short-line.thin-line.inline-line.margin-left-60
+							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
+							div.dark-line.short-line.thin-line.inline-line.margin-left-60.transition.slow-entering-transition.width
 						div.box-container-3
-							div.bordered.full-size
+							div.bordered.full-size.transition.slow-entering-transition.height
 						div.box-container-4.shadow-container
 							div.black-background.full-size
 						div.box-container-5
-							div.bordered.full-size
+							div.bordered.full-size.transition.slow-entering-transition.width
 						div.box-container-6.portfolios-container
 							each portfolio in portfolios 
 								div(class='portfolio pos-'+portfolio.Portfolio_Position)
@@ -110,12 +110,12 @@ block content
 						div.box-container-1.shadow-container.left-sided.top-25
 							div.yellow-background.full-size
 						div.box-container-2.left-80.top-30
-							div.dark-line.short-line.thin-line.inline-line.margin-left-0
-							div.dark-line.short-line.thin-line.inline-line.margin-left-60
+							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
+							div.dark-line.short-line.thin-line.inline-line.margin-left-60.transition.slow-entering-transition.width
 						div.box-container-3.top-50.left-50.text-center.centered-x
 							img.positive-logotype(src=positiveLogo.Multimedia_Path,alt=positiveLogo.Multimedia_Description)
-							div.dark-line.medium-line.thin-line.margin-left-30.margin-top-15
-							div.dark-line.medium-line.thin-line.margin-left-0.margin-top-5.centered-x-25
+							div.dark-line.medium-line.thin-line.margin-left-30.margin-top-15.transition.slow-entering-transition.slide-from-right
+							div.dark-line.medium-line.thin-line.margin-left-0.margin-top-5.centered-x-25.transition.slow-entering-transition.slide-from-left
 						div.box-container-4.teamMembers-container.top-30.text-center
 							each member in teamMembers
 								div(class='col-md-3 member pos-'+member.TeamMember_Position)
@@ -166,8 +166,8 @@ block content
 								div.bordered.full-size.thick-border
 							+social_sidebar(socialinks)
 						div.box-container-2.left-15.top-275
-							div.dark-line.medium-line.thin-line.margin-left-50
-							div.dark-line.medium-line.thin-line.margin-left-20.margin-top-5
+							div.dark-line.medium-line.thin-line.margin-left-50.transition.mid-entering-transition.slide-from-top
+							div.dark-line.medium-line.thin-line.margin-left-20.margin-top-5.transition.slow-entering-transition.slide-from-left
 						div.box-container-3.shadow-container.left-285.top-325
 							div.black-background.full-size
 						div.box-container-4.left-325.top-25.contactForm-container
@@ -189,8 +189,8 @@ block content
 										div.form-group.text-center
 											button(class="btn btn-default",type = "submit")= contactFormLabels[4].ContentDescription_Description
 							div.box-container-6
-								div.dark-line.short-line.thin-line.inline-line.margin-left-0
-								div.dark-line.medium-line.thin-line.inline-line.margin-left-20
+								div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
+								div.dark-line.medium-line.thin-line.inline-line.margin-left-20.transition.slow-entering-transition.width
 						div.box-container-7.right-sided.top-50.centered-y.text-center
 							a(class='scrollto', href='#Home') 
 								img.contact-logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)

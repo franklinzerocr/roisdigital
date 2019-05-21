@@ -3,14 +3,19 @@ var previousScrollPosition=0;  // the previos scroll position before scrolling s
 var loaded=0; // if the page has loaded
 
 // typewriter function global params
-var typeWriterDestination=null 
-var typeWriterIndex =0;
-var typeWriterSpeed=0;
-var typeWriterText=""
+var typeWriterPrimmaryDestination=null 
+var typeWriterPrimaryIndex =0;
+var typeWriterPrimarySpeed=0;
+var typeWriterPrimaryText=""
+var typeWriterSecundaryIndex =0;
+var typeWriterSecundaryDestination=null 
+var typeWriterSecundarySpeed=0;
+var typeWriterSecundaryText=""
 
 // Primary Rois Animation Variables
 var timeDelayPreloaderOff= 400
-var timeDelayPrimayText=2750
+var timeDelayEnteringAnimations=2000
+var timeDelayPrimayText=750
 var timeDelayPrimaryRoisAnimation1= 100
 
 // Original URL of page
@@ -24,7 +29,7 @@ var sectionFirstTime=[0,1,1,1,1]
 
 // Delays to show secundary text
 var shortDelay= 700;
-var longDelay= 2500;
+var longDelay= 2000;
 
 /*** JUMP SECTION SCROLL ***/
 
@@ -71,7 +76,7 @@ function showSecundaryText(pos,firstTime){
 	delayToShowText=shortDelay;
 	if (firstTime) delayToShowText=longDelay;
 	setTimeout(function() {
-		
+
 		typeWriterAnimation(activeSecundaryText,30)
 	}, delayToShowText);
 }
@@ -194,52 +199,87 @@ function arrowNavigation(active,step){
 
 
 /*** ANIMATIONS ***/
-function typeWriter() {
-  	if (typeWriterIndex < typeWriterText.length) {
+function enableNavigation(){
+	if (!loaded){
+		loaded=1;
+		document.querySelector(".page-content.loading").classList.remove("loading")
+		document.querySelector("#Home .scrollto").style.opacity=1;
+	}
+}
+function typeWriterPrimary() {
+  	if (typeWriterPrimaryIndex < typeWriterPrimaryText.length) {
   		window.requestAnimationFrame(function() {
-	    	typeWriterDestination.innerHTML = typeWriterText.substring(0, typeWriterIndex)+"_";
+	    	typeWriterPrimaryDestination.innerHTML = typeWriterPrimaryText.substring(0, typeWriterPrimaryIndex)+"_";
 		});
-	    typeWriterIndex++;
-	    setTimeout(typeWriter, typeWriterSpeed);
-  	}else 
+	    typeWriterPrimaryIndex++;
+	    setTimeout(typeWriterPrimary, typeWriterPrimarySpeed);
+  	}else {
 	  	window.requestAnimationFrame(function() {
-	  		typeWriterDestination.innerHTML = typeWriterText
+	  		typeWriterPrimaryDestination.innerHTML = typeWriterPrimaryText
 	  	});
+  	}
+}
+function typeWriterSecundary() {
+  	if (typeWriterSecundaryIndex < typeWriterSecundaryText.length) {
+  		window.requestAnimationFrame(function() {
+	    	typeWriterSecundaryDestination.innerHTML = typeWriterSecundaryText.substring(0, typeWriterSecundaryIndex)+"_";
+		});
+	    typeWriterSecundaryIndex++;
+	    setTimeout(typeWriterSecundary, typeWriterSecundarySpeed);
+  	}else {
+	  	window.requestAnimationFrame(function() {
+	  		typeWriterSecundaryDestination.innerHTML = typeWriterSecundaryText
+	  	});
+  	}
 }
 function typeWriterAnimation(element,velocity){
-	typeWriterDestination=element
-	typeWriterDestination.innerHTML=""
-	typeWriterIndex =0;
-	typeWriterSpeed=velocity;
-	typeWriterText=typeWriterDestination.getAttribute("attr-text")
-	typeWriter()
+	if (element.classList.contains("primary-rois")){
+		typeWriterPrimaryDestination=element
+		typeWriterPrimaryDestination.innerHTML=""
+		typeWriterPrimaryIndex =0;
+		typeWriterPrimarySpeed=velocity;
+		typeWriterPrimaryText=typeWriterPrimaryDestination.getAttribute("attr-text")
+		typeWriterPrimary()
+	}else {
+		typeWriterSecundaryDestination=element
+		typeWriterSecundaryDestination.innerHTML=""
+		typeWriterSecundaryIndex =0;
+		typeWriterSecundarySpeed=velocity;
+		typeWriterSecundaryText=typeWriterSecundaryDestination.getAttribute("attr-text")
+		typeWriterSecundary()
+	}
+
 }
 function primaryRoisOn(){
-	setTimeout(function() {
+	setTimeout(function() { // Entering Rois
 	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
 
-		setTimeout(function() {
-			document.querySelector("#Home .text-container.primary-rois").style.opacity=1
-			typeWriterAnimation(document.querySelector(".text.primary-rois"),20)
+		setTimeout(function() { // Start Entering Animations on home
+			animateEnteringSection("Home")
 
-			setTimeout(function() {
-				document.querySelector(".animate.primary-rois.pos-1").style.display = 'none'
-				document.querySelector(".animate.primary-rois.pos-2").style.display = 'block'
-			}, timeDelayPrimaryRoisAnimation1);
+			setTimeout(function() { // Display Primary Text
+				document.querySelector("#Home .text-container.primary-rois").style.opacity=1
+				typeWriterAnimation(document.querySelector(".text.primary-rois"),20)
+				enableNavigation()
 
-		}, timeDelayPrimayText);
+				setTimeout(function() { // Breathing Rois
+					document.querySelector(".animate.primary-rois.pos-1").style.display = 'none'
+					document.querySelector(".animate.primary-rois.pos-2").style.display = 'block'
+				}, timeDelayPrimaryRoisAnimation1);
+
+			}, timeDelayPrimayText);
+
+		}, timeDelayEnteringAnimations);
 
 	}, timeDelayPreloaderOff);
 }
 function preLoaderOff(){
-	loaded=1;
 	var loaderOff = move(".loader").set('display', "none")
-	document.querySelector(".page-content.loading").classList.remove("loading")
   	move(".loader").set('opacity', 0).duration("0.5s")
   		.then(loaderOff).end()
 }
-function animateEnteringSection(){
-	for (let element of document.querySelectorAll(".transition")){
+function animateEnteringSection(targetSection){
+	for (let element of document.querySelectorAll("#"+targetSection+" .transition")){
 		element.classList.remove("transition")
 	}
 }

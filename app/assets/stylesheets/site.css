@@ -702,17 +702,25 @@ section .container > .inner-columns{
 
 
 
+/*** ENTERING TRANSITIONS ****/
+
 .slow-entering-transition{
-  transition: 2s ease-out;
+  transition: all 2s;
   overflow: hidden;
 }
 .mid-entering-transition{
-  transition: 1s ease-out;
+  transition: all 1s;
   overflow: hidden;
 }
 .fast-entering-transition{
-  transition: 0.5s ease-out;
+  transition: all 0.5s;
   overflow: hidden;
+}
+.ease-in{
+  transition-timing-function: ease-in;
+}
+.linear{
+  transition-timing-function: linear;
 }
 
 .transition.opacity{
@@ -736,7 +744,6 @@ section .container > .inner-columns{
 .transition.slide-from-bottom{
   margin-top: 100vh;
 }
-
 
 /*
 ********** HEADER **********
@@ -1048,6 +1055,11 @@ header .secundary-rois-container{
   z-index: -1;
 }
 
+#Home .scrollto{
+  transition: 1s;
+  opacity: 0;
+}
+
   
 
 
@@ -1209,6 +1221,11 @@ header .secundary-rois-container{
   top: 26%;
 }
 
+#Portfolio .box-container-2 div:last-child{
+  z-index: -1;
+  position: relative;
+}
+
 #Portfolio .box-container-3{
   width: 150px;
   height: 100px;
@@ -1354,6 +1371,11 @@ header .secundary-rois-container{
 #Team .box-container-2{
   position: relative;
   width: 9.8%;
+}
+
+#Team .box-container-2 div:last-child{
+  z-index: -1;
+  position: relative;
 }
 
 #Team .box-container-3{
