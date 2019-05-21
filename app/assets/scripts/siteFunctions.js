@@ -44,17 +44,24 @@ function getSectionIndex(id){
 	}
 	return i;
 }
-function showSecundaryRoisOrLogo(targetSection){
-	targetSectionIndex=getSectionIndex(targetSection)
-	if (targetSectionIndex>0){
-		document.querySelector("header .logo-container").style.display="none"
+function showSecundaryRoisOrLogo(targetSectionIndex){
+	if (targetSectionIndex>0){ // Show Secundary ROis
 		document.querySelector("header .secundary-rois-container").style.display="inline-block"
-	} else {
+		document.querySelector("header .logo-container").style.display="none"
+		showSecundaryText(targetSectionIndex)
+	} else { // Show Logo
 		document.querySelector("header .logo-container").style.display="inline-block"
 		document.querySelector("header .secundary-rois-container").style.display="none"
 	}
-
 }	
+function showSecundaryText(pos){
+	activeSecundaryText=document.querySelector(".text.secundary-rois.pos-"+pos)
+	displayBox(activeSecundaryText,document.querySelectorAll(".text.secundary-rois"),"table-cell")
+	activeSecundaryText.innerHTML=""
+	setTimeout(function() {
+		typeWriterAnimation(activeSecundaryText,30)
+	}, 600);
+}
 function simulateClick (elem) {
 	// Create our event (with options)
 	var evt = new MouseEvent('click', {
@@ -135,12 +142,14 @@ function getPos(elem){
     }
     return pos
 }
-function displayBox(active,boxes) { 
+function displayBox(active,boxes,display="") { 
 	pos=getPos(active)
 	for (let box of boxes) {
-		if (box.classList.contains(pos))
-			box.style.display= "block"
-		else box.style.display= "none"
+		if (box.classList.contains(pos)){
+			console.log(pos)
+			if (display) {box.style.display= display;} 
+			else {box.style.display= "block";}
+		}else box.style.display= "none"
 	}
 }
 function setActive(active,list){
@@ -187,6 +196,7 @@ function typeWriter() {
 }
 function typeWriterAnimation(element,velocity){
 	typeWriterDestination=element
+	typeWriterDestination.innerHTML=""
 	typeWriterIndex =0;
 	typeWriterSpeed=velocity;
 	typeWriterText=typeWriterDestination.getAttribute("attr-text")
@@ -230,7 +240,7 @@ function showMessage(){
   		setTimeout(function() {
   			document.querySelector(".message-box").style.display="block"
   			document.querySelector(".message-box").style.opacity=1
-  			document.querySelector(".message-box .message-text.pos-1").style.display="table-cell"
+  			displayBox(document.querySelector(".message-box .message-text.pos-1"),document.querySelectorAll(".message-box .message-text"),"table-cell" )
   		}, timeDelayPreloaderOff);
   	}
 }

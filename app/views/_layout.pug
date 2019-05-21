@@ -30,7 +30,7 @@ block header
                         div.shadow-container.secundary-rois
                             div.figure-box.secundary-rois
                         each text in secundaryRoisTexts
-                            h5(class='text secundary-rois pos-'+text.ContentDescription_Position)!= text.ContentDescription_Description
+                            h5(class='text secundary-rois pos-'+text.ContentDescription_Position,attr-text!=text.ContentDescription_Description)
                 //- END OF SECUNDARY ROIS
                 div.menu-container.col-md-7
                     ul#header_menu
