@@ -11,15 +11,16 @@ block content
 			- primaryRoisAnimations = home.contents.data[0].Medias			
 			section#Home
 				div.container.primary-rois-container
-					div.text-container.primary-rois.inner-columns.col-md-4
-						div.shadow-container.primary-rois
+					div.text-container.primary-rois.inner-columns.col-md-4.col-xs-4
+						div.shadow-container.primary-rois.full-size
 							div.black-background.corner-left.corner-top.primary-rois
 							div.figure-box.primary-rois
-						each text in primaryRoisTexts
-							h1(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )
+						div.primary-rois-text-container
+							each text in primaryRoisTexts
+								h1(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )
 						div.dark-line.medium-line.thin-line.margin-left-20.transition.slow-entering-transition.slide-from-left
 						div.light-line.medium-line.thin-line.margin-left-40.transition.slow-entering-transition.slide-from-bottom
-					div.animated-rois-container.inner-columns.col-md-8
+					div.animated-rois-container.inner-columns.col-md-8.col-xs-8
 						div.shadow-container.corner-right.corner-top
 							div.black-background.full-size
 						div.shadow-container.corner-left.corner-bottom

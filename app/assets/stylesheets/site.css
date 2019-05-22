@@ -931,8 +931,8 @@ header .secundary-rois-container{
 }
 
 #Home .primary-rois-container .black-background.primary-rois{
-  width: 350px;
-  height: 220px; 
+  width: 90%;
+  height: 33%; 
   position: absolute;
   top: -66px;
   left: -15px;
@@ -944,6 +944,8 @@ header .secundary-rois-container{
   background-color: black;
   height: 215px;
   width: 200px;
+  width: 51.3%;
+  height: 32.6%; 
   -moz-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   -o-transform: scaleX(-1);
@@ -951,21 +953,25 @@ header .secundary-rois-container{
   position: absolute;
   right: -62.5px;
 }
-
-#Home .primary-rois-container .text.primary-rois{
+#Home .primary-rois-container .primary-rois-text-container{
   margin-top: 0px;
   margin-bottom: 0px;
   vertical-align: middle;
-  display: table-cell;
-  position: absolute;
   top: 38%;
-  left: 20px;
-  width: 384.5px;
-  font-size: 35px;
+  left: 8.8%;
+  width: 98.5%;
+  height: 39.2%;
   background: white;
   padding-left: 20px;
   padding: 13.5px;
-  height: 257px;
+  display: table;
+  position: absolute;
+}
+#Home .primary-rois-container .text.primary-rois{
+  display: table-cell;
+  position: absolute;
+  font-size: 35px;
+  margin: 0px;
 }
 #Home .text-container.primary-rois{
   opacity: 0;
@@ -1632,4 +1638,60 @@ header .secundary-rois-container{
 #Contact-Us .arrow-next{
   left: 50%;
   transform: translateX(-50%);
+}
+
+
+
+/********** MOBILE **********/
+@media only screen and (max-width:1200px) {
+  #header_menu{
+    padding: 0px;
+  }
+  header .menu-container ul#header_menu li{
+    margin: 0px 5px;
+  }
+  header .menu-container .rois-menu-line-thick{
+    width: 100%;
+    right: -20px;
+  }
+  header .menu-container .rois-menu-line-thin{
+    right: -97px;
+    width: 85%;
+  }
+  #Home .primary-rois-container .text.primary-rois{
+    font-size: 30px;
+  }
+  #Home .primary-rois-container .primary-rois-text-container{
+    width: 99.3%;
+    left: 5%;
+  }
+  #Home .primary-rois-container .shadow-container.primary-rois{
+    left: 1.5%;
+  }
+  #Services .box-container-3.services-container{
+    top: 25%;
+  }
+
+  .short-line{
+    width: 45px;
+  }
+  .medium-line{
+    width: 100px;
+  }
+  #Team .box-container-3 .positive-logotype{
+    margin-bottom: 5%;
+  }
+  #Contact-Us .box-container-7{
+    right: 0px;
+  }
+  #Team .member{
+    margin: 0px 4%;
+  }
+}
+@media only screen and (max-width:992px) {
+  section{
+    min-width: 100%;
+    width: max-content;
+  }
+
 }
