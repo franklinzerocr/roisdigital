@@ -15,7 +15,7 @@ var typeWriterSecundaryText=""
 // Primary Rois Animation Variables
 var timeDelayPreloaderOff= 400
 var timeDelayEnteringAnimations=2000
-var timeDelayPrimayText=750
+var timeDelayPrimayText=700
 var timeDelayPrimaryRoisAnimation1= 100
 
 // Original URL of page
