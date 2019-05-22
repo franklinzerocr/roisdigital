@@ -58,6 +58,7 @@ h1, h1 span, h2{
 }
 h5, h5 span{
  font-family: Bebas Neue Bold; 
+ font-size: 16px;
 }
 
 
@@ -1617,6 +1618,9 @@ header .secundary-rois-container{
   right: 7.5px;
   top: 7px;
   background:#242424; /* black */
+}
+#Contact-Us .box-container-7{
+  right: 80;
 }
 
 
