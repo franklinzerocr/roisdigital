@@ -15,13 +15,13 @@ block header
     body
         header.container-fluid.header-container
             div.container
-                div.logo-container.col-md-5
+                div.logo-container.col-md-5.col-sm-5
                     a(href='/')
                         img#header_logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)
                     div.rois-logo-line
                     div.rois-logo-dot
                 //- SECUNDARY ROIS
-                div.secundary-rois-container.col-md-5
+                div.secundary-rois-container.col-md-5.col-sm-5
                     div.animation-container
                         div.itsatrap.full-size
                         each animation in secundaryRoisAnimations
@@ -32,7 +32,7 @@ block header
                         each text in secundaryRoisTexts
                             h5(class='text secundary-rois pos-'+text.ContentDescription_Position,attr-text!=text.ContentDescription_Description)
                 //- END OF SECUNDARY ROIS
-                div.menu-container.col-md-7
+                div.menu-container.col-md-7.col-sm-7
                     ul#header_menu
                         each section in layout.menuSections.data
                             li.menu-item

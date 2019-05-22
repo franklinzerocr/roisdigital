@@ -135,12 +135,12 @@ document.querySelector('body').addEventListener('wheel', function(e) {
 for (let serviceTitle of document.querySelectorAll('#Services .services-list li')) {
   
   serviceTitle.onmouseenter= function(e) { 
-    displayBox(serviceTitle,document.querySelectorAll('#Services .service'))
+    displayBox(serviceTitle,document.querySelectorAll('#Services .service'),"inline-block")
     setActive(serviceTitle,document.querySelectorAll('#Services .services-list li'))
   };
 
   serviceTitle.addEventListener('click',function(e) {
-    displayBox(serviceTitle,document.querySelectorAll('#Services .service'))
+    displayBox(serviceTitle,document.querySelectorAll('#Services .service'),"inline-block")
     setActive(serviceTitle,document.querySelectorAll('#Services .services-list li'))
   });
  

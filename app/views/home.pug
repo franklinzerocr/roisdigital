@@ -11,7 +11,7 @@ block content
 			- primaryRoisAnimations = home.contents.data[0].Medias			
 			section#Home
 				div.container.primary-rois-container
-					div.text-container.primary-rois.inner-columns.col-md-4.col-xs-4
+					div.text-container.primary-rois.inner-columns.col-md-4.col-sm-4
 						div.shadow-container.primary-rois.full-size
 							div.black-background.corner-left.corner-top.primary-rois
 							div.figure-box.primary-rois
@@ -20,7 +20,7 @@ block content
 								h1(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )
 						div.dark-line.medium-line.thin-line.margin-left-20.transition.slow-entering-transition.slide-from-left
 						div.light-line.medium-line.thin-line.margin-left-40.transition.slow-entering-transition.slide-from-bottom
-					div.animated-rois-container.inner-columns.col-md-8.col-xs-8
+					div.animated-rois-container.inner-columns.col-md-8.col-sm-8
 						div.shadow-container.corner-right.corner-top
 							div.black-background.full-size
 						div.shadow-container.corner-left.corner-bottom
@@ -42,7 +42,7 @@ block content
 			- services= home.services.data
 			section#Services
 				div.container
-					div.inner-columns.col-md-4
+					div.inner-columns.col-md-4.col-sm-4
 						ul.services-list
 							each service in services
 								- if (service.Service_Position == 1)
@@ -54,7 +54,7 @@ block content
 						div.thin-line.medium-line.dark-line.margin-left-80.transition.slow-entering-transition.slide-from-left
 						div.thin-line.medium-line.light-line.margin-left-70.transition.slow-entering-transition.slide-from-bottom
 
-					div.inner-columns.col-md-8
+					div.inner-columns.col-md-8.col-sm-8
 						div.box-container-1.shadow-container.corner-right.corner-top
 							div.yellow-background.full-size.transition
 						div.box-container-2.shadow-container.box-container.margin-left-20.bottom
@@ -81,11 +81,11 @@ block content
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
 							div.dark-line.short-line.thin-line.inline-line.margin-left-60.transition.slow-entering-transition.width
 						div.box-container-3
-							div.bordered.full-size.transition.slow-entering-transition.height
+							div.bordered.full-size.transition.slow-entering-transition.height.opacity
 						div.box-container-4.shadow-container
 							div.black-background.full-size
 						div.box-container-5
-							div.bordered.full-size.transition.slow-entering-transition.width
+							div.bordered.full-size.transition.slow-entering-transition.width.opacity
 						div.box-container-6.portfolios-container
 							each portfolio in portfolios 
 								div(class='portfolio pos-'+portfolio.Portfolio_Position)
@@ -119,7 +119,7 @@ block content
 							div.dark-line.medium-line.thin-line.margin-left-0.margin-top-5.centered-x-25.transition.slow-entering-transition.slide-from-left
 						div.box-container-4.teamMembers-container.top-30.text-center
 							each member in teamMembers
-								div(class='col-md-3 member pos-'+member.TeamMember_Position)
+								div(class='col-md-3 col-sm-4  member pos-'+member.TeamMember_Position)
 									div.member-controls.text-center
 										span(class="arrow prev-arrow pos-"+member.Medias.length, attr-length=member.Medias.length) ←
 										span.point •
