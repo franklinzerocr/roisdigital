@@ -19,7 +19,11 @@ Colors
     src: url('/fonts/bebas_neue/BebasNeue-Book.otf') format("opentype"), /* Pretty Modern Browsers */
          url('/fonts/bebas_neue/BebasNeue-Book.ttf')  format('truetype');
 }
-
+@font-face {
+    font-family: 'Bebas Neue Regular';  
+    src: url('/fonts/bebas_neue/BebasNeue-Regular.otf') format("opentype"), /* Pretty Modern Browsers */
+         url('/fonts/bebas_neue/BebasNeue-Regular.ttf')  format('truetype');
+}
 
 @font-face {
     font-family: 'Bebas Neue Bold';  
@@ -650,12 +654,12 @@ section .container > .inner-columns{
   50%  { opacity:0; }
   100% { opacity:1; }
 }
-.loading-gif {
+/*.loading-gif {
   -webkit-animation: flickerAnimation 1.5s infinite;
   -moz-animation: flickerAnimation 1.5s infinite;
   -o-animation: flickerAnimation 1.5s infinite;
   animation: flickerAnimation 1.5s infinite;
-}
+}*/
 
 .loading-gif{
   position: absolute;
@@ -1940,19 +1944,23 @@ header .secundary-rois-container{
     width: 55%;
     right: 0px;
   }
+  header .secundary-rois-container{
+    margin-bottom: 7.5px;
+  }
   header .secundary-rois-container .animation-container{
-    width: 60px;
+    width: 40px;
   }
   header .secundary-rois-container .animation-container .itsatrap{
-    width: 60px;
-  }
+    width: 40px;
+  } 
   header .secundary-rois-container .text-container.secundary-rois{
-    height: 50px;
+    height: 40px;
   }
   header .secundary-rois-container .text.secundary-rois{
-    height: 50px;
+    height: 40px;
     padding-left: 30px;
-    font-size: 12px;
+    font-size: 11px;
+    font-family: "Bebas Neue Regular"
   }
   #Home .text-container.primary-rois{
     height: 155px; 
@@ -2098,7 +2106,7 @@ header .secundary-rois-container{
   }
   #Team .box-container-1{
     top: 15%;
-    height: 80%;
+    height: 50%;
   }
   #Team .box-container-2{
     position: absolute;
@@ -2157,14 +2165,28 @@ header .secundary-rois-container{
   #Home .primary-rois-container .triangle{
     left: calc(54vw + 25px);
   }
+  header .menu-container ul#header_menu{
+    width: 100vw;
+    margin-left: -30px!important
+  }
+  #Contact-Us .box-container-7{
+    width: 100px;
+    top: 82.5%;
+  }
+  #Contact-Us .box-container-1{
+    left: 50%;
+  }
+  .short-line{
+    width: 20px;
+  }
 }
 
-@media only screen and (max-width:370px) {
-  header .menu-container ul#header_menu li{
-    padding: 2.5px;
+@media only screen and (max-width:340px) {
+  #Home .primary-rois-container .figure-box.primary-rois{
+    left: calc(50% )
   }
-  header .menu-container ul#header_menu a{
-    font-size: 12px;
+  #Home .primary-rois-container .triangle{
+    left: calc(54vw + 30px);
   }
 
 }
