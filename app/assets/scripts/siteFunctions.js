@@ -25,7 +25,7 @@ var originalURL=window.location.href;
 var focusForm=0;
 
 // Flags for section first time visited 
-var sectionFirstTime=[0,1,1,1,1]
+var sectionFirstTime=[1,1,1,1,1]
 
 // Delays to show secundary text
 var shortDelay= 700;
@@ -59,6 +59,12 @@ function firstTimeScrollingToSection(targetSectionIndex){
 	if (!sectionFirstTime[targetSectionIndex]) return 0;
 	sectionFirstTime[targetSectionIndex]=0;
 	return 1;
+}
+function resetFirstTime(){
+	sectionFirstTime=[1,1,1,1,1]
+	for (let element of document.querySelectorAll(".slow-entering-transition, .mid-entering-transition, .fast-entering-transition")){
+		element.classList.add("transition")
+	}
 }
 function showSecundaryRoisOrLogo(targetSectionIndex,firstTime=0){
 	if (targetSectionIndex>0){ // Show Secundary ROis
@@ -256,6 +262,7 @@ function primaryRoisOn(){
 	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
 
 		setTimeout(function() { // Start Entering Animations on home
+			firstTimeScrollingToSection(0)
 			animateEnteringSection("Home")
 
 			setTimeout(function() { // Display Primary Text

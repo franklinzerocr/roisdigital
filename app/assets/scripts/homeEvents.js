@@ -11,10 +11,10 @@ for (let anchor of document.querySelectorAll('.scrollto')) {
   anchor.addEventListener('click',function(e) {
     e.preventDefault();
     if (!loaded) return false;
-    
     window.requestAnimationFrame(function() {
       let targetSection = anchor.getAttribute("href").split('#')[1];
       let targetSectionIndex=getSectionIndex(targetSection)
+      // if (targetSectionIndex==0) resetFirstTime()
 
       scrollToTargetSectionID(targetSection)
       menuOutOfScreen()
