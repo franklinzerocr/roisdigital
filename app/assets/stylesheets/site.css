@@ -2127,6 +2127,7 @@ header .secundary-rois-container{
     width: 60%;
     position: relative;
     left: 0%;
+    min-height: 350px;
   }
   #Contact-Us .box-container-1{
     top: 2.5%;
