@@ -49,8 +49,8 @@ function getHeaderSection(){
 function getScrollSection(scrollTop){
 	var i =0;
 	for (var section of document.querySelectorAll('Section')) {
-		if (scrollTop > section.offsetTop - window.innerHeight * 0.7 &&  
-			scrollTop < section.offsetTop + window.innerHeight * 0.3 ){
+		if (scrollTop > section.offsetTop - window.innerHeight * 0.75 &&  
+			scrollTop < section.offsetTop + window.innerHeight * 0.25 ){
 			break;
 		}
 		i++;
