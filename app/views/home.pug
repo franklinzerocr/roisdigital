@@ -90,7 +90,10 @@ block content
 						div.box-container-6.portfolios-container
 							each portfolio in portfolios 
 								div(class='portfolio pos-'+portfolio.Portfolio_Position)
-									img(class='portfolio-img', src=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
+									picture
+										source(media="(min-width: 768px)", class='portfolio-img', srcset=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
+										source(media="(min-width: 300px)", class='portfolio-img', srcset=portfolio.Medias[1].Multimedia_Path, alt=portfolio.Medias[1].Multimedia_Description)
+										img(class='portfolio-img', src=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
 									h4(class='portfolio-title')!=portfolio.Portfolio_Name
 									p(class='portfolio-description')!= portfolio.Portfolio_Description
 							div.portfolio-controls
@@ -190,7 +193,7 @@ block content
 											textarea(class='form-control',id='contact-message',type='text',name='message',rows="5",required='required')
 										div.form-group.text-center
 											button(class="btn btn-default",type = "submit")= contactFormLabels[4].ContentDescription_Description
-							div.box-container-6
+							div.box-container-6.not-in-mobile
 								div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
 								div.dark-line.medium-line.thin-line.inline-line.margin-left-20.transition.slow-entering-transition.width
 						div.box-container-7.right-sided.top-50.centered-y.text-center
