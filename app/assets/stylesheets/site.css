@@ -2079,9 +2079,10 @@ header .secundary-rois-container{
   #Portfolio .box-container-6.portfolios-container{
     position: relative;
     height: auto;
+    left: 5%;
   }
   #Portfolio .box-container-3{
-    right: 35px;
+    right: 14%;
     top: -10px;
   }
   #Portfolio .box-container-6.portfolios-container .portfolio-controls{
@@ -2105,12 +2106,15 @@ header .secundary-rois-container{
   }
   #Portfolio .portfolio .portfolio-title{
     padding: 5px;
-    font-size: 20px;
+    font-size: 18px;
     position: relative;
     top: -30px;
     width: 100%;
     margin-bottom: 0px;
-    text-align: center;
+    padding-left: 11%;
+  }
+  #Portfolio .box-container-4{
+    left: 5%;
   }
   #Portfolio .portfolio .portfolio-description{
     display: none;
@@ -2212,8 +2216,16 @@ header .secundary-rois-container{
     width: 20px;
   }
   #Portfolio .portfolio .portfolio-title{
-    font-size: 17px;
+    font-size: 15px;
   } 
+  #Services .services-list li{
+    margin: 0px 15px;
+    font-size: 13px;
+  }
+  #Services{
+    width: 100vw;
+    padding-right: 30px;
+  }
 }
 
 @media only screen and (max-width:340px) {
@@ -2222,14 +2234,6 @@ header .secundary-rois-container{
   }
   #Home .primary-rois-container .triangle{
     left: calc(54vw + 30px);
-  }
-  #Services .services-list li{
-    margin: 0px 15px;
-    font-size: 13px;
-  }
-  #Services{
-    width: 100vw;
-    padding-right: 30px;
   }
 
 }
