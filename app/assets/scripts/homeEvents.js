@@ -104,11 +104,28 @@ document.querySelector('body').addEventListener('scroll', function(event){
   if (mobile){
     scrollSection=getScrollSection(this.scrollTop)
     headerSection=getHeaderSection()
-    console.log(scrollSection)
-    console.log(headerSection)
-    if (scrollSection!=headerSection){
+
+    if (scrollSection!=headerSection && scrollSection<document.querySelectorAll('Section').length){
       targetSection=document.querySelectorAll('Section')[scrollSection].getAttribute("id")
-      simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))   
+      menuOutOfScreen()
+      setTimeout(function() {
+        if (firstTimeScrollingToSection(scrollSection)) {
+          showSecundaryRoisOrLogo(scrollSection,1)
+          animateEnteringSection(targetSection)
+        }else 
+          showSecundaryRoisOrLogo(scrollSection)
+
+
+        setTimeout(function() {
+          menuActiveSection(scrollSection)
+
+          // Move header to target section
+          document.querySelector('header.header-container').style.top=document.querySelector('#'+targetSection).offsetTop
+
+          menuInsideScreen()
+
+        }, 200);
+      }, 200);
       // e.preventDefault();
     }
   }
