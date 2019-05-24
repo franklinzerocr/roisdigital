@@ -1353,7 +1353,7 @@ header .secundary-rois-container{
 #Portfolio .portfolio .portfolio-title{
   width: 50%;
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 0%;
   transform: translateY(-50%);
   padding-left: 50px;
