@@ -5,7 +5,7 @@
 	initSmoothscroll()
 	resetPosition()
 	checkWidth()
-	socialLinksRearrange();
+	homeResizeRearrangements();
 }());
 
 /*** - END - ***/

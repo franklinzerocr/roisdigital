@@ -49,8 +49,8 @@ function getHeaderSection(){
 function getScrollSection(scrollTop){
 	var i =0;
 	for (var section of document.querySelectorAll('Section')) {
-		if (scrollTop > section.offsetTop - window.innerHeight / 2 &&  
-			scrollTop < section.offsetTop + window.innerHeight / 2 ){
+		if (scrollTop > section.offsetTop - window.innerHeight * 0.6 &&  
+			scrollTop < section.offsetTop + window.innerHeight * 0.4 ){
 			break;
 		}
 		i++;
@@ -103,8 +103,9 @@ function showSecundaryText(pos,firstTime){
 	activeSecundaryText=document.querySelector(".text.secundary-rois.pos-"+pos)
 	displayBox(activeSecundaryText,document.querySelectorAll(".text.secundary-rois"),"table-cell")
 	activeSecundaryText.innerHTML=""
+	checkWidth()
 	delayToShowText=shortDelay;
-	if (firstTime) delayToShowText=longDelay;
+	if (firstTime && !mobile) delayToShowText=longDelay;
 	setTimeout(function() {
 
 		typeWriterAnimation(activeSecundaryText,30)
@@ -282,6 +283,8 @@ function typeWriterAnimation(element,velocity){
 
 }
 function primaryRoisOn(){
+	checkWidth()
+	if (mobile) timeDelayPreloaderOff=0;
 	setTimeout(function() { // Entering Rois
 	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
 
@@ -311,9 +314,14 @@ function preLoaderOff(){
   		.then(loaderOff).end()
 }
 function animateEnteringSection(targetSection){
-	for (let element of document.querySelectorAll("#"+targetSection+" .transition")){
-		element.classList.remove("transition")
-	}
+	delayEntering=0;
+	checkWidth()
+	if (mobile) delayEntering=shortDelay
+	setTimeout(function() { // Breathing Rois
+		for (let element of document.querySelectorAll("#"+targetSection+" .transition")){
+			element.classList.remove("transition")
+		}
+	}, delayEntering);
 }
 
 /*** END OF - ANIMATIONS ***/
@@ -388,11 +396,17 @@ function resetPosition(){
 
 
 
+
+/*** MOBILE CHECK ***/
+
 function checkWidth() {
     var windowsize =window.innerWidth;
     if (windowsize <= 768) mobile=1;
     else mobile=0;
 }
+
+/*** END OF - MOBILE CHECK ***/
+
 
 
 
@@ -415,8 +429,17 @@ function socialLinksRearrange(){
 		}
 	}
 }
-
-function homeResizeRearrangements(){
+function mobileMenuContainersSwitch(){
 	checkWidth()
+	if (mobile){ // secundary rois at the end
+		secundaryRoisContainer=document.querySelector("header .secundary-rois-container")
+		document.querySelector("header .container").appendChild(secundaryRoisContainer)
+	}else{ // menu at the end
+		menuContainer=document.querySelector("header .menu-container")
+		document.querySelector("header .container").appendChild(menuContainer)
+	}
+}
+function homeResizeRearrangements(){
 	socialLinksRearrange()
+	mobileMenuContainersSwitch()
 }

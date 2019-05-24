@@ -1889,7 +1889,7 @@ header .secundary-rois-container{
   section{
     min-height: 0px;
     width: 100%;
-    padding-top: 150px;
+    padding-top: 137.5px;
     overflow-x: visible;
     height: auto;
   }
@@ -1945,7 +1945,7 @@ header .secundary-rois-container{
     right: 0px;
   }
   header .secundary-rois-container{
-    margin-bottom: 7.5px;
+    margin-top: 10px;
   }
   header .secundary-rois-container .animation-container{
     width: 40px;
@@ -2002,6 +2002,7 @@ header .secundary-rois-container{
     max-width: 400px;
     display: block;
     margin: 0px auto;
+    margin-bottom: 25px;
   }
   #Home .primary-rois-container .animated-rois-container .yellow-background.primary-rois{
     width: 87.5%;
@@ -2042,10 +2043,13 @@ header .secundary-rois-container{
     transform: none;
     margin: 0px;
     text-align: center;
+    left: -30px;
+    width: 100vw;
   }
   #Services .services-list li{
     display: inline-block;
     margin: 0px 20px;
+    font-size: 14px;
   }
   #Services .box-container-3.services-container{
     position: relative;
@@ -2086,15 +2090,24 @@ header .secundary-rois-container{
   #Portfolio .box-container-6.portfolios-container .portfolio-controls a{
     width: 15px;
     height: 15px;
+    margin: 0px 7.5px;
   }
+  #Portfolio{
+    min-height: 435px;
+  }
+  #Portfolio .inner-columns{
+    top: 50px;
+  }
+
   #Portfolio .portfolio{
     height: auto;
+    height: 26vw;
   }
   #Portfolio .portfolio .portfolio-title{
     padding: 5px;
     font-size: 20px;
     position: relative;
-    top: -75px;
+    top: -30px;
     width: 100%;
     margin-bottom: 0px;
     text-align: center;
@@ -2169,6 +2182,12 @@ header .secundary-rois-container{
   header .secundary-rois-container .text.secundary-rois{
     font-size: 11px;
   }
+  #Portfolio{
+    min-height: 350px;
+  }
+  #Portfolio .inner-columns{
+    top: 25px;
+  }
 }
 
 @media only screen and (max-width:425px) {
@@ -2192,6 +2211,9 @@ header .secundary-rois-container{
   .short-line{
     width: 20px;
   }
+  #Portfolio .portfolio .portfolio-title{
+    font-size: 17px;
+  } 
 }
 
 @media only screen and (max-width:340px) {
@@ -2200,6 +2222,14 @@ header .secundary-rois-container{
   }
   #Home .primary-rois-container .triangle{
     left: calc(54vw + 30px);
+  }
+  #Services .services-list li{
+    margin: 0px 15px;
+    font-size: 13px;
+  }
+  #Services{
+    width: 100vw;
+    padding-right: 30px;
   }
 
 }
