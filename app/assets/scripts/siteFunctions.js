@@ -402,12 +402,16 @@ function socialLinksRearrange(){
 	if (mobile) {
 		data=homeSocialLinks.querySelector("li:first-child a").getAttribute("attr-link")
 		document.querySelector("#Home .text-container.primary-rois").appendChild(homeSocialLinks)
-		homeSocialLinks.querySelector("li:first-child a").setAttribute("href","https://wa.me/"+data)
+		for (let whatsapLink of document.querySelectorAll(".social-links li:first-child a")){
+			whatsapLink.setAttribute("href","https://wa.me/"+data)
+		}
 	}
 	else {
 		data=homeSocialLinks.querySelector("li:first-child a").getAttribute("attr-link")
 		document.querySelector("#Home .primary-rois-container .animated-rois-container").appendChild(homeSocialLinks)
-		homeSocialLinks.querySelector("li:first-child a").setAttribute("href","https://web.whatsapp.com/send?phone="+data)
+		for (let whatsapLink of document.querySelectorAll(".social-links li:first-child a")){
+			whatsapLink.setAttribute("href","https://web.whatsapp.com/send?phone="+data)
+		}
 	}
 }
 
