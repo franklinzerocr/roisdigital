@@ -124,15 +124,15 @@ function scrollToTargetSectionID(targetSection){
   window.history.pushState("object or string", "Title", "#"+targetSection);
   document.querySelector('body').scroll({left: 0, top: document.querySelector('#'+targetSection).offsetTop , behavior: 'smooth'});
 }
-function menuOutOfScreen(){
-  move("header .logo-container a").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
-  move("header .rois-logo-line").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
-  move("header .rois-logo-dot").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
-  move("header .animation-container").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration('0.2s').end()
-  move("header .text-container.secundary-rois").set("margin-left",-document.querySelector("body").offsetWidth * 0.52).duration('0.2s').end()
-  move("header #header_menu").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
-  move("header .rois-menu-line-thick").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
-  move("header .rois-menu-line-thin").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration('0.2s').end()
+function menuOutOfScreen(time="0.2s"){
+  move("header .logo-container a").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration(time).end()
+  move("header .rois-logo-line").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration(time).end()
+  move("header .rois-logo-dot").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration(time).end()
+  move("header .animation-container").set("margin-left",-document.querySelector("body").offsetWidth * 0.41).duration(time).end()
+  move("header .text-container.secundary-rois").set("margin-left",-document.querySelector("body").offsetWidth * 0.52).duration(time).end()
+  move("header #header_menu").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration(time).end()
+  move("header .rois-menu-line-thick").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration(time).end()
+  move("header .rois-menu-line-thin").set("margin-left",document.querySelector("body").offsetWidth * 0.6).duration(time).end()
 }
 function menuInsideScreen(){
   move("header .logo-container a").set("margin-left",0).duration('0.2s').end()
@@ -156,7 +156,7 @@ function menuInsideScreen(){
 
 function menuActiveSection(activeSection){
 	i=0;
-	flag=false;
+	flag=false; 
 	for (let el of document.querySelectorAll('#header_menu li a')) {
 		currentIteration=document.querySelectorAll('#header_menu li')[i]
 		currentIteration.classList.remove("active")
@@ -270,6 +270,7 @@ function typeWriterAnimation(element,velocity){
 		typeWriterPrimarySpeed=velocity;
 		typeWriterPrimaryText=typeWriterPrimaryDestination.getAttribute("attr-text")
 		typeWriterPrimary()
+
 	}else {
 		typeWriterSecundaryDestination=element
 		typeWriterSecundaryDestination.innerHTML=""

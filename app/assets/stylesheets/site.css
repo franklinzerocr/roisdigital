@@ -2117,6 +2117,12 @@ header .secundary-rois-container{
   #Team .member{
     margin: 10% 0px;
   }
+  #Team .member:first-child{
+    margin-top: 0px;
+  }
+  #Team .member:last-child{
+    margin-bottom: 0px;
+  }
   #Team .member .black-background .member-description{
     left: 65%;
     max-width: 100px;

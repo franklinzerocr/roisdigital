@@ -107,25 +107,16 @@ document.querySelector('body').addEventListener('scroll', function(event){
 
     if (scrollSection!=headerSection && scrollSection<document.querySelectorAll('Section').length){
       targetSection=document.querySelectorAll('Section')[scrollSection].getAttribute("id")
-      menuOutOfScreen()
-      setTimeout(function() {
-        if (firstTimeScrollingToSection(scrollSection)) {
-          showSecundaryRoisOrLogo(scrollSection,1)
-          animateEnteringSection(targetSection)
-        }else 
-          showSecundaryRoisOrLogo(scrollSection)
-
-
-        setTimeout(function() {
-          menuActiveSection(scrollSection)
-
-          // Move header to target section
-          document.querySelector('header.header-container').style.top=document.querySelector('#'+targetSection).offsetTop
-
-          menuInsideScreen()
-
-        }, 200);
-      }, 200);
+      menuOutOfScreen("0s")
+      // Move header to target section
+      document.querySelector('header.header-container').style.top=document.querySelector('#'+targetSection).offsetTop
+      if (firstTimeScrollingToSection(scrollSection)) {
+        showSecundaryRoisOrLogo(scrollSection,1)
+        animateEnteringSection(targetSection)
+      }else 
+        showSecundaryRoisOrLogo(scrollSection)
+      menuActiveSection(targetSection)
+      menuInsideScreen()
       // e.preventDefault();
     }
   }
