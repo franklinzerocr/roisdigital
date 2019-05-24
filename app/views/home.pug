@@ -32,11 +32,11 @@ block content
 								each animation in primaryRoisAnimations
 									img(class='animate primary-rois pos-'+animation.MediaContent_Position, src=animation.Multimedia_Path, alt=animation.Multimedia_Description)
 						div.box-container.corner-right.corner-bottom
-							//- div.bordered.full-size.relative.transition.mid-entering-transition.height.opacity
+							div.bordered.full-size.relative.transition.mid-entering-transition.width.opacity.not-in-mobile
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
 							div.dark-line.short-line.thin-line.inline-line.margin-left-70.transition.slow-entering-transition.width
 						+social_sidebar(socialinks) 
-						+next_section_arrow("Services")
+					+next_section_arrow("Services")
 
 		//- SERVICES SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Services"))
@@ -52,8 +52,7 @@ block content
 								- else 
 									li(class='pos-'+service.Service_Position )
 										span=service.Service_Name
-						div.thin-line.medium-line.dark-line.margin-left-80.transition.slow-entering-transition.slide-from-left.not-in-mobile
-						div.thin-line.medium-line.light-line.margin-left-70.transition.slow-entering-transition.slide-from-bottom.not-in-mobile
+						
 
 					div.services-box.inner-columns.col-md-8.col-sm-8
 						div.box-container-1.shadow-container.corner-right.corner-top
@@ -68,7 +67,8 @@ block content
 												img(class='service-img pos-'+media.MediaService_Position, src=media.Multimedia_Path, alt=media.Multimedia_Description)
 										div.shadow-container
 											p(class='service-description')= service.Service_Description
-						+next_section_arrow("Portfolio")
+						div.thin-line.medium-line.dark-line.margin-left-70.transition.slow-entering-transition.slide-from-left.not-in-mobile
+					+next_section_arrow("Portfolio")
 
 		//- PORTFOLIO SECTION
 		- if (isSectionEnabled(layout.menuSections.data,"Portfolio"))
@@ -76,7 +76,7 @@ block content
 			section#Portfolio
 				div.container
 					div.inner-columns.col-md-12
-						div.box-container-1.shadow-container.left-sided.top-25
+						div.box-container-1.shadow-container.top-25
 							div.yellow-background.full-size
 						div.box-container-2.margin-left-40.not-in-mobile
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
@@ -109,7 +109,7 @@ block content
 			section#Team
 				div.container
 					div.inner-columns.col-md-12
-						div.box-container-1.shadow-container.left-sided.top-25
+						div.box-container-1.shadow-container.top-25
 							div.yellow-background.full-size
 						div.box-container-2.left-80.top-30
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
@@ -167,10 +167,10 @@ block content
 							div.shadow-container
 								div.bordered.full-size.thick-border
 							+social_sidebar(socialinks)
-						div.box-container-2.left-15.top-275.not-in-mobile
-							div.dark-line.medium-line.thin-line.margin-left-50.transition.fast-entering-transition.slide-from-top
-							div.dark-line.medium-line.thin-line.margin-left-20.margin-top-5.transition.slow-entering-transition.slide-from-left
-						div.box-container-3.shadow-container.left-285.top-325.not-in-mobile
+						//- div.box-container-2.left-15.top-275.not-in-mobile
+						//- 	div.dark-line.medium-line.thin-line.margin-left-50.transition.fast-entering-transition.slide-from-top
+						//- 	div.dark-line.medium-line.thin-line.margin-left-20.margin-top-5.transition.slow-entering-transition.slide-from-left
+						div.box-container-3.shadow-container.left-30.top-325.not-in-mobile
 							div.black-background.full-size
 						div.box-container-4.left-325.top-25.contactForm-container
 							div.box-container-5.full-size.shadow-container
