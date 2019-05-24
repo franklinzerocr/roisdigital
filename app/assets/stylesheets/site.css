@@ -2162,6 +2162,9 @@ header .secundary-rois-container{
     top: 77.5%;
     width: 125px;
   }
+  .medium-line{
+    width: 50px;
+  }
 
 }
 
