@@ -1,9 +1,3 @@
-// Update the previousScrollPosition whenever scroll
-document.querySelector('body').addEventListener('scroll', function(event){
-  previousScrollPosition=this.scrollTop  
-});
-
-
 // Explore thhrough all the .scrollto anchor elements and add listeners
 for (let anchor of document.querySelectorAll('.scrollto')) {
   
@@ -105,9 +99,26 @@ for (let input of document.querySelectorAll('input,textarea')) {
   }
 }
 
+// Update the previousScrollPosition whenever scroll
+document.querySelector('body').addEventListener('scroll', function(event){
+  if (mobile){
+    scrollSection=getScrollSection(this.scrollTop)
+    headerSection=getHeaderSection()
+    console.log(scrollSection)
+    console.log(headerSection)
+    if (scrollSection!=headerSection){
+      targetSection=document.querySelectorAll('Section')[scrollSection].getAttribute("id")
+      simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))   
+      // e.preventDefault();
+    }
+  }
+  previousScrollPosition=this.scrollTop  
+});
 
 // Whenever wheel trigger click on respective anchor link
 document.querySelector('body').addEventListener('wheel', function(e) {  
+    e.preventDefault();
+    if (mobile) return false;
     if (!scrolling){
       scrolling=1;
       const delta = Math.sign(e.deltaY);
@@ -126,7 +137,6 @@ document.querySelector('body').addEventListener('wheel', function(e) {
       }
       scrolling=0;
     }
-    e.preventDefault();
 },{ passive: false });
 
 
@@ -178,3 +188,6 @@ for (let arrow of document.querySelectorAll('#Team .member .member-controls .arr
 document.querySelector(".message-box").addEventListener("click",function(){
   this.style.display="none"
 })
+
+// 
+window.onresize=homeResizeRearrangements;

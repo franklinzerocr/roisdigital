@@ -1959,7 +1959,7 @@ header .secundary-rois-container{
   header .secundary-rois-container .text.secundary-rois{
     height: 40px;
     padding-left: 30px;
-    font-size: 11px;
+    font-size: 13px;
     font-family: "Bebas Neue Regular"
   }
   #Home .text-container.primary-rois{
@@ -2025,7 +2025,8 @@ header .secundary-rois-container{
 }
 
   #home .social-links-container{
-    top: 0px;
+    transform: translateY(-50%);
+    top: 100%;
   }
 
   .social-links li{
@@ -2118,6 +2119,7 @@ header .secundary-rois-container{
   }
   #Team .member .black-background .member-description{
     left: 65%;
+    max-width: 100px;
   }
   #Team .box-container-3{
     top: 47.5%;
@@ -2131,6 +2133,7 @@ header .secundary-rois-container{
   }
   #Contact-Us .box-container-1{
     top: 2.5%;
+    left: 41%;
   }
   #Contact-Us .box-container-7{
     top: 77.5%;
@@ -2156,6 +2159,9 @@ header .secundary-rois-container{
 
   #Home .primary-rois-container .triangle{
     left: calc(54vw + 15px);
+  }
+  header .secundary-rois-container .text.secundary-rois{
+    font-size: 11px;
   }
 }
 

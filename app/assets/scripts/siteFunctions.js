@@ -1,3 +1,6 @@
+//  Flag for mobile screensize (width 768px)
+var mobile=0;
+
 var scrolling=0; //If scrolling animation
 var previousScrollPosition=0;  // the previos scroll position before scrolling starts
 var loaded=0; // if the page has loaded
@@ -33,7 +36,27 @@ var longDelay= 1800;
 
 
 /*** JUMP SECTION SCROLL ***/
-
+function getHeaderSection(){
+	var i =0;
+	for (var section of document.querySelectorAll('Section')) {
+		if (document.querySelector('header.header-container').offsetTop == section.offsetTop ){
+			break;
+		}
+		i++;
+	}
+	return i;
+}
+function getScrollSection(scrollTop){
+	var i =0;
+	for (var section of document.querySelectorAll('Section')) {
+		if (scrollTop > section.offsetTop - window.innerHeight / 2 &&  
+			scrollTop < section.offsetTop + window.innerHeight / 2 ){
+			break;
+		}
+		i++;
+	}
+	return i;
+}
 function getActiveSectionIndex(){
 	var i =0;
 	for (var section of document.querySelectorAll('Section')) {
@@ -361,3 +384,34 @@ function resetPosition(){
 }
 
 /*** END OF - AFTER RELOADING ***/
+
+
+
+function checkWidth() {
+    var windowsize =window.innerWidth;
+    if (windowsize <= 768) mobile=1;
+    else mobile=0;
+}
+
+
+
+/*** REARRANGEMENT OF DOM ELEMENTS ***/
+function socialLinksRearrange(){
+	checkWidth()
+	homeSocialLinks=document.querySelector("#Home .social-links-container")
+	if (mobile) {
+		data=homeSocialLinks.querySelector("li:first-child a").getAttribute("attr-link")
+		document.querySelector("#Home .text-container.primary-rois").appendChild(homeSocialLinks)
+		homeSocialLinks.querySelector("li:first-child a").setAttribute("href","https://wa.me/"+data)
+	}
+	else {
+		data=homeSocialLinks.querySelector("li:first-child a").getAttribute("attr-link")
+		document.querySelector("#Home .primary-rois-container .animated-rois-container").appendChild(homeSocialLinks)
+		homeSocialLinks.querySelector("li:first-child a").setAttribute("href","https://web.whatsapp.com/send?phone="+data)
+	}
+}
+
+function homeResizeRearrangements(){
+	checkWidth()
+	socialLinksRearrange()
+}

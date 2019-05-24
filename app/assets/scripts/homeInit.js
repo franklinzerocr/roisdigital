@@ -4,6 +4,8 @@
 (function() {
 	initSmoothscroll()
 	resetPosition()
+	checkWidth()
+	socialLinksRearrange();
 }());
 
 /*** - END - ***/
