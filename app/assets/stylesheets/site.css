@@ -2138,7 +2138,7 @@ header .secundary-rois-container{
     padding: 5px;
     font-size: 19px;
     position: relative;
-    top: -120px;
+    top: -30vw;
     left: 0px;
     width: 100%;
     margin-bottom: 0px;
@@ -2212,7 +2212,7 @@ header .secundary-rois-container{
     left: calc(54vw + 5px);
   }
   #Portfolio .portfolio .portfolio-title{
-    top: -110px;
+    /*top: -110px;*/
   } 
 }
 
@@ -2248,7 +2248,7 @@ header .secundary-rois-container{
     /*top: 25px;*/
   }
   #Portfolio .portfolio .portfolio-title{
-    top: -95px;
+    /*top: -95px;*/
   } 
 }
 
@@ -2286,7 +2286,7 @@ header .secundary-rois-container{
     padding-right: 30px;
   }
   #Portfolio .portfolio .portfolio-title{
-    top: -80px;
+    /*top: -80px;*/
     font-size: 14px;
   } 
 }

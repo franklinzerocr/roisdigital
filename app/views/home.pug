@@ -92,7 +92,7 @@ block content
 								div(class='portfolio pos-'+portfolio.Portfolio_Position)
 									picture
 										source(media="(min-width: 768px)", class='portfolio-img', srcset=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
-										source(media="(min-width: 300px)", class='portfolio-img', srcset=portfolio.Medias[1].Multimedia_Path, alt=portfolio.Medias[1].Multimedia_Description)
+										source(media="(min-width: 200px)", class='portfolio-img', srcset=portfolio.Medias[1].Multimedia_Path, alt=portfolio.Medias[1].Multimedia_Description)
 										img(class='portfolio-img', src=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
 									h4(class='portfolio-title')!=portfolio.Portfolio_Name
 									p(class='portfolio-description')!= portfolio.Portfolio_Description
