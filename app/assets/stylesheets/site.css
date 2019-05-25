@@ -1123,7 +1123,7 @@ header .secundary-rois-container{
   height: 1px;
   position: absolute;
   right: 0px;
-  bottom: 10px; 
+  bottom: 7.5px; 
   background:black;  
 }
 
@@ -2088,8 +2088,8 @@ header .secundary-rois-container{
   }
   #Services .services-list li{
     display: inline-block;
-    margin: 0px 20px;
-    font-size: 14px;
+    width: 31%;
+    margin: 0px 1%;
   }
   #Services .box-container-3.services-container{
     position: relative;
@@ -2308,8 +2308,17 @@ header .secundary-rois-container{
     width: 20px;
   }
   #Services .services-list li{
-    margin: 0px 15px;
     font-size: 13px;
+  }
+
+  #Services .services-list li.active:after{
+    content: '';
+    width: 95%;
+    height: 1px;
+    position: absolute;
+    right: 0px;
+    bottom: 7.5px; 
+    background:black;  
   }
   #Services{
     width: 100vw;
