@@ -1717,7 +1717,11 @@ header .secundary-rois-container{
 }
 
 
-@media only screen and (min-width:1200px) {
+@media only screen and (min-width:768px) {
+  h5, h5 span{
+    letter-spacing: 0.3px!important;
+    line-height: 20px;
+  }
   
 }
 /********** MOBILE **********/
