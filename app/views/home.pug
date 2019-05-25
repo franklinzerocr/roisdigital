@@ -18,7 +18,7 @@ block content
 							div.figure-box.primary-rois
 						div.primary-rois-text-container
 							each text in primaryRoisTexts
-								h1(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )
+								h1(class='text primary-rois pos-'+text.ContentDescription_Position, attr-text!=text.ContentDescription_Description )!=text.ContentDescription_Description
 						div.dark-line.medium-line.thin-line.margin-left-20.transition.slow-entering-transition.slide-from-left.not-in-mobile
 						div.light-line.medium-line.thin-line.margin-left-40.transition.slow-entering-transition.slide-from-bottom.not-in-mobile
 					div.animated-rois-container.inner-columns.col-md-8.col-sm-8

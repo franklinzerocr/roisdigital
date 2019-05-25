@@ -1717,10 +1717,18 @@ header .secundary-rois-container{
 }
 
 
+@media only screen and (min-width:1200px) {
+  h5, h5 span{
+    line-height: 20px!important;
+  }
+  
+}
+
+
 @media only screen and (min-width:768px) {
   h5, h5 span{
     letter-spacing: 0.3px!important;
-    line-height: 20px;
+    line-height: 18px;
   }
   
 }
@@ -2029,6 +2037,7 @@ header .secundary-rois-container{
   } 
   header .secundary-rois-container .text-container.secundary-rois{
     height: 40px;
+    width: calc(100% - 40px);
   }
   header .secundary-rois-container .text.secundary-rois{
     height: 40px;

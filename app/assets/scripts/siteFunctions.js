@@ -309,6 +309,7 @@ function primaryRoisOn(){
 			animateEnteringSection("Home")
 
 			setTimeout(function() { // Display Primary Text
+				document.querySelector("#Home .text.primary-rois").innerHTML=""
 				document.querySelector("#Home .text-container.primary-rois").style.opacity=1
 				typeWriterAnimation(document.querySelector(".text.primary-rois"),20)
 				enableNavigation()
