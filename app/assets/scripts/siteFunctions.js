@@ -20,7 +20,7 @@ var timeDelayPreloaderOff= 400
 var timeDelayEnteringAnimations=2000
 var timeDelayPrimayText=700
 var timeDelayPrimaryRoisAnimation1= 100
-var timeDelayPrimaryRoisAnimation1Complete= 2800
+var timeDelayPrimaryRoisAnimation1Complete= 2900
 
 // Original URL of page
 var originalURL=window.location.href;
