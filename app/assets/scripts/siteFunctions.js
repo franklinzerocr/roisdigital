@@ -229,6 +229,10 @@ function clickPos(pos,list){
 		}
 	}
 }
+function openLink(portfolio){
+  var win = window.open(portfolio.getAttribute("attr-link"), '_blank');
+  win.focus();
+}
 
 
 /*** END OF - NAVIGATION HELPERS ***/

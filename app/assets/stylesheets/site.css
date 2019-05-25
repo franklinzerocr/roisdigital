@@ -1424,6 +1424,10 @@ header .secundary-rois-container{
   transform: translateX(-50%);
 }
 
+#Portfolio .portfolio img{
+  cursor: pointer;
+}
+
 
 
 /*

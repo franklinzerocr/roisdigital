@@ -41,7 +41,7 @@ async function getPortfolios(lang,database){
 	let result={};
 	try {
 	    result.data= await database.query(
-	        "SELECT p.id Portfolio_Id, p.name_es Portfolio_Name_es, p.name_en Portfolio_Name_en, p.position Portfolio_Position, p.description_es Portfolio_Description_es, p.description_en Portfolio_Description_en "+
+	        "SELECT p.id Portfolio_Id, p.name_es Portfolio_Name_es, p.name_en Portfolio_Name_en, p.position Portfolio_Position, p.description_es Portfolio_Description_es, p.description_en Portfolio_Description_en, p.link Portfolio_Link "+
 	        "FROM portfolio p "+
 	        "ORDER BY Portfolio_Position"
 	    );
