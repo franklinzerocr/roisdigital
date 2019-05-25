@@ -217,6 +217,9 @@ img.dead-link-img{
   background-color: #ffd04e; /* yellow */
 }
 
+.color-yellow{
+  color:#ffd04e;
+}
 
 .dark-line{
   background: #242424; /* black */
@@ -1118,7 +1121,7 @@ header .secundary-rois-container{
   position: relative;
   cursor: pointer;
 }
-#Services .services-list li:hover:after{
+#Services .services-list li.active:after{
   content: '';
   width: 87.5%;
   height: 1px;
@@ -1127,6 +1130,16 @@ header .secundary-rois-container{
   bottom: 7.5px; 
   background:black;  
 }
+
+/*#Services .services-list li:hover:after{
+  content: '';
+  width: 87.5%;
+  height: 1px;
+  position: absolute;
+  right: 0px;
+  bottom: 7.5px; 
+  background:black;  
+}*/
 
 #Services .services-list li span{
   font-family: "Roboto Condensed";

@@ -66,7 +66,7 @@ block content
 											each media in service.Medias
 												img(class='service-img pos-'+media.MediaService_Position, src=media.Multimedia_Path, alt=media.Multimedia_Description)
 										div.shadow-container
-											p(class='service-description')= service.Service_Description
+											p(class='service-description')!= service.Service_Description
 						div.thin-line.medium-line.dark-line.margin-left-70.transition.slow-entering-transition.slide-from-left.not-in-mobile
 					+next_section_arrow("Portfolio")
 
