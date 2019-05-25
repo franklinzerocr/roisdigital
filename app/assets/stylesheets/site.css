@@ -1798,6 +1798,9 @@ header .secundary-rois-container{
     padding-bottom: 5px;
 
   }
+  header .secundary-rois-container .text.secundary-rois span{
+    font-size: 14px;
+  }
   #Home .primary-rois-container .text.primary-rois{
     font-size: 25px;
   }
@@ -2027,6 +2030,9 @@ header .secundary-rois-container{
     padding-left: 30px;
     font-size: 13px;
     font-family: "Bebas Neue Regular"
+  }
+  header .secundary-rois-container .text.secundary-rois span{
+    font-size: 13px;
   }
   #Home .text-container.primary-rois{
     height: 155px; 
@@ -2313,7 +2319,8 @@ header .secundary-rois-container{
   #Home .primary-rois-container .triangle{
     left: calc(54vw + 15px);
   }
-  header .secundary-rois-container .text.secundary-rois{
+  header .secundary-rois-container .text.secundary-rois,
+  header .secundary-rois-container .text.secundary-rois span{
     font-size: 11px;
   }
   #Services .service .shadow-container:last-child{
