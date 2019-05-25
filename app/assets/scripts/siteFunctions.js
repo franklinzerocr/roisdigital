@@ -20,6 +20,7 @@ var timeDelayPreloaderOff= 400
 var timeDelayEnteringAnimations=2000
 var timeDelayPrimayText=700
 var timeDelayPrimaryRoisAnimation1= 100
+var timeDelayPrimaryRoisAnimation1Complete= 2800
 
 // Original URL of page
 var originalURL=window.location.href;
@@ -282,6 +283,14 @@ function typeWriterAnimation(element,velocity){
 	}
 
 }
+function primaryRoisOnSecondTime(){
+	document.querySelector(".animate.primary-rois.pos-1").style.display = 'block'
+	document.querySelector(".animate.primary-rois.pos-2").style.display = 'none'
+	setTimeout(function() { // Breathing Rois
+		document.querySelector(".animate.primary-rois.pos-1").style.display = 'none'
+		document.querySelector(".animate.primary-rois.pos-2").style.display = 'block'
+	},timeDelayPrimaryRoisAnimation1Complete);
+}
 function primaryRoisOn(){
 	checkWidth()
 	if (mobile) timeDelayPreloaderOff=0;
@@ -388,6 +397,7 @@ function resetPosition(){
 		targetSection=document.querySelectorAll('Section')[activeSection].getAttribute("id")
 		simulateClick(document.querySelector(".scrollto[href='#"+targetSection+"']"))
 		menuActiveSection(targetSection)
+
 		window.history.pushState("object or string", "Title", "/");
     }
 }
@@ -415,21 +425,13 @@ function socialLinksRearrange(){
 	checkWidth()
 	homeSocialLinks=document.querySelector("#Home .social-links-container")
 	if (mobile) {
-		data=homeSocialLinks.querySelector("li:first-child a").getAttribute("attr-link")
 		document.querySelector("#Home .text-container.primary-rois").appendChild(homeSocialLinks)
-		for (let whatsapLink of document.querySelectorAll(".social-links li:first-child a")){
-			whatsapLink.setAttribute("href","https://wa.me/"+data)
-		}
 	}
 	else {
-		data=homeSocialLinks.querySelector("li:first-child a").getAttribute("attr-link")
 		document.querySelector("#Home .primary-rois-container .animated-rois-container").appendChild(homeSocialLinks)
-		for (let whatsapLink of document.querySelectorAll(".social-links li:first-child a")){
-			whatsapLink.setAttribute("href","https://web.whatsapp.com/send?phone="+data)
-		}
 	}
 }
-function mobileMenuContainersSwitch(){
+function menuContainersSwitch(){
 	checkWidth()
 	if (mobile){ // secundary rois at the end
 		secundaryRoisContainer=document.querySelector("header .secundary-rois-container")
@@ -439,7 +441,22 @@ function mobileMenuContainersSwitch(){
 		document.querySelector("header .container").appendChild(menuContainer)
 	}
 }
+function servicesContainersSwitch(){
+	checkWidth()
+	if (mobile){ // Services List at the end
+		servicesListContainer=document.querySelector("#Services .service-list-container")
+		document.querySelector("#Services .container").appendChild(servicesListContainer)
+		scrolltoContainer=document.querySelector("#Services .scrollto")
+		document.querySelector("#Services .container").appendChild(scrolltoContainer)
+	}else{ // menu at the end
+		servicesBoxesContainer=document.querySelector("#Services .services-box")
+		document.querySelector("#Services .container").appendChild(servicesBoxesContainer)
+		scrolltoContainer=document.querySelector("#Services .scrollto")
+		document.querySelector("#Services .container").appendChild(scrolltoContainer)
+	}
+}
 function homeResizeRearrangements(){
 	socialLinksRearrange()
-	mobileMenuContainersSwitch()
+	menuContainersSwitch()
+	servicesContainersSwitch()
 }

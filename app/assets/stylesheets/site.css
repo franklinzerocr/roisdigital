@@ -710,6 +710,9 @@ section .container > .inner-columns{
   font-family: "Bebas Neue Bold";
 }
 
+.not-in-desktop{
+  display: none;
+}
 
 
 /*** ENTERING TRANSITIONS ****/
@@ -1085,7 +1088,9 @@ header .secundary-rois-container{
   transform: translateY(-70%);
 }
 
-  
+#Home .yellow-background.primary-rois .itsatrap{
+  cursor: pointer;
+}
 
 
 /*
@@ -1150,7 +1155,7 @@ header .secundary-rois-container{
 
 #Services .box-container-2{
   position: absolute;
-  bottom: 10%;
+  bottom: 12.5%;
   width: 70%;
   height: 55%;
   z-index: 10;
@@ -1539,10 +1544,15 @@ header .secundary-rois-container{
   display: inline-block;
   margin: 0px 5px;
 }
+#Team .member .member-links-container a:hover{
+  background: none;
+  color: #ffd04e; /* yellow */
+}
 
 #Team .member .member-links-container a i{
   font-size: 25px;
 }
+
 
 #Team .arrow-next{
   left: 50%;
@@ -1639,6 +1649,10 @@ header .secundary-rois-container{
   padding-right: 25px;
   font-weight: normal;
   font-family: "Roboto Condensed";
+  transition: 0.5s;
+}
+#Contact-Us .contact-form .btn:hover{
+  background: whitesmoke
 }
 
 #Contact-Us .contact-form .btn:before{
@@ -1677,10 +1691,7 @@ header .secundary-rois-container{
 
 
 @media only screen and (min-width:1200px) {
-  #Team .member-links-container a:hover{
-    background: none;
-    color: #ffd04e; /* yellow */
-  }
+  
 }
 /********** MOBILE **********/
 @media only screen and (max-width:1200px) {
@@ -1912,6 +1923,9 @@ header .secundary-rois-container{
   .not-in-mobile{
     display: none!important;
   }
+  .not-in-desktop{
+    display: block;
+  }
   section{
     min-height: 0px;
     width: 100%;
@@ -2138,13 +2152,17 @@ header .secundary-rois-container{
     padding: 5px;
     font-size: 19px;
     position: relative;
-    top: -30vw;
+    top: -9vw;
     left: 0px;
     width: 100%;
     margin-bottom: 0px;
   }
+  #Portfolio .box-container-1{
+    height: 60%;
+  }
   #Portfolio .box-container-4{
     left: 5%;
+    height: 43%;
   }
   #Portfolio .portfolio .portfolio-description{
     display: none;
@@ -2153,8 +2171,12 @@ header .secundary-rois-container{
     position: relative;
   }
   #Team .box-container-1{
-    top: 15%;
-    height: 50%;
+    height: 20%;
+    top: 0%;
+  }
+  #Team .box-container-1b{
+    height: 20%;
+    top: 53%;
   }
   #Team .box-container-2{
     position: absolute;
@@ -2163,7 +2185,8 @@ header .secundary-rois-container{
   }
   #Team .member{
     margin: 10% 0px;
-    max-width: 330px;
+    max-width: 350px;
+    padding-top: 20px;
   }
   #Team .member:first-child{
     margin-top: 0px;
@@ -2180,8 +2203,15 @@ header .secundary-rois-container{
     max-width: 100px;
   }
   #Team .box-container-3{
-    top: 47.5%;
-    left: 15%;
+    top: 12.5%;
+    left: 12.5%;
+  }
+  #Team .box-container-3b{
+    top: 65%;
+    left: 12.5%;
+  }
+  #Team .member .black-background{
+    width: 105px;
   }
   #Contact-Us .box-container-4.contactForm-container{
     width: 60%;
@@ -2301,5 +2331,9 @@ header .secundary-rois-container{
   #Services .service .service-description{
     font-size: 10px;
   }
+  #Portfolio .portfolio .portfolio-title{
+    /*top: -80px;*/
+    font-size: 13px;
+  } 
 
 }

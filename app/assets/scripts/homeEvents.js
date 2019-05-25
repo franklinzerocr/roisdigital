@@ -197,5 +197,9 @@ document.querySelector(".message-box").addEventListener("click",function(){
   this.style.display="none"
 })
 
-// 
+// Resize Screen
 window.onresize=homeResizeRearrangements;
+
+document.querySelector("#Home .yellow-background.primary-rois .itsatrap").addEventListener("click",function(){
+  primaryRoisOnSecondTime()
+});

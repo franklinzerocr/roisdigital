@@ -43,7 +43,7 @@ block content
 			- services= home.services.data
 			section#Services
 				div.container
-					div.inner-columns.col-md-4.col-sm-4
+					div.service-list-container.inner-columns.col-md-4.col-sm-4
 						ul.services-list
 							each service in services
 								- if (service.Service_Position == 1)
@@ -114,13 +114,17 @@ block content
 					div.inner-columns.col-md-12
 						div.box-container-1.shadow-container.top-25
 							div.yellow-background.full-size
-						div.box-container-2.left-80.top-30
+						div.box-container-1.box-container-1b.shadow-container.top-25.not-in-desktop
+							div.yellow-background.full-size
+						div.box-container-2.left-80.top-30.not-in-mobile
 							div.dark-line.short-line.thin-line.inline-line.margin-left-0.transition.slow-entering-transition.width
 							div.dark-line.short-line.thin-line.inline-line.margin-left-60.transition.slow-entering-transition.width
 						div.box-container-3.top-50.left-50.text-center.centered-x
 							img.positive-logotype(src=positiveLogo.Multimedia_Path,alt=positiveLogo.Multimedia_Description)
 							div.dark-line.medium-line.thin-line.margin-left-30.margin-top-15.transition.slow-entering-transition.slide-from-right.not-in-mobile
 							div.dark-line.medium-line.thin-line.margin-left-0.margin-top-5.centered-x-25.transition.slow-entering-transition.slide-from-left.not-in-mobile
+						div.box-container-3.box-container-3b.not-in-desktop.centered-x
+							img.positive-logotype(src=positiveLogo.Multimedia_Path,alt=positiveLogo.Multimedia_Description)
 						div.box-container-4.teamMembers-container.top-30.text-center
 							each member in teamMembers
 								div(class='col-md-3 col-sm-4  member pos-'+member.TeamMember_Position)
