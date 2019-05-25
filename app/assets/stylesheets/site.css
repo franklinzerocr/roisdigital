@@ -63,6 +63,7 @@ h1, h1 span, h2{
 h5, h5 span{
  font-family: Bebas Neue Regular; 
  font-size: 16px;
+ letter-spacing: 0.1px!important;
 }
 
 
