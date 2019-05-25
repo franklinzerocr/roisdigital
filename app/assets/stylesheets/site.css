@@ -2150,12 +2150,13 @@ header .secundary-rois-container{
   }
   #Portfolio .portfolio .portfolio-title{
     padding: 5px;
-    font-size: 19px;
+    font-size: 17px;
     position: relative;
-    top: -9vw;
+    top: -6.5vw;
     left: 0px;
     width: 100%;
     margin-bottom: 0px;
+
   }
   #Portfolio .box-container-1{
     height: 60%;
@@ -2254,6 +2255,10 @@ header .secundary-rois-container{
   #Services .service .service-description{
     font-size: 11px;
   }
+  #Portfolio .portfolio .portfolio-title{
+    font-size: 15px;
+    top: -6vw;
+  } 
 }
 
 @media only screen and (max-width:500px) {
@@ -2278,7 +2283,8 @@ header .secundary-rois-container{
     /*top: 25px;*/
   }
   #Portfolio .portfolio .portfolio-title{
-    /*top: -95px;*/
+    top: -7.5vw;
+    font-size: 14px;
   } 
 }
 
@@ -2325,8 +2331,7 @@ header .secundary-rois-container{
     padding-right: 30px;
   }
   #Portfolio .portfolio .portfolio-title{
-    /*top: -80px;*/
-    font-size: 14px;
+    font-size: 13px;
   } 
 }
 
@@ -2342,7 +2347,7 @@ header .secundary-rois-container{
   }
   #Portfolio .portfolio .portfolio-title{
     /*top: -80px;*/
-    font-size: 13px;
+    font-size: 11px;
   } 
 
 }
