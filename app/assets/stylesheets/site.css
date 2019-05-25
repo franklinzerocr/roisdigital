@@ -2301,11 +2301,8 @@ header .secundary-rois-container{
     height: 44%;
   }
   #Portfolio .portfolio-controls-arrows{
-    top: -45px;
-  }
-  #Portfolio .portfolio-controls-arrows .arrow,
-  #Portfolio .portfolio-controls-arrows .point{
-  }
+    top: -47px;
+  } 
 }
 
 @media only screen and (max-width:500px) {
@@ -2337,12 +2334,15 @@ header .secundary-rois-container{
   #Portfolio .box-container-4{
     height: 43%;
   }
+  #Portfolio .portfolio-controls-arrows{
+    top: -46px;
+  } 
 }
 
 @media only screen and (max-width:450px) {
   #Portfolio .box-container-4{
     height: 41%;
-  }
+  } 
 }
 @media only screen and (max-width:425px) {
   #Home .primary-rois-container .figure-box.primary-rois{
@@ -2392,6 +2392,9 @@ header .secundary-rois-container{
   #Portfolio .box-container-4{
     height: 39%;
   }
+  #Portfolio .portfolio-controls-arrows{
+    top: -45px;
+  } 
 }
 
 @media only screen and (max-width:350px) {
@@ -2412,7 +2415,7 @@ header .secundary-rois-container{
     height: 37%;
   }
   #Portfolio .portfolio-controls-arrows{
-    top: -41px;
+    top: -43px;
   }
 
 }
