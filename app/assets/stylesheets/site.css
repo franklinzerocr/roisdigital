@@ -2195,7 +2195,7 @@ header .secundary-rois-container{
     display: none;
   }
   #Portfolio .portfolio-controls-arrows{
-    top:-52px;
+    top:-50px;
     padding-right: 0px;
     height: 20px;
   }
@@ -2281,7 +2281,7 @@ header .secundary-rois-container{
     height: 46%;
   }
   #Portfolio .portfolio-controls-arrows{
-    top: -50px;
+    top: -48px;
   }
 }
 
@@ -2301,7 +2301,7 @@ header .secundary-rois-container{
     height: 44%;
   }
   #Portfolio .portfolio-controls-arrows{
-    top: -47px;
+    top: -45px;
   }
 }
 
@@ -2409,7 +2409,7 @@ header .secundary-rois-container{
     height: 37%;
   }
   #Portfolio .portfolio-controls-arrows{
-    top: -43px;
+    top: -41px;
   }
 
 }
