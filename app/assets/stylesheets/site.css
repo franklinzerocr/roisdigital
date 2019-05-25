@@ -1409,7 +1409,7 @@ header .secundary-rois-container{
   color: white;
   font-size: 30px;
   cursor: default;
-  margin: 0px 10px;
+  margin: 0px 7.5px;
 }
 #Portfolio .portfolio-controls-arrows .arrow{
   cursor: pointer;
@@ -2302,6 +2302,10 @@ header .secundary-rois-container{
   }
   #Portfolio .portfolio-controls-arrows{
     top: -45px;
+  }
+  #Portfolio .portfolio-controls-arrows .arrow,
+  #Portfolio .portfolio-controls-arrows .point{
+    font-size: 20px;
   }
 }
 
