@@ -102,6 +102,11 @@ block content
 										a(class="portfolio-index active pos-"+portfolio.Portfolio_Position)
 									- else 
 										a(class="portfolio-index pos-"+portfolio.Portfolio_Position)
+							div.portfolio-controls-arrows
+								span(class="arrow prev-arrow pos-"+portfolios.length, attr-length=portfolios.length) ←
+								span.point •
+								span(class="arrow next-arrow pos-"+2, attr-length=portfolios.length) →
+
 						+social_sidebar(socialinks)
 						+next_section_arrow("Team")
 

@@ -222,6 +222,13 @@ function arrowNavigation(active,step){
 		active.classList.add("pos-"+posLength)
 	else active.classList.add("pos-"+newpos)
 }
+function clickPos(pos,list){
+	for (let item of list) {
+		if (item.classList.contains(pos)){
+			simulateClick(item)
+		}
+	}
+}
 
 
 /*** END OF - NAVIGATION HELPERS ***/

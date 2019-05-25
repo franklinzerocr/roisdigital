@@ -1392,6 +1392,32 @@ header .secundary-rois-container{
   font-size: 16px;
 }
 
+#Portfolio .portfolio-controls-arrows{
+  text-align: center;
+  top: -15;
+  position: relative;
+  padding-right: 5%;
+  z-index: 100000;
+}
+
+#Portfolio .portfolio-controls-arrows .arrow::selection,
+#Portfolio .portfolio-controls-arrows .point::selection{
+  background: none;
+}
+#Portfolio .portfolio-controls-arrows .arrow,
+#Portfolio .portfolio-controls-arrows .point{
+  color: white;
+  font-size: 30px;
+  cursor: default;
+  margin: 0px 10px;
+}
+#Portfolio .portfolio-controls-arrows .arrow{
+  cursor: pointer;
+}
+#Portfolio .portfolio-controls-arrows .point{
+  vertical-align: -2px;
+}
+
 #Portfolio .arrow-next{
   left: 50%;
   transform: translateX(-50%);
@@ -2163,11 +2189,17 @@ header .secundary-rois-container{
   }
   #Portfolio .box-container-4{
     left: 5%;
-    height: 43%;
+    height: 47%;
   }
   #Portfolio .portfolio .portfolio-description{
     display: none;
   }
+  #Portfolio .portfolio-controls-arrows{
+    top:-52px;
+    padding-right: 0px;
+    height: 20px;
+  }
+
   #Team .box-container-4.teamMembers-container{
     position: relative;
   }
@@ -2185,7 +2217,7 @@ header .secundary-rois-container{
     left: 76%;
   }
   #Team .member{
-    margin: 10% 0px;
+    margin: 10% 10px;
     max-width: 350px;
     padding-top: 20px;
   }
@@ -2245,6 +2277,12 @@ header .secundary-rois-container{
   #Portfolio .portfolio .portfolio-title{
     /*top: -110px;*/
   } 
+  #Portfolio .box-container-4{
+    height: 46%;
+  }
+  #Portfolio .portfolio-controls-arrows{
+    top: -50px;
+  }
 }
 
 @media only screen and (max-width:575px) {
@@ -2259,6 +2297,12 @@ header .secundary-rois-container{
     font-size: 15px;
     top: -6vw;
   } 
+  #Portfolio .box-container-4{
+    height: 44%;
+  }
+  #Portfolio .portfolio-controls-arrows{
+    top: -47px;
+  }
 }
 
 @media only screen and (max-width:500px) {
@@ -2286,8 +2330,17 @@ header .secundary-rois-container{
     top: -7.5vw;
     font-size: 14px;
   } 
+
+  #Portfolio .box-container-4{
+    height: 43%;
+  }
 }
 
+@media only screen and (max-width:450px) {
+  #Portfolio .box-container-4{
+    height: 41%;
+  }
+}
 @media only screen and (max-width:425px) {
   #Home .primary-rois-container .figure-box.primary-rois{
     left: calc(49% + 3px);
@@ -2333,6 +2386,9 @@ header .secundary-rois-container{
   #Portfolio .portfolio .portfolio-title{
     font-size: 13px;
   } 
+  #Portfolio .box-container-4{
+    height: 39%;
+  }
 }
 
 @media only screen and (max-width:350px) {
@@ -2348,6 +2404,12 @@ header .secundary-rois-container{
   #Portfolio .portfolio .portfolio-title{
     /*top: -80px;*/
     font-size: 11px;
-  } 
+  }  
+  #Portfolio .box-container-4{
+    height: 37%;
+  }
+  #Portfolio .portfolio-controls-arrows{
+    top: -43px;
+  }
 
 }

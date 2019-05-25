@@ -176,6 +176,22 @@ for (let portfolioIndex of document.querySelectorAll('#Portfolio .portfolio-cont
 }
 
 
+// Portfolio Arrows Navigation
+for (let arrow of document.querySelectorAll('#Portfolio .portfolio-controls-arrows .arrow')) {
+
+  arrow.addEventListener('click',function(e) {
+    clickPos(getPos(arrow),document.querySelectorAll('#Portfolio .portfolio-controls .portfolio-index'))
+    if (arrow.classList.contains("next-arrow")){
+      arrowNavigation(arrow,1)
+      arrowNavigation(arrow.parentElement.querySelector(".prev-arrow"),1)
+    }else  if (arrow.classList.contains("prev-arrow")){
+      arrowNavigation(arrow,-1)
+      arrowNavigation(arrow.parentElement.querySelector(".next-arrow"),-1)
+    }
+  })
+  
+}
+
 // Team Arrows Navigation
 for (let arrow of document.querySelectorAll('#Team .member .member-controls .arrow')) {
 
@@ -191,6 +207,7 @@ for (let arrow of document.querySelectorAll('#Team .member .member-controls .arr
   })
   
 }
+
 
 // Close Message Box
 document.querySelector(".message-box").addEventListener("click",function(){
