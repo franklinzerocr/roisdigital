@@ -1147,9 +1147,11 @@ header .secundary-rois-container{
   background:black;  
 }*/
 
-#Services .services-list li span{
+#Services .services-list li h2{
   font-family: "Roboto Condensed";
   position: relative;
+  font-size: 20px;
+  margin: 5px 0px;
 }
 
 #Services .services-list li.active span:after{
@@ -1861,7 +1863,7 @@ header .secundary-rois-container{
   #Services .services-list{
     top: 60%;
   }
-  #Services .services-list li{
+  #Services .services-list li h2{
     font-size: 17px;
   }
   #Services .thin-line{
@@ -2416,7 +2418,7 @@ header .secundary-rois-container{
   .short-line{
     width: 20px;
   }
-  #Services .services-list li{
+  #Services .services-list li h2{
     font-size: 13px;
   }
 

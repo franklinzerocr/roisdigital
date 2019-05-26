@@ -118,6 +118,7 @@ module.exports = {
 		layout.header= await mainController.getHeader(lang,database)
 		layout.footer= await mainController.getFooter(lang,database)
 		layout.menuSections= await mainController.getMenuSections(lang,database)
+		layout.post = await mainController.getPost(lang,database,1)
 
 		// const util = require('util');console.log(util.inspect(layout, false, null));
 

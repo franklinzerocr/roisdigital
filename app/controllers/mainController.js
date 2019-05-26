@@ -157,7 +157,39 @@ module.exports = {
 		    result={};
 		}
 		return result;
-	}
+	},
+
+
+	// Get the POST content. 'result.data' for the texts, descriptions and details. 'result.medias' for the medias to those POST
+	getPost: async function(lang,database,post){
+		let result={};
+		try {
+		    result.data= await database.query(
+		        "SELECT p.id Post_Id, p.title_es Post_Title_es, p.title_en Post_Title_en, p.content_es Post_Content_es, p.content_en Post_Content_en, p.description_es Post_Description_es, p.description_en Post_Description_en, p.url_es Post_URL_es, p.url_en Post_URL_en, p.type Post_Type, p.calltoaction_es Post_Calltoaction_es, p.calltoaction_en Post_Calltoaction_en, s.name_es Section_Name_es, s.name_en Section_Name_en "+
+		        "FROM posts p, sections s "+ 
+		        "WHERE p.id=? AND p.fk_section=s.id "
+		    ,[post])
+
+		    result.data= interface.setDefaultLangValues(lang,result.data)
+
+
+		    result.medias= await database.query(
+		        "SELECT m.id Multimedia_Id, m.name Multimedia_Name,  m.description_es Multimedia_Description_es, m.description_en Multimedia_Description_en, m.path_es Multimedia_Path_es, m.path_en Multimedia_Path_en, mp.position MediaPost_Position, p.id Post_Id "+
+		        "FROM posts p, multimedias m, medias_post mp "+ 
+		        "WHERE p.id=? AND mp.fk_post=p.id AND mp.fk_media=m.id "+
+ 		        "ORDER BY MediaPost_Position"
+		    ,[post])
+
+		    result.medias= interface.setDefaultLangValues(lang,result.medias)
+		    dataAux= await interface.setChildrenToData(result.data,result.medias,"Post_Id","Medias") 
+		    if (dataAux) result.data=dataAux 
+
+		} catch (error) {
+		    console.log(error);
+		    result={};
+		}
+		return result;
+	},
 
 
 

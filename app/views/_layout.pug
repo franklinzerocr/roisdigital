@@ -1,16 +1,44 @@
-html(lang=view.lang)
+html(lang=lang)
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    title #{view.title} | #{settings.siteName}
     link(rel="stylesheet", href="/stylesheets/font-awesome/css/font-awesome.min.css")
     link(rel="stylesheet", href="/stylesheets/bootstrap.css")
     link(rel="stylesheet", href="/stylesheets/site.css")
 
-block tags
+    //- SEO tags 
+    - pagePost=layout.post.data[0] 
+    - pagePostMedias=layout.post.medias
+    - pagePostFeatureMedia=layout.post.medias[0] 
+
+    title #{pagePost.Post_Title} | #{settings.siteName}
+    meta(name="description" content=pagePost.Post_Description)
+    link(rel="canonical" href=baseurl + pagePost.Post_URL)
+    meta(name="robots" content="index, follow")
+
+    //- Facebook Open Graphs Tags
+    meta(property="og:title" content=pagePost.Post_Title)
+    meta(property="og:type" content=pagePost.Post_Type) 
+    meta(property="og:image" content=pagePostFeatureMedia.Multimedia_Path)  
+    meta(property="og:url" content=pagePost.Post_URL)   
+    meta(property="og:description" content=pagePost.Post_Description)    
+    meta(property="og:site_name" content=settings.siteName)   
+    meta(property="fb:admins" content=settings.fbAdmins)  
+    meta(property="og:locale" content=lang)   
+
+    //- Twitter card tags
+    meta(name="twitter:title" content=pagePost.Post_Title)
+    meta(name="twitter:description" content=pagePost.Post_Description)
+    meta(name="twitter:card" content=pagePost.Post_Calltoaction)
+    meta(name="twitter:url" content=pagePost.Post_URL)
+    meta(name="twitter:image" content=pagePostFeatureMedia.Multimedia_Path)
+
+    //- Google Analytics
     script(async,src="https://www.googletagmanager.com/gtag/js?id=UA-92975810-5")
     script(src='/scripts/analytics.js')
+ 
     
+
 block header
     include _helpers
     include _mixins
@@ -24,7 +52,7 @@ block header
                     a(href='/')
                         img#header_logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)
                     div.lang-container
-                        - if (view.lang=='en')
+                        - if (lang=='en')
                             a(href='/es') Español
                         - else 
                             a(href='/en') English
