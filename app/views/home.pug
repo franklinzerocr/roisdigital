@@ -90,7 +90,7 @@ block content
 						div.box-container-6.portfolios-container
 							each portfolio in portfolios 
 								div(class='portfolio pos-'+portfolio.Portfolio_Position)
-									a(href=portfolio.Portfolio_Link, target="_blank")
+									a(href=portfolio.Portfolio_Link, target="_blank",title=portfolio.Portfolio_Title)
 										picture
 											source(media="(min-width: 768px)", class='portfolio-img', srcset=portfolio.Medias[0].Multimedia_Path, alt=portfolio.Medias[0].Multimedia_Description)
 											source(media="(min-width: 200px)", class='portfolio-img', srcset=portfolio.Medias[1].Multimedia_Path, alt=portfolio.Medias[1].Multimedia_Description)
