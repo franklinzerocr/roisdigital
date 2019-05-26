@@ -22,10 +22,11 @@
     },
     "settings": {
         "siteName": "ROIS Digital Agency",
-        "contactEmail": ""
+        "contactEmail": "example@email.com",
+        "fbAdmins" : ""
     },
     "database": {
-        "host":"localhost",
+        "host":"localhost", 
         "user":"root", 
         "password":"",
         "databaseName": ""
