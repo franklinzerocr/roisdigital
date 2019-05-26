@@ -7,5 +7,6 @@ module.exports = (router) => {
     	require('./homeRouter')(router)  
     
     require('./contactFormRouter')(router)
+    require('./multiLangRouter')(router)
     require('./deadLinkRouter')(router)
 }

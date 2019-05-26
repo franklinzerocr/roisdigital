@@ -6,7 +6,8 @@ module.exports = (router) => {
   	ctx.state.layout = await homeController.getLayout(ctx.session.lang,ctx.state.database)
   	ctx.state.home= await homeController.getPageContent(ctx.session.lang,ctx.state.database)
     ctx.state.view = {
-    	title: 'Home'
+    	title: 'Home',
+    	lang: ctx.session.lang
     }
     await ctx.render('home')
   })

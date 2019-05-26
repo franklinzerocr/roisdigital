@@ -1,4 +1,4 @@
-html(lang="es")
+html(lang=view.lang)
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
@@ -18,6 +18,11 @@ block header
                 div.logo-container.col-md-5.col-sm-5
                     a(href='/')
                         img#header_logo(src=logo.Multimedia_Path, alt=logo.Multimedia_Description)
+                    div.lang-container
+                        - if (view.lang=='en')
+                            a(href='/es') Español
+                        - else 
+                            a(href='/en') English
                     div.rois-logo-line.not-in-mobile
                     div.rois-logo-dot.not-in-mobile
                 //- SECUNDARY ROIS
@@ -36,7 +41,10 @@ block header
                     ul#header_menu
                         each section in layout.menuSections.data
                             li.menu-item
-                                a(class='scrollto', href='#'+section.Section_Name_en )= section.Section_Name
+                                - if (section.Section_Name!="Contact-Us")
+                                    a(class='scrollto', href='#'+section.Section_Name_en )= section.Section_Name
+                                - else
+                                    a(class='scrollto', href='#'+section.Section_Name_en ) Contact Us
                     div.rois-menu-line-thick
                     div.rois-menu-line-thin.not-in-mobile
 
