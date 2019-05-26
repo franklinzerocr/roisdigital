@@ -6,6 +6,11 @@ html(lang=view.lang)
     link(rel="stylesheet", href="/stylesheets/font-awesome/css/font-awesome.min.css")
     link(rel="stylesheet", href="/stylesheets/bootstrap.css")
     link(rel="stylesheet", href="/stylesheets/site.css")
+
+block tags
+    script(async,src="https://www.googletagmanager.com/gtag/js?id=UA-92975810-5")
+    script(src='/scripts/analytics.js')
+    
 block header
     include _helpers
     include _mixins
