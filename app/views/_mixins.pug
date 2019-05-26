@@ -4,7 +4,12 @@ mixin social_sidebar(socialinks)
 			each link in socialinks
 				li
 					a(href=link.ContentDescription_Description, target='_blank', title=link.ContentDescription_Name attr-link=link.ContentDescription_Description)
-						i(class='fa fa-2x fa-'+link.ContentDescription_Name)
+						- if (link.ContentDescription_Name=='messenger') 
+							i(class='fa fa-2x fa-commenting')
+						- else 							
+							i(class='fa fa-2x fa-'+link.ContentDescription_Name)
+						
+						
 
 mixin next_section_arrow(section)
 	- if (section=="Contact") section+="-Us"
