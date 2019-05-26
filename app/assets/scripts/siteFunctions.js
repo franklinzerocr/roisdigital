@@ -229,8 +229,8 @@ function clickPos(pos,list){
 		}
 	}
 }
-function openLink(portfolio){
-  var win = window.open(portfolio.getAttribute("attr-link"), '_blank');
+function openLink(link){
+  var win = window.open(link, '_blank');
   win.focus();
 }
 

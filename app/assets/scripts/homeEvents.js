@@ -191,11 +191,11 @@ for (let arrow of document.querySelectorAll('#Portfolio .portfolio-controls-arro
   })
   
 }
-for (let portfolio of document.querySelectorAll('#Portfolio .portfolio img')) {
-  portfolio.addEventListener('click',function(e) {
-    openLink(portfolio)
-  })
-}
+// for (let portfolio of document.querySelectorAll('#Portfolio .portfolio img')) {
+//   portfolio.addEventListener('click',function(e) {
+//     openLink(portfolio)
+//   })
+// }
 
 // Team Arrows Navigation
 for (let arrow of document.querySelectorAll('#Team .member .member-controls .arrow')) {
