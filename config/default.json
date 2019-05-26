@@ -28,7 +28,7 @@
         "host":"localhost",
         "user":"root", 
         "password":"",
-        "databaseName": "roisdigital_agency"
+        "databaseName": ""
     },
     "email":{
         "owner": "",
