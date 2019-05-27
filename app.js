@@ -36,7 +36,9 @@ app.use(async (ctx, next) => {
 	       //      ctx.session.lang="es"
         // }
     }
-	
+    
+    ctx.state.lang= ctx.session.lang
+    ctx.state.baseurl= ctx.request.header.host
 	ctx.state.settings = config.get('settings')
     ctx.state.emailConfiguration= config.get('email')
     ctx.state.database = database.connection(config.get('database'))

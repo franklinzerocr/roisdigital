@@ -2,9 +2,6 @@ html(lang=lang)
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    link(rel="stylesheet", href="/stylesheets/font-awesome/css/font-awesome.min.css")
-    link(rel="stylesheet", href="/stylesheets/bootstrap.css")
-    link(rel="stylesheet", href="/stylesheets/site.css")
 
     //- SEO tags 
     - pagePost=layout.post.data[0] 
@@ -38,7 +35,10 @@ html(lang=lang)
     script(async,src="https://www.googletagmanager.com/gtag/js?id=UA-92975810-5")
     script(src='/scripts/analytics.js')
  
-    
+    //- Stylesheets
+    link(rel="stylesheet", href="/stylesheets/font-awesome/css/font-awesome.min.css")
+    link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
+    link(rel="stylesheet", href="/stylesheets/site.min.css")
 
 block header
     include _helpers
@@ -103,6 +103,6 @@ block footer
 block scripts
     script(src="/scripts/move.min.js")
     script(src="/scripts/smoothScroll.min.js")
-    script(src='/scripts/siteFunctions.js')
+    script(src='/scripts/siteFunctions.min.js')
 
 block pageScripts
