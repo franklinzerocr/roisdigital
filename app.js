@@ -29,12 +29,12 @@ app.use(serve(config.get('static.path')))
 app.use(async (ctx, next) => {
     
     if (!ctx.session.lang){ // checking accepted lang (if not defined) from user browser to set default lang
-        ctx.session.lang="en"
-        if (ctx.request.header['accept-language']){
-	        var languagesAccepted = ctx.request.header['accept-language'].match(/[a-zA-Z\-]{2,10}/g) || [];
-	        if (languagesAccepted.includes("es") || languagesAccepted.includes("es-ES"))
-	            ctx.session.lang="es"
-        }
+        ctx.session.lang="es"
+        // if (ctx.request.header['accept-language']){
+	       //  var languagesAccepted = ctx.request.header['accept-language'].match(/[a-zA-Z\-]{2,10}/g) || [];
+	       //  if (languagesAccepted.includes("es") || languagesAccepted.includes("es-ES"))
+	       //      ctx.session.lang="es"
+        // }
     }
 	
 	ctx.state.settings = config.get('settings')
