@@ -12,6 +12,7 @@ html(lang=lang)
     - pagePostFeatureMedia=layout.post.medias[0] 
 
     title #{pagePost.Post_Title} | #{settings.siteName}
+    meta(name="title" content=pagePost.Post_Title + " | " + settings.siteName)
     meta(name="description" content=pagePost.Post_Description)
     link(rel="canonical" href="https://"+baseurl + pagePost.Post_URL)
     meta(name="robots" content="index, follow")
