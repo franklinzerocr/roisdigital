@@ -27,11 +27,11 @@ html(lang=lang)
     meta(property="og:locale" content=lang)   
 
     //- Twitter card tags
-    meta(name="twitter:title" content=pagePost.Post_Title)
-    meta(name="twitter:description" content=pagePost.Post_Description)
-    meta(name="twitter:card" content=pagePost.Post_Calltoaction)
-    meta(name="twitter:url" content=pagePost.Post_URL)
-    meta(name="twitter:image" content="https://"+baseurl + pagePostFeatureMedia.Multimedia_Path)
+    meta(property="twitter:title" content=pagePost.Post_Title)
+    meta(property="twitter:description" content=pagePost.Post_Description)
+    meta(property="twitter:card" content=pagePost.Post_Card)
+    meta(property="twitter:url" content=pagePost.Post_URL)
+    meta(property="twitter:image" content="https://"+baseurl + pagePostFeatureMedia.Multimedia_Path)
 
     //- Google Analytics
     script(async,src="https://www.googletagmanager.com/gtag/js?id=UA-92975810-5")
