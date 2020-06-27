@@ -1,6 +1,7 @@
 // Explore thhrough all the .scrollto anchor elements and add listeners
 for (let anchor of document.querySelectorAll('.scrollto')) {
-  
+
+  if (anchor.getAttribute('href')!="https://blog.roisdigital.com")
   // Click the anchor link and go to target section and animate menu
   anchor.addEventListener('click',function(e) {
     e.preventDefault();

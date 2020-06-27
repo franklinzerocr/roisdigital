@@ -36,12 +36,12 @@ html(lang=lang)
 
     //- Google Analytics
     script(async,src="https://www.googletagmanager.com/gtag/js?id=UA-92975810-5")
-    script(src='/scripts/analytics.js')
+    script(src='/js/analytics.js')
  
     //- Stylesheets
-    link(rel="stylesheet", href="/stylesheets/font-awesome/css/font-awesome.min.css")
-    link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
-    link(rel="stylesheet", href="/stylesheets/site.min.css")
+    link(rel="stylesheet", href="/css/font-awesome/css/font-awesome.min.css")
+    link(rel="stylesheet", href="/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/css/site.css")
 
 block header
     include _helpers
@@ -78,10 +78,13 @@ block header
                     ul#header_menu
                         each section in layout.menuSections.data
                             li.menu-item
-                                - if (section.Section_Name!="Contact-Us")
+                                - if (section.Section_Name=="Blog")
+                                    a(class='scrollto', href='https://blog.roisdigital.com', target='_blank' )= section.Section_Name
+                                - else if (section.Section_Name!="Contact-Us")
                                     a(class='scrollto', href='#'+section.Section_Name_en )= section.Section_Name
                                 - else
                                     a(class='scrollto', href='#'+section.Section_Name_en ) Contact Us
+
                     div.rois-menu-line-thick
                     div.rois-menu-line-thin.not-in-mobile
 
@@ -104,8 +107,8 @@ block footer
         div.container
 
 block scripts
-    script(src="/scripts/move.min.js")
-    script(src="/scripts/smoothScroll.min.js")
-    script(src='/scripts/siteFunctions.min.js')
+    script(src="/js/move.min.js")
+    script(src="/js/smoothScroll.min.js")
+    script(src='/js/siteFunctions.js')
 
 block pageScripts

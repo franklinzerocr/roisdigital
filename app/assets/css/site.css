@@ -884,7 +884,7 @@ header .menu-container ul#header_menu a{
 header .menu-container ul#header_menu li{
   display: inline-block;
   padding: 5px;
-  margin: 0px 15px;
+  margin: 0px 7px;
 }
 header .menu-container ul#header_menu li.active a{
   font-family: 'Roboto Bold'
