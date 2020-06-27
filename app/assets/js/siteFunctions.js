@@ -457,13 +457,17 @@ function servicesContainersSwitch(){
 	checkWidth()
 	if (mobile){ // Services List at the end
 		servicesListContainer=document.querySelector("#Services .service-list-container")
+		if (document.querySelector("#Services .container"))
 		document.querySelector("#Services .container").appendChild(servicesListContainer)
 		scrolltoContainer=document.querySelector("#Services .scrollto")
+		if (document.querySelector("#Services .container"))
 		document.querySelector("#Services .container").appendChild(scrolltoContainer)
 	}else{ // menu at the end
 		servicesBoxesContainer=document.querySelector("#Services .services-box")
+		if (document.querySelector("#Services .container"))
 		document.querySelector("#Services .container").appendChild(servicesBoxesContainer)
 		scrolltoContainer=document.querySelector("#Services .scrollto")
+		if (document.querySelector("#Services .container"))
 		document.querySelector("#Services .container").appendChild(scrolltoContainer)
 	}
 }
