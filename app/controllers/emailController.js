@@ -8,15 +8,15 @@ module.exports = {
 			from: emailConfiguration.owner+" <"+emailConfiguration.mainAddress+">",
 			to: settings.contactEmail,
 			subject: settings.siteName+" - Contact Form",
-			text: 	"Nombre: "+params.name+"\n"+
-					"Email: "+params.email+"\n"+
-					"Teléfono: "+params.phone+"\n"+
-					"Mensaje: "+params.message+"\n"
+			text: 	"Nombre: "+params.eman+"\n"+
+					"Email: "+params.liame+"\n"+
+					"Teléfono: "+params.enohp+"\n"+
+					"Mensaje: "+params.egassem+"\n"
 			,
-			html: 	"<p><b>Name: </b> "+params.name+"</p>"+
-					"<p><b>Email: </b> "+params.email+"</p>"+
-					"<p><b>Phone: </b> "+params.phone+"</p>"+
-					"<p><b>Message: </b> "+params.message+"</p>"
+			html: 	"<p><b>Name: </b> "+params.eman+"</p>"+
+					"<p><b>Email: </b> "+params.liame+"</p>"+
+					"<p><b>Phone: </b> "+params.enohp+"</p>"+
+					"<p><b>Message: </b> "+params.egassem+"</p>"
 		});
 
 	}
