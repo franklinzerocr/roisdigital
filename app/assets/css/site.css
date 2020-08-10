@@ -1819,6 +1819,10 @@ header .secundary-rois-container{
   display: block;
 }
 
+.contact-logo{
+  width: 200px;
+}
+
 
 #Contact-Us .arrow-next{
   left: 50%;
